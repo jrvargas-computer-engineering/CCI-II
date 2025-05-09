@@ -60,10 +60,13 @@
 `timescale 1 ns / 1 ps
 `include "FFT64_CONFIG.inc"	 
 
-module USFFT64_2B ( CLK ,RST ,ED ,START ,SHIFT ,DR ,DI ,RDY ,OVF1 ,OVF2 ,ADDR ,DOR ,DOI, dft_shift_enable, dft_scan_input_1, dft_scan_input_2, dft_scan_output_1, dft_scan_output_2 );
+module USFFT64_2B ( CLK ,RST ,ED ,START ,SHIFT ,DR ,DI ,RDY ,OVF1 ,OVF2 ,ADDR ,DOR ,DOI, 
+		dft_shift_enable, dft_scan_input_1, dft_scan_input_2, dft_scan_output_1, dft_scan_output_2 );
 	`USFFT64paramnb		  	 		//nb is the data bit width
 
 	input 	dft_shift_enable;
+	input 	dft_scan_input_1;
+	output 	dft_scan_output_1;
 	input 	dft_scan_input_2;
 	output 	dft_scan_output_2;
 

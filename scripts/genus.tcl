@@ -12,6 +12,7 @@ puts "Hostname : [info hostname]"
 ##############################################################################
 
 set DESIGN USFFT64_2B
+set TOP_LEVEL USFFT64_2B
 set SYN_EFF medium
 set MAP_EFF high
 set DATE [clock format [clock seconds] -format "%b%d-%T"] 
@@ -19,8 +20,8 @@ set _OUTPUTS_PATH outputs_${DATE}
 set _REPORTS_PATH reports_${DATE}
 set _LOG_PATH logs_${DATE}
 
-set LIB_PATH "/tools/pdk/xfab/XC018_61_3.1.3/synopsys/xc018/MOSST/"
-set LIB_LIST { D_CELLS_MOSST_typ_1_80V_25C.lib }
+read_mmmc ../constraints/mmmc.tcl
+
 set LEF_DIR { /tools/pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/IO_CELLS_5V.lef /tools/pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/xc018m6_FE.lef /tools/pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/D_CELLS.lef }
 set HDL_FILES {
         bufram64c1.v  
@@ -32,11 +33,12 @@ set HDL_FILES {
         rotator64_v.v  
         usfft64_2b.v  
         WROM64.v
+        FFT64_CONFIG.inc
 }
 
 set CONST_FILE "../constraints/constraints.sdc"
 
-set_db / .init_lib_search_path $LIB_PATH
+# set_db / .init_lib_search_path $LIB_PATH
 set_db / .init_hdl_search_path ../rtl
 set_db / .information_level 7 
 
@@ -45,21 +47,22 @@ set_db / .information_level 7
 ## Library setup
 ###############################################################
 
-set_db / .library $LIB_LIST
-set_db / .lef_library $LEF_DIR 
-set_db / .lp_insert_clock_gating true 
+#set_db / .library $LIB_LIST
+#set_db / .lef_library $LEF_DIR 
+#set_db / .lp_insert_clock_gating true 
 
 ####################################################################
 ## Load Design
 ####################################################################
 
-read_libs $LIB_LIST
+#read_libs $LIB_LIST
 read_physical -lef $LEF_DIR
 read_hdl -sv $HDL_FILES 
 elaborate $DESIGN
 puts "Runtime & Memory after 'read_hdl'"
 time_info Elaboration
 
+init_design
 check_design -unresolved
 
 
@@ -94,26 +97,26 @@ report_dft_violations > dft/${DESIGN}-DFTViols
 ####################################################################
 ## Constraints Setup
 ####################################################################
-
-read_sdc $CONST_FILE
-puts "The number of exceptions is [llength [vfind "design:$DESIGN" -exception *]]"
-
-if {![file exists ${_LOG_PATH}]} {
-  file mkdir ${_LOG_PATH}
-  puts "Creating directory ${_LOG_PATH}"
-}
-
-if {![file exists ${_OUTPUTS_PATH}]} {
-  file mkdir ${_OUTPUTS_PATH}
-  puts "Creating directory ${_OUTPUTS_PATH}"
-}
-
-if {![file exists ${_REPORTS_PATH}]} {
-  file mkdir ${_REPORTS_PATH}
-  puts "Creating directory ${_REPORTS_PATH}"
-}
-report_timing -lint
-
+#
+#read_sdc $CONST_FILE
+#puts "The number of exceptions is [llength [vfind "design:$DESIGN" -exception *]]"
+#
+#if {![file exists ${_LOG_PATH}]} {
+#  file mkdir ${_LOG_PATH}
+#  puts "Creating directory ${_LOG_PATH}"
+#}
+#
+#if {![file exists ${_OUTPUTS_PATH}]} {
+#  file mkdir ${_OUTPUTS_PATH}
+#  puts "Creating directory ${_OUTPUTS_PATH}"
+#}
+#
+#if {![file exists ${_REPORTS_PATH}]} {
+#  file mkdir ${_REPORTS_PATH}
+#  puts "Creating directory ${_REPORTS_PATH}"
+#}
+#report_timing -lint
+#
 ###################################################################################
 ## Define cost groups (clock-clock, clock-output, input-clock, input-output)
 ###################################################################################
@@ -121,26 +124,26 @@ report_timing -lint
 ## Uncomment to remove already existing costgroups before creating new ones.
 ## delete_obj [vfind /designs/* -cost_group *]
 
-if {[llength [all::all_seqs]] > 0} { 
-  define_cost_group -name I2C -design $DESIGN
-  define_cost_group -name C2O -design $DESIGN
-  define_cost_group -name C2C -design $DESIGN
-  path_group -from [all::all_seqs] -to [all::all_seqs] -group C2C -name C2C
-  path_group -from [all::all_seqs] -to [all::all_outs] -group C2O -name C2O
-  path_group -from [all::all_inps]  -to [all::all_seqs] -group I2C -name I2C
-}
-
-define_cost_group -name I2O -design $DESIGN
-path_group -from [all::all_inps]  -to [all::all_outs] -group I2O -name I2O
-foreach cg [vfind / -cost_group *] {
-  report_timing -cost_group [list $cg] >> $_REPORTS_PATH/${DESIGN}_pretim.rpt
-}
+#if {[llength [all::all_seqs]] > 0} { 
+#  define_cost_group -name I2C -design $DESIGN
+#  define_cost_group -name C2O -design $DESIGN
+#  define_cost_group -name C2C -design $DESIGN
+#  path_group -from [all::all_seqs] -to [all::all_seqs] -group C2C -name C2C
+#  path_group -from [all::all_seqs] -to [all::all_outs] -group C2O -name C2O
+#  path_group -from [all::all_inps]  -to [all::all_seqs] -group I2C -name I2C
+#}
+#
+#define_cost_group -name I2O -design $DESIGN
+#path_group -from [all::all_inps]  -to [all::all_outs] -group I2O -name I2O
+#foreach cg [vfind / -cost_group *] {
+#  report_timing -cost_group [list $cg] >> $_REPORTS_PATH/${DESIGN}_pretim.rpt
+#}
 
 ####################################################################################################
 ## Synthesizing to generic 
 ####################################################################################################
 
-set_db / .syn_generic_effort $SYN_EFF
+set_db syn_generic_effort $SYN_EFF
 syn_generic
 puts "Runtime & Memory after 'syn_generic'"
 time_info GENERIC
@@ -217,7 +220,7 @@ write_snapshot -outdir $_REPORTS_PATH -tag final
 report_summary -directory $_REPORTS_PATH
 ## write_hdl  > ${_OUTPUTS_PATH}/${DESIGN}_m.v
 ## write_script > ${_OUTPUTS_PATH}/${DESIGN}_m.script
-write_sdc > ${_OUTPUTS_PATH}/${DESIGN}_m.sdc
+write_sdc -constraint_mode default_constraints  > ${_OUTPUTS_PATH}/${DESIGN}_m.sdc
 
 
 #################################
