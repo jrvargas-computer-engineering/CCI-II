@@ -80,7 +80,7 @@ define_dft scan_chain -name chain1 \
     -sdo dft_scan_output_1 \
     -shift_enable test_signal
 
-define_dft scan_chain -name chain2 \
+define_dft scan_chain -name chain2 \ 
     -sdi dft_scan_input_2 \
     -sdo dft_scan_output_2 \
     -shift_enable test_signal
