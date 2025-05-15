@@ -22,7 +22,8 @@ set _LOG_PATH logs_${DATE}
 
 read_mmmc ../constraints/mmmc.tcl
 
-set LEF_DIR { /tools/pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/IO_CELLS_5V.lef /tools/pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/xc018m6_FE.lef /tools/pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/D_CELLS.lef }
+#set LEF_DIR { /tools/pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/IO_CELLS_5V.lef /tools/pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/xc018m6_FE.lef /tools/pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/D_CELLS.lef }
+set LEF_DIR { /pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/IO_CELLS_5V.lef /pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/xc018m6_FE.lef /pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/D_CELLS.lef }
 set HDL_FILES {
         bufram64c1.v  
         cnorm.v  
@@ -80,7 +81,7 @@ define_dft scan_chain -name chain1 \
     -sdo dft_scan_output_1 \
     -shift_enable test_signal
 
-define_dft scan_chain -name chain2 \ 
+define_dft scan_chain -name chain2 \
     -sdi dft_scan_input_2 \
     -sdo dft_scan_output_2 \
     -shift_enable test_signal

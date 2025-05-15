@@ -1,0 +1,126 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2016 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+Version: GENUS15.22 - 15.20-s024_1, built Thu Apr 14 2016
+Options: -files ../scripts/genus.tcl 
+Date:    Thu May 15 14:28:29 2025
+Host:    pgmicro01.ufrgs.br (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (10*Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz 25600KB)
+OS:      CentOS Linux release 7.9.2009 (Core)
+
+Checking out license: Genus_Synthesis
+
+Loading tool scripts...
+Sourcing GUI preferences file /home/inf01194/luis.mendes/.cadence/genus/gui.tcl...
+Finished loading tool scripts (27 seconds elapsed).
+
+Sourcing ../scripts/genus.tcl...
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+model name	: Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1285.000
+cpu MHz		: 1615.000
+cpu MHz		: 1200.000
+cpu MHz		: 1530.000
+cpu MHz		: 1455.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1700.000
+cpu MHz		: 1370.000
+cpu MHz		: 1200.000
+cpu MHz		: 1200.000
+cpu MHz		: 1455.000
+cpu MHz		: 1200.000
+cpu MHz		: 1455.000
+Hostname : pgmicro01.ufrgs.br
+Sourcing '../constraints/mmmc.tcl' (Thu May 15 14:28:56 -0300 2025)...
+Error   : A command argument did not match any of the acceptable command options. [TUI-64] [create_library_set]
+        : The argument in question is '/pdk/xfab/XC018_61_3.1.3/synopsys/xc018/MOS3ST/IO_CELLS_3V_MOS3ST_slow_1_62V_3_30V_125C.lib'.
+        : Check the command usage and correct the input to the command.
+  create_library_set: create a new MMMC library_set 
+
+Usage: create_library_set -name <string> -timing <string>+ [-aocv <string>+] [-socv <string>+] [-si <string>+]
+
+    -name <string>:
+        name of the library_set 
+    -timing <string>+:
+        lib_filenames 
+    [-aocv <string>+]:
+        aocv files 
+    [-socv <string>+]:
+        socv files 
+    [-si <string>+]:
+        si library file names 
+1
+Failed on read_mmmc
+Encountered problems processing file: ../scripts/genus.tcl
+WARNING: This version of the tool is 3318 days old.
+
+Another Ctrl-C within 1 second will terminate the tool.
+
+Another Ctrl-C within 1 second will terminate the tool.
+Abnormal exit.

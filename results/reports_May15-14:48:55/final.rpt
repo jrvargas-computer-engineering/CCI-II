@@ -1,0 +1,46 @@
+
+
+Working Directory = /home/inf01194/luis.mendes/fft64/genus
+QoS Summary for USFFT64_2B
+========================================================================================
+Metric                  generic    map        syn_opt    final     
+========================================================================================
+Slack (ps):                149.6     -225.2        0.0        0.0
+  R2R (ps):                149.6     -225.2        0.0        0.0
+  I2R (ps):             no_value   no_value   no_value   no_value
+  R2O (ps):               2428.5      297.4       79.6       79.6
+  I2O (ps):             no_value   no_value   no_value   no_value
+  CG  (ps):             no_value   no_value   no_value   no_value
+TNS (ps):                      0       6805          0          0
+  R2R (ps):                  0.0     6805.0        0.0        0.0
+  I2R (ps):             no_value   no_value   no_value   no_value
+  R2O (ps):                  0.0        0.0        0.0        0.0
+  I2O (ps):             no_value   no_value   no_value   no_value
+  CG  (ps):             no_value   no_value   no_value   no_value
+Failing Paths:                 0         63          0          0
+Area:                    1620635    1907613    1898264    1898264
+Instances:                 49384      63192      61999      61999
+Utilization (%):            0.00       0.00       0.00       0.00
+Tot. Net Length (um):   no_value   no_value   no_value   no_value
+Avg. Net Length (um):   no_value   no_value   no_value   no_value
+Total Overflow H:              0          0          0          0
+Total Overflow V:              0          0          0          0
+Route Overflow H (%):   no_value   no_value   no_value   no_value
+Route Overflow V (%):   no_value   no_value   no_value   no_value
+========================================================================================
+CPU  Runtime (m:s):        01:13      04:14      08:19      00:04
+Real Runtime (m:s):        02:03      08:31      08:37      00:13
+CPU  Elapsed (m:s):        01:23      05:37      13:56      14:00
+Real Elapsed (m:s):        02:06      10:37      19:14      19:27
+Memory (MB):              640.74     824.20     824.21     824.21
+========================================================================================
+
+========================================================================================
+Flow Settings:
+========================================================================================
+Total Runtime (m:s): 19:31
+Total Memory (MB):   824.21
+Executable Version:  15.22
+========================================================================================
+
+
