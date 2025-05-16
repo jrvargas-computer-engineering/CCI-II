@@ -1,12 +1,37 @@
-set DESIGN ULA
+set DESIGN USFFT64_2B
+set TOP_LEVEL USFFT64_2B
+set SYN_EFF medium
+set MAP_EFF high
+set DATE [clock format [clock seconds] -format "%b%d-%T"] 
+set _OUTPUTS_PATH outputs_${DATE}
+set _REPORTS_PATH reports_${DATE}
+set _LOG_PATH logs_${DATE}
+
+set MMMC_FILE ../constraints/mmmc.tcl
+set LEF_DIR { /pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/IO_CELLS_5V.lef /pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/xc018m6_FE.lef /pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/D_CELLS.lef }
+set HDL_FILES {
+        bufram64c1.v  
+        cnorm.v  
+        fft8.v  
+        mpu707.v  
+        ram2x64c_1.v  
+        ram64.v  
+        rotator64_v.v  
+        usfft64_2b.v  
+        WROM64.v
+        FFT64_CONFIG.inc
+}
+set CONST_FILE "../constraints/constraints.sdc"
+
+# TODO: add date to the reports and output paths
 
 set_db init_hdl_search_path ../rtl
 
-read_mmmc ../constraints/mmmc.tcl
+read_mmmc $MMMC_FILE
 
-read_physical -lef { /pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/xc018m6_FE.lef /pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/D_CELLS.lef }
+read_physical -lef $LEF_DIR
 
-read_hdl -sv ULA.sv
+read_hdl -sv $HDL_FILES
 
 elaborate
 
@@ -14,17 +39,35 @@ init_design
 
 #read_sdc ../constraints/constraints.sdc
 
+##################################################################
+## DFT Setup
+##################################################################
+
 set_db dft_scan_style muxed_scan
-set_db dft_identify_top_level_test_clocks true 
-set_db dft_identify_test_signals true 
-define_dft shift_enable -name test_signal1 -active high scan_en
-define_dft scan_chain -name scan_chain_1 -sdi scan_in -sdo scan_out -shift_enable test_signal1 
+set_db dft_identify_top_level_test_clocks true
+set_db dft_identify_test_signals true
+
+define_dft shift_enable -name test_signal -active high dft_shift_enable
+define_dft scan_chain -name chain1 \
+    -sdi dft_scan_input_1 \
+    -sdo dft_scan_output_1 \
+    -shift_enable test_signal
+
+define_dft scan_chain -name chain2 \
+    -sdi dft_scan_input_2 \
+    -sdo dft_scan_output_2 \
+    -shift_enable test_signal
+
 set_compatible_test_clocks -all
-check_dft_rules > dft/${DESIGN}-DFTcheck
+
+check_dft_rules > dft/${DESIGN}-tdrcs
 check_design -multiple_driver
+
 report dft_registers > dft/${DESIGN}-DFTregs
 report dft_setup > dft/${DESIGN}-DFTsetup_tdrc
 report_dft_violations > dft/${DESIGN}-DFTViols
+
+##################################################################
 
 #if {[llength [all::all_seqs]] > 0} { 
 #  define_cost_group -name I2R -design $DESIGN
@@ -41,12 +84,21 @@ report_dft_violations > dft/${DESIGN}-DFTViols
 #  report_timing -cost_group [list $cg] >> reports/${DESIGN}_pretim.rpt
 #}
 
-set_db syn_generic_effort medium
+
+####################################################################################################
+## Synthesizing to generic 
+####################################################################################################
+
+set_db syn_generic_effort SYN_EFF
 syn_generic
 
 report_area > reports/report_area_generic.rpt
 report_timing > reports/report_timing_generic.rpt
 report_power > reports/report_power_generic.rpt
+
+####################################################################################################
+## Synthesizing to gates
+####################################################################################################
 
 set_db syn_map_effort medium
 syn_map
@@ -59,13 +111,21 @@ report_power > reports/report_power_map.rpt
 #  report_timing -cost_group [list $cg] > reports/${DESIGN}_[vbasename $cg]_post_map.rpt
 #}
 
+
+########################################################################################################
+## DFT Setup
+########################################################################################################
+
 connect_scan_chain 
 
 report dft_chains >dft/chains.log
 report dft_registers > dftreg.rpt
 report dft_chains > dftchains.rpt
 
-set_db syn_opt_effort medium
+########################################################################################################
+## Incremental Synthesis
+########################################################################################################
+set_db syn_opt_effort $MAP_EFF
 syn_opt
 
 set _REPORTS_PATH "reports_worst"
