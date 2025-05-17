@@ -2,6 +2,7 @@ set DESIGN USFFT64_2B
 set TOP_LEVEL USFFT64_2B
 set SYN_EFF medium
 set MAP_EFF high
+set OPT_EFF medium
 set DATE [clock format [clock seconds] -format "%b%d-%T"] 
 set _OUTPUTS_PATH outputs_${DATE}
 set _REPORTS_PATH reports_${DATE}
@@ -92,20 +93,20 @@ report_dft_violations > dft/${DESIGN}-DFTViols
 set_db syn_generic_effort SYN_EFF
 syn_generic
 
-report_area > reports/report_area_generic.rpt
-report_timing > reports/report_timing_generic.rpt
-report_power > reports/report_power_generic.rpt
+report_area > $_REPORTS_PATH/generic/${DESIGN}_area.rpt
+report_timing > $_REPORTS_PATH/generic/${DESIGN}_timing.rpt
+report_power > $_REPORTS_PATH/generic/${DESIGN}_power.rpt
 
 ####################################################################################################
 ## Synthesizing to gates
 ####################################################################################################
 
-set_db syn_map_effort medium
+set_db syn_map_effort MAP_EFF
 syn_map
 
-report_area > reports/report_area_map.rpt
-report_timing > reports/report_timing_map.rpt
-report_power > reports/report_power_map.rpt
+report_area > $_REPORTS_PATH/map/${DESIGN}_area.rpt
+report_timing > $_REPORTS_PATH/map/${DESIGN}_timing.rpt
+report_power > $_REPORTS_PATH/map/${DESIGN}_power.rpt
 
 #foreach cg [vfind / -cost_group *] {
 #  report_timing -cost_group [list $cg] > reports/${DESIGN}_[vbasename $cg]_post_map.rpt
@@ -118,62 +119,62 @@ report_power > reports/report_power_map.rpt
 
 connect_scan_chain 
 
-report dft_chains >dft/chains.log
-report dft_registers > dftreg.rpt
-report dft_chains > dftchains.rpt
+report dft_chains > $_REPORTS_PATH/dft/${DESIGN}chains.log
+report dft_registers > $_REPORTS_PATH/dft/${DESIGN}reg.rpt
+#report dft_chains > dftchains.rpt
 
 ########################################################################################################
 ## Incremental Synthesis
 ########################################################################################################
-set_db syn_opt_effort $MAP_EFF
+set_db syn_opt_effort $OPT_EFF
 syn_opt
 
-set _REPORTS_PATH "reports_worst"
+set _REPORTS_PATH "reports_${DESIGN}/reports_worst$"
 puts "Exporting results for ss corner..."
 # Gera reports para o pior caso
  set_analysis_view -setup worst_view -hold worst_view
- report_area > reports_ss/report_area_opt.rpt
- report_timing > reports_ss/report_timing_opt.rpt
- report_power > reports_ss/report_power_opt.rpt
- report_gates -power > reports_ss/${DESIGN}_gates_power.log
- report_dp > reports_ss/${DESIGN}_datapath_incr.log
- report_messages > reports_ss/${DESIGN}_messages.log
+ report_area > ${_REPORTS_PATH}/report_area_opt.rpt
+ report_timing > ${_REPORTS_PATH}/report_timing_opt.rpt
+ report_power > ${_REPORTS_PATH}/report_power_opt.rpt
+ report_gates -power > ${_REPORTS_PATH}/${DESIGN}_gates_power.log
+ report_dp > ${_REPORTS_PATH}/${DESIGN}_datapath_incr.log
+ report_messages > ${_REPORTS_PATH}/${DESIGN}_messages.log
  write_snapshot -outdir reports -tag final
  report_summary -directory reports
 
- set _REPORTS_PATH "reports_nominal"
+ set _REPORTS_PATH "reports_${DESIGN}/reports_nominal"
  puts "Exporting results for tt corner..."
  # Gera reports para o caso nominal
  set_analysis_view -setup nominal_view -hold nominal_view
- report_area > reports_tt/report_area_opt.rpt
- report_timing > reports_tt/report_timing_opt.rpt
- report_power > reports_tt/report_power_opt.rpt
- report_gates -power > reports_tt/${DESIGN}_gates_power.log
- report_dp > reports_tt/${DESIGN}_datapath_incr.log
- report_messages > reports_tt/${DESIGN}_messages.log
+ report_area > ${_REPORTS_PATH}/report_area_opt.rpt
+ report_timing > ${_REPORTS_PATH}/report_timing_opt.rpt
+ report_power > ${_REPORTS_PATH}/report_power_opt.rpt
+ report_gates -power > ${_REPORTS_PATH}/${DESIGN}_gates_power.log
+ report_dp > ${_REPORTS_PATH}/${DESIGN}_datapath_incr.log
+ report_messages > ${_REPORTS_PATH}/${DESIGN}_messages.log
  write_snapshot -outdir reports -tag final
  report_summary -directory reports
 
- set _REPORTS_PATH "reports_best"
+ set _REPORTS_PATH "reports_${DESIGN}/reports_best"
  puts "Exporting results for ff corner..."
  # Gera reports para o melhor caso
  set_analysis_view -setup best_view -hold best_view
- report_area > reports_ff/report_area_opt.rpt
- report_timing > reports_ff/report_timing_opt.rpt
- report_power > reports_ff/report_power_opt.rpt
- report_gates -power > reports_ff/${DESIGN}_gates_power.log
- report_dp > reports_ff/${DESIGN}_datapath_incr.log
- report_messages > reports_ff/${DESIGN}_messages.log
+ report_area > ${_REPORTS_PATH}/report_area_opt.rpt
+ report_timing > ${_REPORTS_PATH}/report_timing_opt.rpt
+ report_power > ${_REPORTS_PATH}/report_power_opt.rpt
+ report_gates -power > ${_REPORTS_PATH}/${DESIGN}_gates_power.log
+ report_dp > ${_REPORTS_PATH}/${DESIGN}_datapath_incr.log
+ report_messages > ${_REPORTS_PATH}/${DESIGN}_messages.log
  write_snapshot -outdir reports -tag final
  report_summary -directory reports
 
 set_analysis_view -setup worst_view -hold best_view
 write_db $DESIGN -to_file ${DESIGN}.db
 #Outputs
-write_hdl > outputs/mac_netlist.v
+write_hdl > ${_OUTPUTS_PATH}/mac_netlist.v
 write_sdc -constraint_mode default_constraints  > outputs/mac_netlist_constraints.sdc
 write_sdf -timescale ns -nonegchecks -recrem split -edges check_edge  -setuphold split > outputs/delays.sdf
-write_scandef > outputs/scan_chain.def
+write_scandef > ${_OUTPUTS_PATH}/scan_chain.def
 write_design -innovus -base_name ../innovus/${DESIGN}
 
 
