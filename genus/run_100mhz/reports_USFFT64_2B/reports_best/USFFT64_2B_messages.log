@@ -1,0 +1,46 @@
+
+  =================
+   Message Summary
+  =================
+
+ Num   Sev       Id                        Message Text                    
+---------------------------------------------------------------------------
+  20 Warning LBR-101    Unusable clock gating integrated cell.             
+                        To use the cell in clock gating, Set cell          
+                        attribute 'dont_use' false in the library.         
+   1   Info  LBR-109    Set default library domain.                        
+   2   Info  LBR-412    Created nominal operating condition.               
+                        The nominal operating condition represents either  
+                        the nominal PVT values if specified in the         
+                        library source, or the default PVT values (1.0,    
+                        1.0, 1.0).                                         
+  20 Warning LBR-43     Libcell has no area attribute.  Defaulting to 0    
+                        area.                                              
+                        Specify a valid area value for the libcell.        
+  20 Warning LBR-9      Library cell has no output pins defined.           
+                        Add the missing output pin(s), then reload the     
+                        library. Otherwise, the library cell will be       
+                        marked as unusable and as timing model.            
+   2 Warning PHYS-103   Marking library cell 'avoid'.                      
+                        To prevent the library cell from being set to      
+                        'avoid', set attribute                             
+                        'lib_lef_consistency_check_enable' to 'false'.     
+ 126 Warning PHYS-125   Cannot add power pin to a library cell that is     
+                        currently instantiated in a netlist.               
+ 126 Warning PHYS-126   Cannot add ground pin to a library cell that is    
+                        currently instantiated in a netlist.               
+2067 Warning PHYS-128   Library cell pin 'use' attribute is inconsistent   
+                        between lib and LEF.                               
+                        Overriding lib value with LEF value. To use .lib   
+                        as golden do: '::legacy::set_attribute             
+                        use_power_ground_pin_from_lef false'.              
+   1 Warning RPT_DP-100 The filename, column and line number information   
+                        will not be available in the report.               
+                        You must set the 'hdl_track_filename_row_col'      
+                        attribute to 'true' (before elaborate) to enable   
+                        filename, column, and line number tracking in the  
+                        datapath report.                                   
+   1 Warning TIM-11     Possible timing problems have been detected in     
+                        this design.                                       
+                        Use 'report timing -lint' for more information.    
+

@@ -1,5 +1,5 @@
 set DESIGN USFFT64_2B
-set TOP_LEVEL USFFT64_2B
+set TOP USFFT64_2B
 set SYN_EFF medium
 set MAP_EFF high
 set OPT_EFF medium
@@ -24,8 +24,6 @@ set HDL_FILES {
 }
 set CONST_FILE "../constraints/constraints.sdc"
 
-# TODO: add date to the reports and output paths
-
 set_db init_hdl_search_path ../rtl
 
 read_mmmc $MMMC_FILE
@@ -34,11 +32,30 @@ read_physical -lef $LEF_DIR
 
 read_hdl -sv $HDL_FILES
 
-elaborate
+elaborate $TOP
 
 init_design
 
 #read_sdc ../constraints/constraints.sdc
+
+if {![file exists ${_LOG_PATH}]} {
+	file mkdir ${_LOG_PATH}
+} 
+
+if {![file exists ${_OUTPUTS_PATH}]} {
+	file mkdir ${_OUTPUTS_PATH}
+} 
+
+if {![file exists ${_REPORTS_PATH}]} {
+	file mkdir ${_REPORTS_PATH}
+} 
+
+if {![file exists "dft"]} {
+	file mkdir "dft"
+}
+
+
+
 
 ##################################################################
 ## DFT Setup
@@ -90,8 +107,12 @@ report_dft_violations > dft/${DESIGN}-DFTViols
 ## Synthesizing to generic 
 ####################################################################################################
 
-set_db syn_generic_effort SYN_EFF
+set_db syn_generic_effort $SYN_EFF
 syn_generic
+
+if {![file exists ${_REPORTS_PATH}/generic]} {
+	file mkdir ${_REPORTS_PATH}/generic
+} 
 
 report_area > $_REPORTS_PATH/generic/${DESIGN}_area.rpt
 report_timing > $_REPORTS_PATH/generic/${DESIGN}_timing.rpt
@@ -101,8 +122,12 @@ report_power > $_REPORTS_PATH/generic/${DESIGN}_power.rpt
 ## Synthesizing to gates
 ####################################################################################################
 
-set_db syn_map_effort MAP_EFF
+set_db syn_map_effort $MAP_EFF
 syn_map
+
+if {![file exists ${_REPORTS_PATH}/map]} {
+	file mkdir ${_REPORTS_PATH}/map
+} 
 
 report_area > $_REPORTS_PATH/map/${DESIGN}_area.rpt
 report_timing > $_REPORTS_PATH/map/${DESIGN}_timing.rpt
@@ -119,8 +144,8 @@ report_power > $_REPORTS_PATH/map/${DESIGN}_power.rpt
 
 connect_scan_chain 
 
-report dft_chains > $_REPORTS_PATH/dft/${DESIGN}chains.log
-report dft_registers > $_REPORTS_PATH/dft/${DESIGN}reg.rpt
+report dft_chains > dft/${DESIGN}chains.log
+report dft_registers > dft/${DESIGN}reg.rpt
 #report dft_chains > dftchains.rpt
 
 ########################################################################################################
@@ -129,8 +154,12 @@ report dft_registers > $_REPORTS_PATH/dft/${DESIGN}reg.rpt
 set_db syn_opt_effort $OPT_EFF
 syn_opt
 
-set _REPORTS_PATH "reports_${DESIGN}/reports_worst$"
+set _REPORTS_PATH "reports_${DESIGN}/reports_worst"
 puts "Exporting results for ss corner..."
+if {![file exists ${_REPORTS_PATH}]} {
+	file mkdir ${_REPORTS_PATH}
+} 
+
 # Gera reports para o pior caso
  set_analysis_view -setup worst_view -hold worst_view
  report_area > ${_REPORTS_PATH}/report_area_opt.rpt
@@ -144,6 +173,11 @@ puts "Exporting results for ss corner..."
 
  set _REPORTS_PATH "reports_${DESIGN}/reports_nominal"
  puts "Exporting results for tt corner..."
+if {![file exists ${_REPORTS_PATH}]} {
+	file mkdir ${_REPORTS_PATH}
+} 
+
+
  # Gera reports para o caso nominal
  set_analysis_view -setup nominal_view -hold nominal_view
  report_area > ${_REPORTS_PATH}/report_area_opt.rpt
@@ -157,6 +191,10 @@ puts "Exporting results for ss corner..."
 
  set _REPORTS_PATH "reports_${DESIGN}/reports_best"
  puts "Exporting results for ff corner..."
+if {![file exists ${_REPORTS_PATH}]} {
+	file mkdir ${_REPORTS_PATH}
+} 
+
  # Gera reports para o melhor caso
  set_analysis_view -setup best_view -hold best_view
  report_area > ${_REPORTS_PATH}/report_area_opt.rpt
@@ -171,7 +209,11 @@ puts "Exporting results for ss corner..."
 set_analysis_view -setup worst_view -hold best_view
 write_db $DESIGN -to_file ${DESIGN}.db
 #Outputs
-write_hdl > ${_OUTPUTS_PATH}/mac_netlist.v
+write_hdl > ${_OUTPUTS_PATH}/mac_netlist.vf 
+if {![file exists "outputs"]} {
+	file mkdir "outputs"
+} 
+
 write_sdc -constraint_mode default_constraints  > outputs/mac_netlist_constraints.sdc
 write_sdf -timescale ns -nonegchecks -recrem split -edges check_edge  -setuphold split > outputs/delays.sdf
 write_scandef > ${_OUTPUTS_PATH}/scan_chain.def

@@ -1,6 +1,6 @@
 ###VARIABLES
 # @TODO: set here your clock period in ns
-set period_clock 5
+set period_clock 10
 set out_delay 0.5
 set in_transition 0.2
 set clock_uncertainty 0.4
