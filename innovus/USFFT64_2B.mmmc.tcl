@@ -1,6 +1,6 @@
 #################################################################################
 #
-# Created by Genus(TM) Synthesis Solution GENUS15.22 - 15.20-s024_1 on Mon May 19 22:29:43 -0300 2025
+# Created by Genus(TM) Synthesis Solution GENUS15.22 - 15.20-s024_1 on Wed May 21 16:36:59 -0300 2025
 #
 #################################################################################
 
@@ -72,5 +72,5 @@ create_analysis_view -name best_view \
     -delay_corner best_delay_corner
 
 ## set_analysis_view
-set_analysis_view -setup { worst_view } \
+set_analysis_view -setup { best_view } \
                   -hold { best_view }

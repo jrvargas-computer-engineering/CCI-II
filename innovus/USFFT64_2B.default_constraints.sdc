@@ -1,6 +1,6 @@
 # ####################################################################
 
-#  Created by Genus(TM) Synthesis Solution GENUS15.22 - 15.20-s024_1 on Mon May 19 22:29:43 -0300 2025
+#  Created by Genus(TM) Synthesis Solution GENUS15.22 - 15.20-s024_1 on Wed May 21 16:36:59 -0300 2025
 
 # ####################################################################
 
@@ -12,7 +12,7 @@ set_units -time 1000.0ps
 # Set the current design
 current_design USFFT64_2B
 
-create_clock -name "clk" -add -period 10.0 -waveform {0.0 5.0} [get_ports CLK]
+create_clock -name "clk" -add -period 6.67 -waveform {0.0 3.335} [get_ports CLK]
 set_clock_gating_check -setup 0.0 
 set_output_delay -clock [get_clocks clk] -add_delay 0.5 [get_ports RDY]
 set_output_delay -clock [get_clocks clk] -add_delay 0.5 [get_ports OVF1]
@@ -107,7 +107,7 @@ set_input_transition 0.2 [get_ports {DI[0]}]
 set_input_transition 0.2 [get_ports dft_shift_enable]
 set_input_transition 0.2 [get_ports dft_scan_input_1]
 set_input_transition 0.2 [get_ports dft_scan_input_2]
-set_wire_load_selection_group "4_metls_routing" -library "D_CELLS_MOSST_slow_1_62V_125C"
+set_wire_load_selection_group "4_metls_routing" -library "D_CELLS_MOSST_fast_1_98V_m40C"
 set_dont_use [get_lib_cells AN322X0]
 set_dont_use [get_lib_cells AN322X1]
 set_dont_use [get_lib_cells AN331X0]

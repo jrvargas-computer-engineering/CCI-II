@@ -6,7 +6,7 @@ DESIGN USFFT64_2B ;
 
 SCANCHAINS 2 ;
   - chain1_seg1_CLK_rising 
-    + PARTITION p_CLK_rising_worst_timing_cond 
+    + PARTITION p_CLK_rising_best_timing_cond 
       MAXBITS 7996
     + START PIN dft_scan_input_1
     + FLOATING 
@@ -8010,7 +8010,7 @@ SCANCHAINS 2 ;
 ;
 
   - chain2_seg1_CLK_rising 
-    + PARTITION p_CLK_rising_worst_timing_cond 
+    + PARTITION p_CLK_rising_best_timing_cond 
       MAXBITS 7996
     + START PIN dft_scan_input_2
     + FLOATING 
@@ -9739,7 +9739,7 @@ SCANCHAINS 2 ;
        U_FFT2/UMI_DO_reg[13] ( IN SD ) ( OUT Q ) 
        U_FFT2/UMI_DO_reg[14] ( IN SD ) ( OUT Q ) 
        U_FFT2/UMI_DO_reg[15] ( IN SD ) ( OUT Q ) 
-       U_FFT2/UMI_DO_reg[16] ( IN SD ) ( OUT Q ) 
+       U_FFT2/UMI_DO_reg[16] ( IN SD ) ( OUT QN ) 
        U_FFT2/UMI_DO_reg[17] ( IN SD ) ( OUT Q ) 
        U_FFT2/UMI_DO_reg[18] ( IN SD ) ( OUT Q ) 
        U_FFT2/UMI_DO_reg[19] ( IN SD ) ( OUT Q ) 
@@ -11013,11 +11013,11 @@ SCANCHAINS 2 ;
        U_MPU_wid_reg[1] ( IN SD ) ( OUT Q ) 
        U_MPU_wid_reg[2] ( IN SD ) ( OUT Q ) 
        U_MPU_wid_reg[3] ( IN SD ) ( OUT Q ) 
-       U_MPU_wid_reg[4] ( IN SD ) ( OUT Q ) 
+       U_MPU_wid_reg[4] ( IN SD ) ( OUT QN ) 
        U_MPU_wid_reg[5] ( IN SD ) ( OUT Q ) 
        U_MPU_wid_reg[6] ( IN SD ) ( OUT Q ) 
        U_MPU_wid_reg[7] ( IN SD ) ( OUT Q ) 
-       U_MPU_wid_reg[8] ( IN SD ) ( OUT Q ) 
+       U_MPU_wid_reg[8] ( IN SD ) ( OUT QN ) 
        U_MPU_wid_reg[9] ( IN SD ) ( OUT Q ) 
        U_MPU_wid_reg[10] ( IN SD ) ( OUT Q ) 
        U_MPU_wid_reg[11] ( IN SD ) ( OUT Q ) 
@@ -11028,11 +11028,11 @@ SCANCHAINS 2 ;
        U_MPU_wrd_reg[1] ( IN SD ) ( OUT Q ) 
        U_MPU_wrd_reg[2] ( IN SD ) ( OUT Q ) 
        U_MPU_wrd_reg[3] ( IN SD ) ( OUT Q ) 
-       U_MPU_wrd_reg[4] ( IN SD ) ( OUT Q ) 
+       U_MPU_wrd_reg[4] ( IN SD ) ( OUT QN ) 
        U_MPU_wrd_reg[5] ( IN SD ) ( OUT Q ) 
        U_MPU_wrd_reg[6] ( IN SD ) ( OUT Q ) 
        U_MPU_wrd_reg[7] ( IN SD ) ( OUT Q ) 
-       U_MPU_wrd_reg[8] ( IN SD ) ( OUT Q ) 
+       U_MPU_wrd_reg[8] ( IN SD ) ( OUT QN ) 
        U_MPU_wrd_reg[9] ( IN SD ) ( OUT Q ) 
        U_MPU_wrd_reg[10] ( IN SD ) ( OUT Q ) 
        U_MPU_wrd_reg[11] ( IN SD ) ( OUT Q ) 

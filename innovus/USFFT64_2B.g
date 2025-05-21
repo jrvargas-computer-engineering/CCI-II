@@ -1,6 +1,6 @@
 ######################################################################
 
-# Created by Genus(TM) Synthesis Solution GENUS15.22 - 15.20-s024_1 on Mon May 19 22:29:42 -0300 2025
+# Created by Genus(TM) Synthesis Solution GENUS15.22 - 15.20-s024_1 on Wed May 21 16:36:59 -0300 2025
 
 # This file contains the RC script for design:USFFT64_2B
 
@@ -8,14 +8,14 @@
 
 set_db / .design_mode_process 230.0
 set_db / .phys_assume_met_fill 0.0
-set_db / .runtime_by_stage { {to_generic 60 125 26 72}  {first_condense 119 293 57 182}  {reify 160 453 37 220}  {global_incr_map 75 533 64 289}  {incr_opt 66 663 65 404} }
+set_db / .runtime_by_stage { {to_generic 62 111 27 74}  {first_condense 124 285 58 185}  {reify 164 449 38 223}  {global_incr_map 83 537 70 299}  {incr_opt 91 697 89 442} }
 set_db / .tinfo_tstamp_file .rs_luis.mendes.tstamp
 set_db / .use_area_from_lef true
-set_db / .flow_metrics_snapshot_uuid 792fd9ed
+set_db / .flow_metrics_snapshot_uuid 792a2c4c
 set_db / .read_qrc_tech_file_rc_corner true
 set_db / .super_thread_servers {localhost localhost localhost localhost localhost localhost localhost localhost   }
 set_db / .syn_opt_effort medium
-if {[::legacy::find design:USFFT64_2B -mode worst_view] eq ""} {  create_mode -name worst_view -design design:USFFT64_2B  }
+if {[::legacy::find design:USFFT64_2B -mode best_view] eq ""} {  create_mode -name best_view -design design:USFFT64_2B  }
 ::legacy::set_attribute -quiet phys_use_segment_parasitics true /
 ::legacy::set_attribute -quiet probabilistic_extraction true /
 ::legacy::set_attribute -quiet ple_correlation_factors {1.9000 2.0000} /
@@ -56,67 +56,67 @@ if {[::legacy::find design:USFFT64_2B -mode worst_view] eq ""} {  create_mode -n
 ::legacy::set_attribute -quiet tree_type best_case_tree operating_condition:best_libset/IO_CELLS_3V_MOS3ST_fast_1_98V_3_30V_m40C/fast_1_98V_3_30V_m40C
 ::legacy::set_attribute -quiet tree_type balanced_tree operating_condition:best_libset/IO_CELLS_3V_MOS3ST_fast_1_98V_3_30V_m40C/_nominal_
 # BEGIN MSV SECTION
-::legacy::set_attribute -quiet library_domain library_domain:worst_timing_cond design:USFFT64_2B
+::legacy::set_attribute -quiet library_domain library_domain:best_timing_cond design:USFFT64_2B
 # END MSV SECTION
-define_clock -name clk -mode mode:USFFT64_2B/worst_view -domain domain_1 -period 10000.0 -divide_period 1 -rise 0 -divide_rise 1 -fall 1 -divide_fall 2 -design design:USFFT64_2B port:USFFT64_2B/CLK
-::legacy::set_attribute -quiet clock_setup_uncertainty {400.0 400.0} clock:USFFT64_2B/worst_view/clk
-::legacy::set_attribute -quiet clock_hold_uncertainty {400.0 400.0} clock:USFFT64_2B/worst_view/clk
-::legacy::set_attribute -quiet waveform {0.0 5000.0} clock:USFFT64_2B/worst_view/clk
+define_clock -name clk -mode mode:USFFT64_2B/best_view -domain domain_1 -period 6670.0 -divide_period 1 -rise 0 -divide_rise 1 -fall 1 -divide_fall 2 -design design:USFFT64_2B port:USFFT64_2B/CLK
+::legacy::set_attribute -quiet clock_setup_uncertainty {400.0 400.0} clock:USFFT64_2B/best_view/clk
+::legacy::set_attribute -quiet clock_hold_uncertainty {400.0 400.0} clock:USFFT64_2B/best_view/clk
+::legacy::set_attribute -quiet waveform {0.0 3335.0} clock:USFFT64_2B/best_view/clk
 define_cost_group -design design:USFFT64_2B -name clk
-external_delay -accumulate -input {0.0 no_value 0.0 no_value} -clock clock:USFFT64_2B/worst_view/clk -name create_clock_delay_domain_1_clk_R_0_1 port:USFFT64_2B/CLK
-::legacy::set_attribute -quiet clock_network_latency_included true external_delay:USFFT64_2B/worst_view/create_clock_delay_domain_1_clk_R_0_1
-external_delay -accumulate -input {no_value 0.0 no_value 0.0} -clock clock:USFFT64_2B/worst_view/clk -edge_fall -name create_clock_delay_domain_1_clk_F_0_1 port:USFFT64_2B/CLK
-::legacy::set_attribute -quiet clock_network_latency_included true external_delay:USFFT64_2B/worst_view/create_clock_delay_domain_1_clk_F_0_1
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_17 port:USFFT64_2B/RDY
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_18 port:USFFT64_2B/OVF1
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_19 port:USFFT64_2B/OVF2
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_20 {{port:USFFT64_2B/ADDR[5]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_21 {{port:USFFT64_2B/ADDR[4]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_22 {{port:USFFT64_2B/ADDR[3]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_23 {{port:USFFT64_2B/ADDR[2]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_24 {{port:USFFT64_2B/ADDR[1]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_25 {{port:USFFT64_2B/ADDR[0]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_26 {{port:USFFT64_2B/DOR[18]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_27 {{port:USFFT64_2B/DOR[17]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_28 {{port:USFFT64_2B/DOR[16]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_29 {{port:USFFT64_2B/DOR[15]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_30 {{port:USFFT64_2B/DOR[14]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_31 {{port:USFFT64_2B/DOR[13]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_32 {{port:USFFT64_2B/DOR[12]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_33 {{port:USFFT64_2B/DOR[11]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_34 {{port:USFFT64_2B/DOR[10]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_35 {{port:USFFT64_2B/DOR[9]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_36 {{port:USFFT64_2B/DOR[8]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_37 {{port:USFFT64_2B/DOR[7]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_38 {{port:USFFT64_2B/DOR[6]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_39 {{port:USFFT64_2B/DOR[5]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_40 {{port:USFFT64_2B/DOR[4]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_41 {{port:USFFT64_2B/DOR[3]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_42 {{port:USFFT64_2B/DOR[2]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_43 {{port:USFFT64_2B/DOR[1]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_44 {{port:USFFT64_2B/DOR[0]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_45 {{port:USFFT64_2B/DOI[18]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_46 {{port:USFFT64_2B/DOI[17]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_47 {{port:USFFT64_2B/DOI[16]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_48 {{port:USFFT64_2B/DOI[15]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_49 {{port:USFFT64_2B/DOI[14]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_50 {{port:USFFT64_2B/DOI[13]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_51 {{port:USFFT64_2B/DOI[12]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_52 {{port:USFFT64_2B/DOI[11]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_53 {{port:USFFT64_2B/DOI[10]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_54 {{port:USFFT64_2B/DOI[9]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_55 {{port:USFFT64_2B/DOI[8]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_56 {{port:USFFT64_2B/DOI[7]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_57 {{port:USFFT64_2B/DOI[6]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_58 {{port:USFFT64_2B/DOI[5]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_59 {{port:USFFT64_2B/DOI[4]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_60 {{port:USFFT64_2B/DOI[3]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_61 {{port:USFFT64_2B/DOI[2]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_62 {{port:USFFT64_2B/DOI[1]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_63 {{port:USFFT64_2B/DOI[0]}}
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_64 port:USFFT64_2B/dft_scan_output_1
-external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/worst_view/clk -name tmp_sdc_best_view.sd_line_65 port:USFFT64_2B/dft_scan_output_2
-path_group -paths [specify_paths -mode mode:USFFT64_2B/worst_view -to clock:USFFT64_2B/worst_view/clk]  -name clk -group cost_group:USFFT64_2B/clk -user_priority -1047552
+external_delay -accumulate -input {0.0 no_value 0.0 no_value} -clock clock:USFFT64_2B/best_view/clk -name create_clock_delay_domain_1_clk_R_0 port:USFFT64_2B/CLK
+::legacy::set_attribute -quiet clock_network_latency_included true external_delay:USFFT64_2B/best_view/create_clock_delay_domain_1_clk_R_0
+external_delay -accumulate -input {no_value 0.0 no_value 0.0} -clock clock:USFFT64_2B/best_view/clk -edge_fall -name create_clock_delay_domain_1_clk_F_0 port:USFFT64_2B/CLK
+::legacy::set_attribute -quiet clock_network_latency_included true external_delay:USFFT64_2B/best_view/create_clock_delay_domain_1_clk_F_0
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_17 port:USFFT64_2B/RDY
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_18 port:USFFT64_2B/OVF1
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_19 port:USFFT64_2B/OVF2
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_20 {{port:USFFT64_2B/ADDR[5]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_21 {{port:USFFT64_2B/ADDR[4]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_22 {{port:USFFT64_2B/ADDR[3]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_23 {{port:USFFT64_2B/ADDR[2]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_24 {{port:USFFT64_2B/ADDR[1]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_25 {{port:USFFT64_2B/ADDR[0]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_26 {{port:USFFT64_2B/DOR[18]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_27 {{port:USFFT64_2B/DOR[17]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_28 {{port:USFFT64_2B/DOR[16]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_29 {{port:USFFT64_2B/DOR[15]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_30 {{port:USFFT64_2B/DOR[14]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_31 {{port:USFFT64_2B/DOR[13]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_32 {{port:USFFT64_2B/DOR[12]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_33 {{port:USFFT64_2B/DOR[11]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_34 {{port:USFFT64_2B/DOR[10]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_35 {{port:USFFT64_2B/DOR[9]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_36 {{port:USFFT64_2B/DOR[8]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_37 {{port:USFFT64_2B/DOR[7]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_38 {{port:USFFT64_2B/DOR[6]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_39 {{port:USFFT64_2B/DOR[5]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_40 {{port:USFFT64_2B/DOR[4]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_41 {{port:USFFT64_2B/DOR[3]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_42 {{port:USFFT64_2B/DOR[2]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_43 {{port:USFFT64_2B/DOR[1]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_44 {{port:USFFT64_2B/DOR[0]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_45 {{port:USFFT64_2B/DOI[18]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_46 {{port:USFFT64_2B/DOI[17]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_47 {{port:USFFT64_2B/DOI[16]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_48 {{port:USFFT64_2B/DOI[15]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_49 {{port:USFFT64_2B/DOI[14]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_50 {{port:USFFT64_2B/DOI[13]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_51 {{port:USFFT64_2B/DOI[12]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_52 {{port:USFFT64_2B/DOI[11]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_53 {{port:USFFT64_2B/DOI[10]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_54 {{port:USFFT64_2B/DOI[9]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_55 {{port:USFFT64_2B/DOI[8]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_56 {{port:USFFT64_2B/DOI[7]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_57 {{port:USFFT64_2B/DOI[6]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_58 {{port:USFFT64_2B/DOI[5]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_59 {{port:USFFT64_2B/DOI[4]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_60 {{port:USFFT64_2B/DOI[3]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_61 {{port:USFFT64_2B/DOI[2]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_62 {{port:USFFT64_2B/DOI[1]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_63 {{port:USFFT64_2B/DOI[0]}}
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_64 port:USFFT64_2B/dft_scan_output_1
+external_delay -accumulate -output {500.0 500.0 500.0 500.0} -clock clock:USFFT64_2B/best_view/clk -name tmp_sdc_nominal_view_line_65 port:USFFT64_2B/dft_scan_output_2
+path_group -paths [specify_paths -mode mode:USFFT64_2B/best_view -to clock:USFFT64_2B/best_view/clk]  -name clk -group cost_group:USFFT64_2B/clk -user_priority -1047552
 # BEGIN DFT SECTION
 ::legacy::set_attribute -quiet dft_scan_style muxed_scan /
 ::legacy::set_attribute -quiet dft_scanbit_waveform_analysis false /
@@ -134,7 +134,7 @@ define_scan_chain -name chain1 -sdi port:USFFT64_2B/dft_scan_input_1  -sdo port:
 define_scan_chain -name chain2 -sdi port:USFFT64_2B/dft_scan_input_2  -sdo port:USFFT64_2B/dft_scan_output_2  -analyze -non_shared_out    -write_script_flow
 # END DFT SECTION
 ::legacy::set_attribute -quiet dft_test_signals_snapshot {test_signal } design:USFFT64_2B
-::legacy::set_attribute -quiet qos_by_stage {{to_generic {wns -11111111} {tns -111111111} {vep -111111111} {area 1619194} {cell_count 49347} {utilization  0.00} {runtime 60 125 26 72} }{first_condense {wns -11111111} {tns -111111111} {vep -111111111} {area 1792566} {cell_count 73596} {utilization  0.00} {runtime 119 293 57 182} }{reify {wns 510} {tns 0} {vep 0} {area 1801822} {cell_count 53009} {utilization  0.00} {runtime 160 457 37 224} }{global_incr_map {wns 282} {tns 0} {vep 0} {area 1760127} {cell_count 51621} {utilization  0.00} {runtime 75 538 64 293} }{incr_opt {wns 214748365} {tns 0} {vep 0} {area 1740463} {cell_count 50047} {utilization  0.00} {runtime 66 664 65 404} }} design:USFFT64_2B
+::legacy::set_attribute -quiet qos_by_stage {{to_generic {wns -11111111} {tns -111111111} {vep -111111111} {area 1619194} {cell_count 49347} {utilization  0.00} {runtime 62 111 27 74} }{first_condense {wns -11111111} {tns -111111111} {vep -111111111} {area 1792361} {cell_count 73583} {utilization  0.00} {runtime 124 285 58 185} }{reify {wns 551} {tns 0} {vep 0} {area 1830746} {cell_count 56643} {utilization  0.00} {runtime 164 453 38 228} }{global_incr_map {wns 82} {tns 0} {vep 0} {area 1782672} {cell_count 54533} {utilization  0.00} {runtime 83 542 70 303} }{incr_opt {wns 214748365} {tns 0} {vep 0} {area 1765649} {cell_count 53445} {utilization  0.00} {runtime 91 697 89 442} }} design:USFFT64_2B
 ::legacy::set_attribute -quiet qos_data_collection_time 8 design:USFFT64_2B
 ::legacy::set_attribute -quiet hdl_user_name USFFT64_2B design:USFFT64_2B
 ::legacy::set_attribute -quiet hdl_filelist {{default -sv {SYNTHESIS} {../rtl/bufram64c1.v ../rtl/cnorm.v ../rtl/fft8.v ../rtl/mpu707.v ../rtl/ram2x64c_1.v ../rtl/rotator64_v.v ../rtl/usfft64_2b.v ../rtl/WROM64.v} {../rtl}}} design:USFFT64_2B
@@ -148,259 +148,259 @@ define_scan_chain -name chain2 -sdi port:USFFT64_2B/dft_scan_input_2  -sdo port:
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 port:USFFT64_2B/CLK
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 port:USFFT64_2B/CLK
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} port:USFFT64_2B/CLK
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} port:USFFT64_2B/CLK
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} port:USFFT64_2B/CLK
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 port:USFFT64_2B/RST
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 port:USFFT64_2B/RST
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 port:USFFT64_2B/RST
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 port:USFFT64_2B/RST
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} port:USFFT64_2B/RST
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} port:USFFT64_2B/RST
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} port:USFFT64_2B/RST
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 port:USFFT64_2B/ED
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 port:USFFT64_2B/ED
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 port:USFFT64_2B/ED
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 port:USFFT64_2B/ED
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} port:USFFT64_2B/ED
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} port:USFFT64_2B/ED
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} port:USFFT64_2B/ED
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 port:USFFT64_2B/START
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 port:USFFT64_2B/START
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 port:USFFT64_2B/START
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 port:USFFT64_2B/START
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} port:USFFT64_2B/START
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} port:USFFT64_2B/START
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} port:USFFT64_2B/START
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/SHIFT[3]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/SHIFT[3]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/SHIFT[3]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/SHIFT[3]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/SHIFT[3]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/SHIFT[3]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/SHIFT[3]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/SHIFT[2]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/SHIFT[2]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/SHIFT[2]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/SHIFT[2]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/SHIFT[2]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/SHIFT[2]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/SHIFT[2]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/SHIFT[1]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/SHIFT[1]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/SHIFT[1]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/SHIFT[1]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/SHIFT[1]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/SHIFT[1]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/SHIFT[1]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/SHIFT[0]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/SHIFT[0]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/SHIFT[0]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/SHIFT[0]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/SHIFT[0]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/SHIFT[0]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/SHIFT[0]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DR[15]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DR[15]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DR[15]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DR[15]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DR[15]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[15]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[15]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DR[14]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DR[14]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DR[14]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DR[14]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DR[14]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[14]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[14]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DR[13]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DR[13]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DR[13]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DR[13]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DR[13]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[13]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[13]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DR[12]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DR[12]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DR[12]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DR[12]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DR[12]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[12]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[12]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DR[11]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DR[11]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DR[11]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DR[11]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DR[11]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[11]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[11]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DR[10]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DR[10]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DR[10]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DR[10]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DR[10]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[10]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[10]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DR[9]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DR[9]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DR[9]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DR[9]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DR[9]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[9]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[9]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DR[8]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DR[8]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DR[8]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DR[8]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DR[8]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[8]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[8]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DR[7]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DR[7]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DR[7]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DR[7]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DR[7]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[7]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[7]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DR[6]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DR[6]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DR[6]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DR[6]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DR[6]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[6]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[6]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DR[5]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DR[5]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DR[5]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DR[5]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DR[5]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[5]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[5]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DR[4]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DR[4]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DR[4]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DR[4]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DR[4]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[4]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[4]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DR[3]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DR[3]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DR[3]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DR[3]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DR[3]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[3]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[3]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DR[2]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DR[2]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DR[2]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DR[2]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DR[2]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[2]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[2]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DR[1]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DR[1]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DR[1]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DR[1]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DR[1]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[1]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[1]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DR[0]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DR[0]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DR[0]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DR[0]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DR[0]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[0]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DR[0]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DI[15]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DI[15]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DI[15]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DI[15]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DI[15]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[15]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[15]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DI[14]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DI[14]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DI[14]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DI[14]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DI[14]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[14]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[14]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DI[13]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DI[13]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DI[13]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DI[13]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DI[13]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[13]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[13]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DI[12]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DI[12]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DI[12]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DI[12]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DI[12]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[12]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[12]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DI[11]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DI[11]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DI[11]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DI[11]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DI[11]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[11]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[11]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DI[10]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DI[10]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DI[10]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DI[10]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DI[10]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[10]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[10]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DI[9]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DI[9]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DI[9]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DI[9]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DI[9]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[9]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[9]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DI[8]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DI[8]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DI[8]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DI[8]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DI[8]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[8]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[8]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DI[7]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DI[7]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DI[7]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DI[7]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DI[7]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[7]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[7]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DI[6]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DI[6]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DI[6]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DI[6]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DI[6]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[6]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[6]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DI[5]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DI[5]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DI[5]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DI[5]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DI[5]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[5]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[5]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DI[4]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DI[4]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DI[4]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DI[4]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DI[4]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[4]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[4]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DI[3]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DI[3]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DI[3]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DI[3]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DI[3]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[3]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[3]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DI[2]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DI[2]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DI[2]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DI[2]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DI[2]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[2]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[2]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DI[1]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DI[1]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DI[1]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DI[1]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DI[1]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[1]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[1]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 {port:USFFT64_2B/DI[0]}
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 {port:USFFT64_2B/DI[0]}
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 {port:USFFT64_2B/DI[0]}
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 {port:USFFT64_2B/DI[0]}
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} {port:USFFT64_2B/DI[0]}
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[0]}
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} {port:USFFT64_2B/DI[0]}
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 port:USFFT64_2B/dft_shift_enable
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 port:USFFT64_2B/dft_shift_enable
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 port:USFFT64_2B/dft_shift_enable
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 port:USFFT64_2B/dft_shift_enable
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} port:USFFT64_2B/dft_shift_enable
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} port:USFFT64_2B/dft_shift_enable
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} port:USFFT64_2B/dft_shift_enable
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 port:USFFT64_2B/dft_scan_input_1
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 port:USFFT64_2B/dft_scan_input_1
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 port:USFFT64_2B/dft_scan_input_1
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 port:USFFT64_2B/dft_scan_input_1
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} port:USFFT64_2B/dft_scan_input_1
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} port:USFFT64_2B/dft_scan_input_1
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} port:USFFT64_2B/dft_scan_input_1
 ::legacy::set_attribute -quiet input_slew_max_rise 200.0 port:USFFT64_2B/dft_scan_input_2
 ::legacy::set_attribute -quiet input_slew_max_fall 200.0 port:USFFT64_2B/dft_scan_input_2
 ::legacy::set_attribute -quiet input_slew_min_rise 200.0 port:USFFT64_2B/dft_scan_input_2
 ::legacy::set_attribute -quiet input_slew_min_fall 200.0 port:USFFT64_2B/dft_scan_input_2
 ::legacy::set_attribute -quiet fixed_slew {200.0 200.0 200.0 200.0} port:USFFT64_2B/dft_scan_input_2
-::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/worst_view {200.0 200.0 200.0 200.0}}} port:USFFT64_2B/dft_scan_input_2
+::legacy::set_attribute -quiet fixed_slew_by_mode {{mode:USFFT64_2B/best_view {200.0 200.0 200.0 200.0}}} port:USFFT64_2B/dft_scan_input_2
 ::legacy::set_attribute -quiet hdl_user_name RAM2x64C_1 module:USFFT64_2B/RAM2x64C_1_nb16
 ::legacy::set_attribute -quiet hdl_filelist {{default -sv {SYNTHESIS} {../rtl/ram2x64c_1.v} {../rtl}}} module:USFFT64_2B/RAM2x64C_1_nb16
 ::legacy::set_attribute -quiet arch_filename ../rtl/ram2x64c_1.v module:USFFT64_2B/RAM2x64C_1_nb16

@@ -50,8 +50,8 @@ if {![file exists ${_REPORTS_PATH}]} {
 	file mkdir ${_REPORTS_PATH}
 } 
 
-if {![file exists "dft"]} {
-	file mkdir "dft"
+if {![file exists "dft_${DATE}"]} {
+	file mkdir "dft_${DATE}"
 }
 
 
@@ -78,12 +78,12 @@ define_dft scan_chain -name chain2 \
 
 set_compatible_test_clocks -all
 
-check_dft_rules > dft/${DESIGN}-tdrcs
+check_dft_rules > dft_${DATE}/${DESIGN}-tdrcs
 check_design -multiple_driver
 
-report dft_registers > dft/${DESIGN}-DFTregs
-report dft_setup > dft/${DESIGN}-DFTsetup_tdrc
-report_dft_violations > dft/${DESIGN}-DFTViols
+report dft_registers > dft_${DATE}/${DESIGN}-DFTregs
+report dft_setup > dft_${DATE}/${DESIGN}-DFTsetup_tdrc
+report_dft_violations > dft_${DATE}/${DESIGN}-DFTViols
 
 ##################################################################
 
@@ -144,8 +144,8 @@ report_power > $_REPORTS_PATH/map/${DESIGN}_power.rpt
 
 connect_scan_chain 
 
-report dft_chains > dft/${DESIGN}chains.log
-report dft_registers > dft/${DESIGN}reg.rpt
+report dft_chains > dft_${DATE}/${DESIGN}chains.log
+report dft_registers > dft_${DATE}/${DESIGN}reg.rpt
 #report dft_chains > dftchains.rpt
 
 ########################################################################################################
@@ -154,24 +154,35 @@ report dft_registers > dft/${DESIGN}reg.rpt
 set_db syn_opt_effort $OPT_EFF
 syn_opt
 
-set _REPORTS_PATH "reports_${DESIGN}/reports_worst"
+set _REPORTS_PATH "reports_${DATE}_${DESIGN}/reports_worst"
 puts "Exporting results for ss corner..."
+if {![file exists "reports_${DATE}_${DESIGN}"]} {
+	file mkdir "reports_${DATE}_${DESIGN}" 
+} 
 if {![file exists ${_REPORTS_PATH}]} {
 	file mkdir ${_REPORTS_PATH}
 } 
 
 # Gera reports para o pior caso
  set_analysis_view -setup worst_view -hold worst_view
- report_area > ${_REPORTS_PATH}/report_area_opt.rpt
- report_timing > ${_REPORTS_PATH}/report_timing_opt.rpt
- report_power > ${_REPORTS_PATH}/report_power_opt.rpt
- report_gates -power > ${_REPORTS_PATH}/${DESIGN}_gates_power.log
- report_dp > ${_REPORTS_PATH}/${DESIGN}_datapath_incr.log
- report_messages > ${_REPORTS_PATH}/${DESIGN}_messages.log
- write_snapshot -outdir reports -tag final
- report_summary -directory reports
 
- set _REPORTS_PATH "reports_${DESIGN}/reports_nominal"
+ # Area, Power, Timing
+ report_area                             > ${_REPORTS_PATH}/report_area_opt.rpt
+ report_power                            > ${_REPORTS_PATH}/report_power_opt.rpt
+ report_timing                           > ${_REPORTS_PATH}/report_timing_opt.rpt
+ # Gates
+ report_gates                            > ${_REPORTS_PATH}/report_gates_opt.rpt
+ report_gates -power                     > ${_REPORTS_PATH}/${DESIGN}_gates_power.rpt
+ # QoR Summary
+ report_qor                              > ${_REPORTS_PATH}/${DESIGN}_qor.rpt
+ # Hierarchy
+ report_hierarchy                        > ${_REPORTS_PATH}/${DESIGN}_hierarchy.rpt
+ # Datapath
+ report_dp                               > ${_REPORTS_PATH}/${DESIGN}_datapath.rpt
+ # Messages
+ report_messages                         > ${_REPORTS_PATH}/${DESIGN}_messages.log
+#
+ set _REPORTS_PATH "reports_${DATE}_${DESIGN}/reports_nominal"
  puts "Exporting results for tt corner..."
 if {![file exists ${_REPORTS_PATH}]} {
 	file mkdir ${_REPORTS_PATH}
@@ -180,36 +191,50 @@ if {![file exists ${_REPORTS_PATH}]} {
 
  # Gera reports para o caso nominal
  set_analysis_view -setup nominal_view -hold nominal_view
- report_area > ${_REPORTS_PATH}/report_area_opt.rpt
- report_timing > ${_REPORTS_PATH}/report_timing_opt.rpt
- report_power > ${_REPORTS_PATH}/report_power_opt.rpt
- report_gates -power > ${_REPORTS_PATH}/${DESIGN}_gates_power.log
- report_dp > ${_REPORTS_PATH}/${DESIGN}_datapath_incr.log
- report_messages > ${_REPORTS_PATH}/${DESIGN}_messages.log
- write_snapshot -outdir reports -tag final
- report_summary -directory reports
 
- set _REPORTS_PATH "reports_${DESIGN}/reports_best"
- puts "Exporting results for ff corner..."
+ # Area, Power, Timing
+ report_area                             > ${_REPORTS_PATH}/report_area_opt.rpt
+ report_power                            > ${_REPORTS_PATH}/report_power_opt.rpt
+ report_timing                           > ${_REPORTS_PATH}/report_timing_opt.rpt
+ # Gates
+ report_gates                            > ${_REPORTS_PATH}/report_gates_opt.rpt
+ report_gates -power                     > ${_REPORTS_PATH}/${DESIGN}_gates_power.rpt
+ # QoR Summary
+ report_qor                              > ${_REPORTS_PATH}/${DESIGN}_qor.rpt
+ # Hierarchy
+ report_hierarchy                        > ${_REPORTS_PATH}/${DESIGN}_hierarchy.rpt
+ # Datapath
+ report_dp                               > ${_REPORTS_PATH}/${DESIGN}_datapath.rpt
+ # Messages
+ report_messages                         > ${_REPORTS_PATH}/${DESIGN}_messages.log
+#
+
+ set _REPORTS_PATH "reports_${DATE}_${DESIGN}/reports_best"
+ puts "Exporting results for tt corner..."
 if {![file exists ${_REPORTS_PATH}]} {
 	file mkdir ${_REPORTS_PATH}
 } 
 
  # Gera reports para o melhor caso
  set_analysis_view -setup best_view -hold best_view
- report_area > ${_REPORTS_PATH}/report_area_opt.rpt
- report_timing > ${_REPORTS_PATH}/report_timing_opt.rpt
- report_power > ${_REPORTS_PATH}/report_power_opt.rpt
- report_gates -power > ${_REPORTS_PATH}/${DESIGN}_gates_power.log
- report_dp > ${_REPORTS_PATH}/${DESIGN}_datapath_incr.log
- report_messages > ${_REPORTS_PATH}/${DESIGN}_messages.log
- write_snapshot -outdir reports -tag final
- report_summary -directory reports
 
-set_analysis_view -setup worst_view -hold best_view
-write_db $DESIGN -to_file ${DESIGN}.db
-#Outputs
-write_hdl > ${_OUTPUTS_PATH}/mac_netlist.vf 
+ # Area, Power, Timing
+ report_area                             > ${_REPORTS_PATH}/report_area_opt.rpt
+ report_power                            > ${_REPORTS_PATH}/report_power_opt.rpt
+ report_timing                           > ${_REPORTS_PATH}/report_timing_opt.rpt
+ # Gates
+ report_gates                            > ${_REPORTS_PATH}/report_gates_opt.rpt
+ report_gates -power                     > ${_REPORTS_PATH}/${DESIGN}_gates_power.rpt
+ # QoR Summary
+ report_qor                              > ${_REPORTS_PATH}/${DESIGN}_qor.rpt
+ # Hierarchy
+ report_hierarchy                        > ${_REPORTS_PATH}/${DESIGN}_hierarchy.rpt
+ # Datapath
+ report_dp                               > ${_REPORTS_PATH}/${DESIGN}_datapath.rpt
+ # Messages
+ report_messages                         > ${_REPORTS_PATH}/${DESIGN}_messages.log
+#
+
 if {![file exists "outputs"]} {
 	file mkdir "outputs"
 } 

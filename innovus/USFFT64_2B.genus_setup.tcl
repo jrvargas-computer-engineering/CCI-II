@@ -2,7 +2,7 @@
 #
 # Genus(TM) Synthesis Solution setup file
 # Created by Genus(TM) Synthesis Solution GENUS15.22 - 15.20-s024_1
-#   on 05/19/2025 22:29:49
+#   on 05/21/2025 16:37:06
 #
 # This file can only be run in Genus Common UI mode.
 #
@@ -44,13 +44,13 @@ set _slk_ [::legacy::get_attribute slack design:USFFT64_2B]
 if {[regexp {^-?[0-9.]+$} $_slk_]} {
   set _slk_ [format %.1f $_slk_]
 }
-if {$_slk_ != "0.3"} {
-   mesg_send [::legacy::find -message /messages/PHYS/PHYS-92] "golden slack: 0.3,  current slack: $_slk_"
+if {$_slk_ != "3332.6"} {
+   mesg_send [::legacy::find -message /messages/PHYS/PHYS-92] "golden slack: 3332.6,  current slack: $_slk_"
 }
 unset _slk_
 # multi-mode slack
-if {"[string_representation [::legacy::get_attribute slack_by_mode design:USFFT64_2B]]" != "{{mode:USFFT64_2B/worst_view 0.3}}"} {
-   mesg_send [::legacy::find -message /messages/PHYS/PHYS-92] "golden slack_by_mode: {{mode:USFFT64_2B/worst_view 0.3}}  current slack_by_mode: [string_representation [::legacy::get_attribute slack_by_mode design:USFFT64_2B]]"
+if {"[string_representation [::legacy::get_attribute slack_by_mode design:USFFT64_2B]]" != "{{mode:USFFT64_2B/best_view 3332.6}}"} {
+   mesg_send [::legacy::find -message /messages/PHYS/PHYS-92] "golden slack_by_mode: {{mode:USFFT64_2B/best_view 3332.6}}  current slack_by_mode: [string_representation [::legacy::get_attribute slack_by_mode design:USFFT64_2B]]"
 }
 # tns
 set _tns_ [::legacy::get_attribute tns design:USFFT64_2B]
@@ -66,8 +66,8 @@ set _cell_area_ [::legacy::get_attribute cell_area design:USFFT64_2B]
 if {[regexp {^-?[0-9.]+$} $_cell_area_]} {
   set _cell_area_ [format %.0f $_cell_area_]
 }
-if {$_cell_area_ != "1740464"} {
-   mesg_send [::legacy::find -message /messages/PHYS/PHYS-92] "golden cell area: 1740464,  current cell area: $_cell_area_"
+if {$_cell_area_ != "1765649"} {
+   mesg_send [::legacy::find -message /messages/PHYS/PHYS-92] "golden cell area: 1765649,  current cell area: $_cell_area_"
 }
 unset _cell_area_
 # net area
@@ -75,8 +75,8 @@ set _net_area_ [::legacy::get_attribute net_area design:USFFT64_2B]
 if {[regexp {^-?[0-9.]+$} $_net_area_]} {
   set _net_area_ [format %.0f $_net_area_]
 }
-if {$_net_area_ != "768712"} {
-   mesg_send [::legacy::find -message /messages/PHYS/PHYS-92] "golden net area: 768712,  current net area: $_net_area_"
+if {$_net_area_ != "804400"} {
+   mesg_send [::legacy::find -message /messages/PHYS/PHYS-92] "golden net area: 804400,  current net area: $_net_area_"
 }
 unset _net_area_
 # scan chain count
