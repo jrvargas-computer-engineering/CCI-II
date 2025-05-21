@@ -6,6 +6,7 @@ set OPT_EFF medium
 set DATE [clock format [clock seconds] -format "%b%d-%T"] 
 set _OUTPUTS_PATH outputs_${DATE}
 set _REPORTS_PATH reports_${DATE}
+set _DFT_PATH dft_${DATE}
 set _LOG_PATH logs_${DATE}
 
 set MMMC_FILE ../constraints/mmmc.tcl
@@ -50,12 +51,9 @@ if {![file exists ${_REPORTS_PATH}]} {
 	file mkdir ${_REPORTS_PATH}
 } 
 
-if {![file exists "dft_${DATE}"]} {
-	file mkdir "dft_${DATE}"
+if {![file exists ${_DFT_PATH}]} {
+	file mkdir ${_DFT_PATH}
 }
-
-
-
 
 ##################################################################
 ## DFT Setup
@@ -78,12 +76,12 @@ define_dft scan_chain -name chain2 \
 
 set_compatible_test_clocks -all
 
-check_dft_rules > dft_${DATE}/${DESIGN}-tdrcs
+check_dft_rules         > ${_DFT_PATH}/dft_tdrcs
 check_design -multiple_driver
 
-report dft_registers > dft_${DATE}/${DESIGN}-DFTregs
-report dft_setup > dft_${DATE}/${DESIGN}-DFTsetup_tdrc
-report_dft_violations > dft_${DATE}/${DESIGN}-DFTViols
+report dft_registers    > ${_DFT_PATH}/dft_DFTregs
+report dft_setup        > ${_DFT_PATH}/dft_DFTsetup_tdrc
+report_dft_violations   > ${_DFT_PATH}/dft_DFTViols
 
 ##################################################################
 
@@ -114,9 +112,9 @@ if {![file exists ${_REPORTS_PATH}/generic]} {
 	file mkdir ${_REPORTS_PATH}/generic
 } 
 
-report_area > $_REPORTS_PATH/generic/${DESIGN}_area.rpt
-report_timing > $_REPORTS_PATH/generic/${DESIGN}_timing.rpt
-report_power > $_REPORTS_PATH/generic/${DESIGN}_power.rpt
+report_area     > $_REPORTS_PATH/generic/${DESIGN}_area.rpt
+report_timing   > $_REPORTS_PATH/generic/${DESIGN}_timing.rpt
+report_power    > $_REPORTS_PATH/generic/${DESIGN}_power.rpt
 
 ####################################################################################################
 ## Synthesizing to gates
@@ -129,9 +127,9 @@ if {![file exists ${_REPORTS_PATH}/map]} {
 	file mkdir ${_REPORTS_PATH}/map
 } 
 
-report_area > $_REPORTS_PATH/map/${DESIGN}_area.rpt
-report_timing > $_REPORTS_PATH/map/${DESIGN}_timing.rpt
-report_power > $_REPORTS_PATH/map/${DESIGN}_power.rpt
+report_area     > $_REPORTS_PATH/map/${DESIGN}_area.rpt
+report_timing   > $_REPORTS_PATH/map/${DESIGN}_timing.rpt
+report_power    > $_REPORTS_PATH/map/${DESIGN}_power.rpt
 
 #foreach cg [vfind / -cost_group *] {
 #  report_timing -cost_group [list $cg] > reports/${DESIGN}_[vbasename $cg]_post_map.rpt
@@ -144,8 +142,8 @@ report_power > $_REPORTS_PATH/map/${DESIGN}_power.rpt
 
 connect_scan_chain 
 
-report dft_chains > dft_${DATE}/${DESIGN}chains.log
-report dft_registers > dft_${DATE}/${DESIGN}reg.rpt
+report dft_chains       > ${_DFT_PATH}/${DESIGN}chains.log
+report dft_registers    > ${_DFT_PATH}/${DESIGN}reg.rpt
 #report dft_chains > dftchains.rpt
 
 ########################################################################################################
@@ -165,49 +163,39 @@ if {![file exists ${_REPORTS_PATH}]} {
 
 # Gera reports para o pior caso
  set_analysis_view -setup worst_view -hold worst_view
-
- # Area, Power, Timing
- report_area                             > ${_REPORTS_PATH}/report_area_opt.rpt
- report_power                            > ${_REPORTS_PATH}/report_power_opt.rpt
- report_timing                           > ${_REPORTS_PATH}/report_timing_opt.rpt
- # Gates
- report_gates                            > ${_REPORTS_PATH}/report_gates_opt.rpt
- report_gates -power                     > ${_REPORTS_PATH}/${DESIGN}_gates_power.rpt
- # QoR Summary
- report_qor                              > ${_REPORTS_PATH}/${DESIGN}_qor.rpt
- # Hierarchy
- report_hierarchy                        > ${_REPORTS_PATH}/${DESIGN}_hierarchy.rpt
- # Datapath
- report_dp                               > ${_REPORTS_PATH}/${DESIGN}_datapath.rpt
- # Messages
- report_messages                         > ${_REPORTS_PATH}/${DESIGN}_messages.log
+    report_summary                             > ${_REPORTS_PATH}/report_summary.rpt
+    report_area                                > ${_REPORTS_PATH}/report_area_opt.rpt
+    report_power                               > ${_REPORTS_PATH}/report_power_opt.rpt
+    report_timing                              > ${_REPORTS_PATH}/report_timing_opt.rpt
+    report_gates                               > ${_REPORTS_PATH}/report_gates_opt.rpt
+    report_gates -power                        > ${_REPORTS_PATH}/report_gates_power.rpt
+    report_qor                                 > ${_REPORTS_PATH}/report_qor.rpt
+    report_hierarchy                           > ${_REPORTS_PATH}/report_hierarchy.rpt
+    report_dp                                  > ${_REPORTS_PATH}/report_datapath.rpt
+    report_instance                            > ${_REPORTS_PATH}/report_instances.rpt
+    report_drc                                 > ${_REPORTS_PATH}/report_drc.rpt
+    report_messages                            > ${_REPORTS_PATH}/report_messages.log
 #
  set _REPORTS_PATH "reports_${DATE}_${DESIGN}/reports_nominal"
  puts "Exporting results for tt corner..."
 if {![file exists ${_REPORTS_PATH}]} {
 	file mkdir ${_REPORTS_PATH}
 } 
-
-
  # Gera reports para o caso nominal
  set_analysis_view -setup nominal_view -hold nominal_view
+    report_summary                             > ${_REPORTS_PATH}/report_summary.rpt
+    report_area                                > ${_REPORTS_PATH}/report_area_opt.rpt
+    report_power                               > ${_REPORTS_PATH}/report_power_opt.rpt
+    report_timing                              > ${_REPORTS_PATH}/report_timing_opt.rpt
+    report_gates                               > ${_REPORTS_PATH}/report_gates_opt.rpt
+    report_gates -power                        > ${_REPORTS_PATH}/report_gates_power.rpt
+    report_qor                                 > ${_REPORTS_PATH}/report_qor.rpt
+    report_hierarchy                           > ${_REPORTS_PATH}/report_hierarchy.rpt
+    report_dp                                  > ${_REPORTS_PATH}/report_datapath.rpt
+    report_instance                            > ${_REPORTS_PATH}/report_instances.rpt
+    report_drc                                 > ${_REPORTS_PATH}/report_drc.rpt
+    report_messages                            > ${_REPORTS_PATH}/report_messages.log
 
- # Area, Power, Timing
- report_area                             > ${_REPORTS_PATH}/report_area_opt.rpt
- report_power                            > ${_REPORTS_PATH}/report_power_opt.rpt
- report_timing                           > ${_REPORTS_PATH}/report_timing_opt.rpt
- # Gates
- report_gates                            > ${_REPORTS_PATH}/report_gates_opt.rpt
- report_gates -power                     > ${_REPORTS_PATH}/${DESIGN}_gates_power.rpt
- # QoR Summary
- report_qor                              > ${_REPORTS_PATH}/${DESIGN}_qor.rpt
- # Hierarchy
- report_hierarchy                        > ${_REPORTS_PATH}/${DESIGN}_hierarchy.rpt
- # Datapath
- report_dp                               > ${_REPORTS_PATH}/${DESIGN}_datapath.rpt
- # Messages
- report_messages                         > ${_REPORTS_PATH}/${DESIGN}_messages.log
-#
 
  set _REPORTS_PATH "reports_${DATE}_${DESIGN}/reports_best"
  puts "Exporting results for tt corner..."
@@ -217,43 +205,25 @@ if {![file exists ${_REPORTS_PATH}]} {
 
  # Gera reports para o melhor caso
  set_analysis_view -setup best_view -hold best_view
-
- # Area, Power, Timing
- report_area                             > ${_REPORTS_PATH}/report_area_opt.rpt
- report_power                            > ${_REPORTS_PATH}/report_power_opt.rpt
- report_timing                           > ${_REPORTS_PATH}/report_timing_opt.rpt
- # Gates
- report_gates                            > ${_REPORTS_PATH}/report_gates_opt.rpt
- report_gates -power                     > ${_REPORTS_PATH}/${DESIGN}_gates_power.rpt
- # QoR Summary
- report_qor                              > ${_REPORTS_PATH}/${DESIGN}_qor.rpt
- # Hierarchy
- report_hierarchy                        > ${_REPORTS_PATH}/${DESIGN}_hierarchy.rpt
- # Datapath
- report_dp                               > ${_REPORTS_PATH}/${DESIGN}_datapath.rpt
- # Messages
- report_messages                         > ${_REPORTS_PATH}/${DESIGN}_messages.log
-#
+    report_summary                             > ${_REPORTS_PATH}/report_summary.rpt
+    report_area                                > ${_REPORTS_PATH}/report_area_opt.rpt
+    report_power                               > ${_REPORTS_PATH}/report_power_opt.rpt
+    report_timing                              > ${_REPORTS_PATH}/report_timing_opt.rpt
+    report_gates                               > ${_REPORTS_PATH}/report_gates_opt.rpt
+    report_gates -power                        > ${_REPORTS_PATH}/report_gates_power.rpt
+    report_qor                                 > ${_REPORTS_PATH}/report_qor.rpt
+    report_hierarchy                           > ${_REPORTS_PATH}/report_hierarchy.rpt
+    report_dp                                  > ${_REPORTS_PATH}/report_datapath.rpt
+    report_instance                            > ${_REPORTS_PATH}/report_instances.rpt
+    report_drc                                 > ${_REPORTS_PATH}/report_drc.rpt
+    report_messages                            > ${_REPORTS_PATH}/report_messages.log
 
 if {![file exists "outputs"]} {
 	file mkdir "outputs"
 } 
 
-write_sdc -constraint_mode default_constraints  > outputs/mac_netlist_constraints.sdc
+write_sdc -constraint_mode default_constraints  > ${_OUTPUTS_PATH}/mac_netlist_constraints.sdc
 write_sdf -timescale ns -nonegchecks -recrem split -edges check_edge  -setuphold split > outputs/delays.sdf
-write_scandef > ${_OUTPUTS_PATH}/scan_chain.def
+write_scandef                                   > ${_OUTPUTS_PATH}/scan_chain.def
 write_design -innovus -base_name ../innovus/${DESIGN}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
