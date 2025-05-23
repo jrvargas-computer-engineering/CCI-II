@@ -1,0 +1,83 @@
+
+Design Name
+===========
+    USFFT64_2B
+
+Scan Style
+==========
+    muxed_scan
+Design has a valid DFT rule check status
+
+Global Constraints
+==================
+    Minimum number of scan chains: no_value
+    Maximum length of scan chains: no_value
+    Lock-up element type: preferred_level_sensitive
+    Mix clock edges in scan chain: false
+    Prefix for unnamed scan objects: DFT_
+
+Test signal objects
+===================
+    shift_enable: 
+          object name: test_signal 
+          pin name: dft_shift_enable 
+          hookup_pin: dft_shift_enable 
+          hookup_polarity: non_inverted 
+          function: shift_enable 
+          active: high 
+          ideal: false 
+          user defined: true
+
+
+Test clock objects
+==================
+    test_clock:
+          object name: CLK 
+          test_clock_domain: CLK 
+          user defined: false 
+          source: CLK  
+          root source: CLK  
+          root source polarity: non_inverting
+          hookup_pin: CLK 
+          period: 50000.0
+
+
+DFT controllable objects
+========================
+
+DFT don't scan objects
+======================
+
+DFT abstract don't scan objects
+===============================
+
+DFT scan segment constraints
+============================
+
+DFT scan chain constraints
+==========================
+    User Chain: 
+          object name: chain1 
+          scan-in: dft_scan_input_1 
+          scan-in hookup_pin: dft_scan_input_1
+          scan-out: dft_scan_output_1 
+          scan-out hookup_pin: dft_scan_output_1
+          shared out: false 
+          shift_enable object name: test_signal 
+          max length: no_value
+          complete: false
+
+    User Chain: 
+          object name: chain2 
+          scan-in: dft_scan_input_2 
+          scan-in hookup_pin: dft_scan_input_2
+          scan-out: dft_scan_output_2 
+          scan-out hookup_pin: dft_scan_output_2
+          shared out: false 
+          shift_enable object name: test_signal 
+          max length: no_value
+          complete: false
+
+
+DFT actual scan chains
+======================

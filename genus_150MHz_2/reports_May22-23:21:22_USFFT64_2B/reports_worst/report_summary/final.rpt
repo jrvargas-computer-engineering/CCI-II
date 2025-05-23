@@ -1,0 +1,46 @@
+
+
+Working Directory = /home/inf01194/luis.mendes/fft64/genus_150MHz_2
+QoS Summary for USFFT64_2B
+========================================================================================
+Metric                  final     
+========================================================================================
+Slack (ps):                  0.0
+  R2R (ps):                  0.0
+  I2R (ps):             no_value
+  R2O (ps):                249.5
+  I2O (ps):             no_value
+  CG  (ps):             no_value
+TNS (ps):                      0
+  R2R (ps):                  0.0
+  I2R (ps):             no_value
+  R2O (ps):                  0.0
+  I2O (ps):             no_value
+  CG  (ps):             no_value
+Failing Paths:                 0
+Area:                    1765649
+Instances:                 53445
+Utilization (%):            0.00
+Tot. Net Length (um):   no_value
+Avg. Net Length (um):   no_value
+Total Overflow H:              0
+Total Overflow V:              0
+Route Overflow H (%):   no_value
+Route Overflow V (%):   no_value
+========================================================================================
+CPU  Runtime (m:s):        07:21
+Real Runtime (m:s):        11:47
+CPU  Elapsed (m:s):        07:31
+Real Elapsed (m:s):        11:50
+Memory (MB):              845.98
+========================================================================================
+
+========================================================================================
+Flow Settings:
+========================================================================================
+Total Runtime (m:s): 11:54
+Total Memory (MB):   845.98
+Executable Version:  15.22
+========================================================================================
+
+
