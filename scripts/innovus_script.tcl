@@ -12,14 +12,14 @@ set_db init_ground_nets {padring/GNDO padring/GNDR gnd!}
 eval_legacy { setDesignMode -process 180 } 
 
 ##Set the initial variable
-source ../innovus/ULA.invs_setup.tcl
+source ../innovus/USFFT64_2B.invs_setup.tcl
 gui_fit
 puts "done" 
 suspend
 
 puts "Reading IO file"
 ##Read IO file
-read_io_file ../io/ULA_MOD.save.io 
+read_io_file ../io/USFFT64_2B_MOD.save.io 
 gui_fit
 puts "done" 
 suspend
