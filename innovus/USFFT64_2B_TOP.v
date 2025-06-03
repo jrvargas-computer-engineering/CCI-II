@@ -46,4 +46,4 @@ module USFFT64_2B_TOP
     .dft_scan_output_2(dft_scan_output_2_C)
   );
 
-endmodule;
+endmodule
