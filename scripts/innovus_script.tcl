@@ -19,7 +19,7 @@ suspend
 
 puts "Reading IO file"
 ##Read IO file
-read_io_file ../io/USFFT64_2B_MOD.save.io 
+read_io_file ../io/USFFT64_2B_TOP.save.io 
 gui_fit
 puts "done" 
 suspend
