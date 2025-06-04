@@ -11,7 +11,5 @@ read_physical -lef { /pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/xc01
 read_mmmc ../innovus/USFFT64_2B.mmmc.tcl
 
 read_netlist ../innovus/USFFT64_2B.v
-read_netlist ../innovus/USFFT64_2B_RING.v
-read_netlist ../innovus/USFFT64_2B_TOP.v
 
 init_design

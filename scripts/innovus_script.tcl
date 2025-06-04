@@ -1,12 +1,12 @@
 ##Loading std cell libs / netlist / constraints / setting vdd/gnd
 ##Set the power nets
 puts "Project Initialization"
-set_db init_power_nets {padring/VDD padring/VDDR padring/VDDO vdd!}
-set_db init_ground_nets {padring/GNDO padring/GNDR gnd!}
+set_db init_power_nets {u_ring/VDD u_ring/VDDR u_ring/VDDO vdd!}
+set_db init_ground_nets {u_ring/GNDO u_ring/GNDR gnd!}
 
 ##Example
-##set_db init_power_nets {padring/VDD padring/VDDR padring/VDDO vdd!}
-##set_db init_ground_nets {padring/GNDO padring/GNDR gnd!}
+##set_db init_power_nets {u_ring/VDD u_ring/VDDR u_ring/VDDO vdd!}
+##set_db init_ground_nets {u_ring/GNDO u_ring/GNDR gnd!}
 
 ##Set library
 eval_legacy { setDesignMode -process 180 } 
@@ -68,22 +68,22 @@ suspend
 puts "Starting Power Planning"
 ##Set Power nets. All wire of netlist and the main power supply vdd! and gnd!
 delete_global_net_connections
-connect_global_net padring/VDD  -type tiehi -all -verbose -netlist_override
-connect_global_net padring/VDDR -type tiehi -all -verbose -netlist_override
-connect_global_net padring/VDDO -type tiehi -all -verbose -netlist_override
-connect_global_net padring/GNDR -type tielo -all -verbose -netlist_override
-connect_global_net padring/GNDO -type tielo -all -verbose -netlist_override
+connect_global_net u_ring/VDD  -type tiehi -all -verbose -netlist_override
+connect_global_net u_ring/VDDR -type tiehi -all -verbose -netlist_override
+connect_global_net u_ring/VDDO -type tiehi -all -verbose -netlist_override
+connect_global_net u_ring/GNDR -type tielo -all -verbose -netlist_override
+connect_global_net u_ring/GNDO -type tielo -all -verbose -netlist_override
 connect_global_net gnd! -type tielo -all -verbose -netlist_override
 connect_global_net vdd! -type tiehi -all -verbose -netlist_override
 
-connect_global_net padring/VDD -type pgpin -pin_base_name VDD -all -verbose 
+connect_global_net u_ring/VDD -type pgpin -pin_base_name VDD -all -verbose 
 connect_global_net vdd! -type pgpin -pin_base_name vdd! -all -override -verbose -netlist_override
 connect_global_net vdd! -type pgpin -pin_base_name VDDI -all -override -verbose -netlist_override
 
-connect_global_net padring/VDDR -type pgpin -pin_base_name VDDR -all -verbose 
-connect_global_net padring/VDDO -type pgpin -pin_base_name VDDO -all -verbose 
-connect_global_net padring/GNDR -type pgpin -pin_base_name GNDR -all -verbose 
-connect_global_net padring/GNDO -type pgpin -pin_base_name GNDO -all -verbose 
+connect_global_net u_ring/VDDR -type pgpin -pin_base_name VDDR -all -verbose 
+connect_global_net u_ring/VDDO -type pgpin -pin_base_name VDDO -all -verbose 
+connect_global_net u_ring/GNDR -type pgpin -pin_base_name GNDR -all -verbose 
+connect_global_net u_ring/GNDO -type pgpin -pin_base_name GNDO -all -verbose 
 
 connect_global_net gnd! -type pgpin -pin_base_name gnd! -all -override -verbose -netlist_override
 connect_global_net gnd! -type pgpin -pin_base_name GNDI -all -override -verbose -netlist_override
@@ -148,7 +148,7 @@ puts "done"
 suspend
 
 puts "Power routing"
-###route_special -connect {block_pin core_pin pad_pin pad_ring floating_stripe} -layer_change_range {MET1 METTP } -block_pin_target {nearest_target} -pad_pin_port_connect {all_port one_geom} -pad_ring_layer {MET1 MET5}   -pad_pin_target { nearest_target} -core_pin_target {first_after_row_end} -block_pin {all} -allow_jogging 1  -crossover_via_layer_range {MET1 METTP} -allow_layer_change 1 -target_via_layer_range {MET1 METTP} -nets {padring/VDD padring/VDDR padring/VDDO padring/GNDO padring/GNDR gnd! vdd!}
+###route_special -connect {block_pin core_pin pad_pin pad_ring floating_stripe} -layer_change_range {MET1 METTP } -block_pin_target {nearest_target} -pad_pin_port_connect {all_port one_geom} -pad_ring_layer {MET1 MET5}   -pad_pin_target { nearest_target} -core_pin_target {first_after_row_end} -block_pin {all} -allow_jogging 1  -crossover_via_layer_range {MET1 METTP} -allow_layer_change 1 -target_via_layer_range {MET1 METTP} -nets {u_ring/VDD u_ring/VDDR u_ring/VDDO u_ring/GNDO u_ring/GNDR gnd! vdd!}
 route_special -connect_aligned_block_and_pad_pin {pad_pin_as_target} \
 -connect {block_pin core_pin pad_pin pad_ring floating_stripe} \
 -layer_change_range {MET1 METTP } \
@@ -162,7 +162,7 @@ route_special -connect_aligned_block_and_pad_pin {pad_pin_as_target} \
 -crossover_via_layer_range {MET1 METTP} \
 -allow_layer_change 1 \
 -target_via_layer_range {MET1 METTP} \
--nets {padring/VDD padring/VDDR padring/VDDO padring/GNDO padring/GNDR gnd! vdd!}
+-nets {u_ring/VDD u_ring/VDDR u_ring/VDDO u_ring/GNDO u_ring/GNDR gnd! vdd!}
 
 gui_fit
 puts "done" 
