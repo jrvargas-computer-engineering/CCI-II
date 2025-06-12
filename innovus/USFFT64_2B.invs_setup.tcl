@@ -24,7 +24,7 @@ source ../innovus/USFFT64_2B.invs_init.tcl
 ######################
 read_metric -id current ../innovus/USFFT64_2B.metrics.json 
 
-read_def ../innovus/USFFT64_2B.scan.def
+#read_def ../innovus/USFFT64_2B.scan.def
 
 
 # Mode Setup

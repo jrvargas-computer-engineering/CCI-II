@@ -97,7 +97,8 @@ puts "Scan_chain"
 eval_legacy {setViaGenMode -ignore_viarule_enclosure false}
 
 ##set scan chain
-##create_scan_chain -name chan1 -start scan_in -stop scan_out
+create_scan_chain -name chain1 -start dft_scan_input_1 -stop dft_scan_output_1
+create_scan_chain -name chain2 -start dft_scan_input_2 -stop dft_scan_output_2
 puts "done" 
 suspend
 
