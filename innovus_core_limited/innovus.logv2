@@ -1,0 +1,839 @@
+[06/17 20:24:39     0s] 
+[06/17 20:24:39     0s] Cadence Innovus(TM) Implementation System.
+[06/17 20:24:39     0s] Copyright 2015 Cadence Design Systems, Inc. All rights reserved worldwide.
+[06/17 20:24:39     0s] 
+[06/17 20:24:39     0s] Version:	v15.20-p005_1, built Wed Nov 11 11:16:39 PST 2015
+[06/17 20:24:39     0s] Options:	-common_ui 
+[06/17 20:24:39     0s] Date:		Tue Jun 17 20:24:39 2025
+[06/17 20:24:39     0s] Host:		pgmicro01.ufrgs.br (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (10cores*40cpus*Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz 25600KB)
+[06/17 20:24:39     0s] OS:		CentOS Linux release 7.9.2009 (Core)
+[06/17 20:24:39     0s] 
+[06/17 20:24:39     0s] License:
+[06/17 20:24:39     0s] 		invs	Innovus Implementation System	15.2	checkout succeeded
+[06/17 20:24:39     0s] 		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+[06/17 20:24:57    12s] @(#)CDS: Innovus v15.20-p005_1 (64bit) 11/11/2015 11:16 (Linux 2.6.18-194.el5)
+[06/17 20:24:57    12s] @(#)CDS: NanoRoute 15.20-p005_1 NR151028-1715/15_20-UB (database version 2.30, 298.6.1) {superthreading v1.26}
+[06/17 20:24:57    12s] @(#)CDS: AAE 15.20-p002 (64bit) 11/11/2015 (Linux 2.6.18-194.el5)
+[06/17 20:24:57    12s] @(#)CDS: CTE 15.20-p001_1 () Oct 29 2015 01:50:39 ( )
+[06/17 20:24:57    12s] @(#)CDS: SYNTECH 15.20-b002_1 () Oct 20 2015 02:35:29 ( )
+[06/17 20:24:57    12s] @(#)CDS: CPE v15.20-p002
+[06/17 20:24:57    12s] @(#)CDS: IQRC/TQRC 15.1.2-s269 (64bit) Mon Aug 24 18:22:18 PDT 2015 (Linux 2.6.18-194.el5)
+[06/17 20:24:57    12s] @(#)CDS: OA 22.50-p028 Thu Jul 23 14:59:57 2015
+[06/17 20:24:57    12s] @(#)CDS: SGN 10.10-p124 (19-Aug-2014) (64 bit executable)
+[06/17 20:24:57    12s] @(#)CDS: RCDB 11.6
+[06/17 20:24:57    12s] --- Running on pgmicro01.ufrgs.br (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (10cores*40cpus*Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz 25600KB) ---
+[06/17 20:24:57    12s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_21987_pgmicro01.ufrgs.br_luis.mendes_aOuNnu.
+
+[06/17 20:24:57    12s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_21987_pgmicro01.ufrgs.br_luis.mendes_aOuNnu.
+[06/17 20:24:57    12s] 
+[06/17 20:24:58    13s] 
+[06/17 20:24:58    13s] **INFO:  MMMC transition support version v31-84 
+[06/17 20:24:58    13s] 
+[06/17 20:25:06    15s] [DEV]innovus 1> source ../scripts/innovus_modif.tcl 
+Project Initialization
+[06/17 20:26:10    23s] Applying the recommended capacitance filtering threshold values for 180nm process node: total_c_th=5, relative_c_th=0.03 and coupling_c_th=3.
+[06/17 20:26:10    23s] 	These values will be used by all post-route extraction engines, including tQuantus, IQRC and Quantus QRC extraction.
+[06/17 20:26:10    23s] 	For postRoute effortLevel low extraction, the coupling_c_th value will be used only when the -capFilterMode parameter of the setExtractRCMode command is set to relAndCoup or relOrCoup. Default value of -capFilterMode parameter in postRoute extraction effortLevel low is relOnly.
+[06/17 20:26:10    23s] 	The accuracy mode for postRoute effortLevel low extraction will be set to 'standard'.
+[06/17 20:26:10    23s] 	Default value for EffortLevel(-effortLevel option of the setExtractRCMode) in postRoute extraction mode is 'low'.
+[06/17 20:26:10    23s] Updating process node dependent CCOpt properties for the 180nm process node.
+[06/17 20:26:10    24s] Starting library reading in 'Multi-threaded flow' (with '8' threads)
+[06/17 20:26:10    24s] 
+[06/17 20:26:10    24s] Threads Configured:8
+[06/17 20:26:11    31s] Reading best_libset timing library /pdk/xfab/XC018_61_3.1.3/synopsys/xc018/MOSST/D_CELLS_MOSST_fast_1_98V_m40C.lib.
+[06/17 20:26:11    31s] **WARN: (TECHLIB-436):	Attribute 'max_capacitance' on 'output/inout' pin 'SIG' of cell 'SIGNALHOLD' is not defined in the library.
+[06/17 20:26:11    31s] Read 811 cells in  D_CELLS_MOSST_fast_1_98V_m40C.
+[06/17 20:26:11    31s] Reading best_libset timing library /pdk/xfab/XC018_61_3.1.3/synopsys/xc018/MOS3ST/IO_CELLS_3V_MOS3ST_fast_1_98V_3_30V_m40C.lib.
+[06/17 20:26:11    31s] Read 414 cells in  IO_CELLS_3V_MOS3ST_fast_1_98V_3_30V_m40C.
+[06/17 20:26:11    31s] Library reading multithread flow ended.
+[06/17 20:26:11    31s] 
+[06/17 20:26:11    31s] Loading LEF file /pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/xc018m6_FE.lef ...
+[06/17 20:26:11    31s] 
+[06/17 20:26:11    31s] Loading LEF file /pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/IO_CELLS_F5V.lef ...
+[06/17 20:26:11    31s] Set DBUPerIGU to M2 pitch 630.
+[06/17 20:26:12    32s] 
+[06/17 20:26:12    32s] Loading LEF file /pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/D_CELLS.lef ...
+[06/17 20:26:12    32s] **WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNACELL10' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-200' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNACELL2' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-200' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNACELL25' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-200' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNACELL5' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-200' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNACELLN10' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-200' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNACELLN2' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-200' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNACELLN25' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-200' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNACELLN5' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-200' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-200):	Pin 'Q' in macro 'BTHCX12' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-200' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-200):	Pin 'Q' in macro 'BTHCX16' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-200' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-200):	Pin 'Q' in macro 'BTHCX20' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-200' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-200):	Pin 'Q' in macro 'BTHCX4' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-200' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-200):	Pin 'Q' in macro 'BTHCX6' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-200' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-200):	Pin 'Q' in macro 'BTHCX8' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-200' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-200):	Pin 'Q' in macro 'BTHX0' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-200' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-200):	Pin 'Q' in macro 'BTHX1' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-200' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-200):	Pin 'Q' in macro 'BTHX12' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-200' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-200):	Pin 'Q' in macro 'BTHX16' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-200' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-200):	Pin 'Q' in macro 'BTHX2' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-200' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-200):	Pin 'Q' in macro 'BTHX20' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-200' for more detail.
+[06/17 20:26:12    32s] **WARN: (EMS-27):	Message (IMPLF-200) has exceeded the current message display limit of 20.
+[06/17 20:26:12    32s] To increase the message display limit, refer to the product command reference manual.
+[06/17 20:26:12    32s] **WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT8SMF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-201' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT8SF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-201' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT8F' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-201' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT4SMF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-201' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT4SF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-201' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT4F' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-201' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT2SF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-201' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT2F' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-201' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT24SMF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-201' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT24SF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-201' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT24F' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-201' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT1F' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-201' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT16SMF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-201' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT16SF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-201' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT16F' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-201' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-201):	Pin 'PAD' in macro 'BOTGD8SMF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-201' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-201):	Pin 'PAD' in macro 'BOTGD8SF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-201' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-201):	Pin 'PAD' in macro 'BOTGD8F' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-201' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-201):	Pin 'PAD' in macro 'BOTGD4SMF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-201' for more detail.
+[06/17 20:26:12    32s] **WARN: (IMPLF-201):	Pin 'PAD' in macro 'BOTGD4SF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[06/17 20:26:12    32s] Type 'man IMPLF-201' for more detail.
+[06/17 20:26:12    32s] **WARN: (EMS-27):	Message (IMPLF-201) has exceeded the current message display limit of 20.
+[06/17 20:26:12    32s] To increase the message display limit, refer to the product command reference manual.
+[06/17 20:26:12    32s] 
+[06/17 20:26:12    32s] viaInitial starts at Tue Jun 17 20:26:12 2025
+[06/17 20:26:12    32s] viaInitial ends at Tue Jun 17 20:26:12 2025
+[06/17 20:26:12    32s] *** Begin netlist parsing (mem=619.9M) ***
+[06/17 20:26:12    32s] **WARN: (IMPVL-159):	Pin '\gnd! ' of cell 'FEEDCAP25LP' is defined in LEF but not in the timing library.
+[06/17 20:26:12    32s] **WARN: (IMPVL-159):	Pin '\vdd! ' of cell 'FEEDCAP25LP' is defined in LEF but not in the timing library.
+[06/17 20:26:12    32s] **WARN: (IMPVL-159):	Pin '\gnd! ' of cell 'FEEDCAP25' is defined in LEF but not in the timing library.
+[06/17 20:26:12    32s] **WARN: (IMPVL-159):	Pin '\vdd! ' of cell 'FEEDCAP25' is defined in LEF but not in the timing library.
+[06/17 20:26:12    32s] **WARN: (IMPVL-159):	Pin '\gnd! ' of cell 'FEEDCAP15LP' is defined in LEF but not in the timing library.
+[06/17 20:26:12    32s] **WARN: (IMPVL-159):	Pin '\vdd! ' of cell 'FEEDCAP15LP' is defined in LEF but not in the timing library.
+[06/17 20:26:12    32s] **WARN: (IMPVL-159):	Pin '\gnd! ' of cell 'FEEDCAP15' is defined in LEF but not in the timing library.
+[06/17 20:26:12    32s] **WARN: (IMPVL-159):	Pin '\vdd! ' of cell 'FEEDCAP15' is defined in LEF but not in the timing library.
+[06/17 20:26:12    32s] **WARN: (IMPVL-159):	Pin '\gnd! ' of cell 'FEEDCAP10LP' is defined in LEF but not in the timing library.
+[06/17 20:26:12    32s] **WARN: (IMPVL-159):	Pin '\vdd! ' of cell 'FEEDCAP10LP' is defined in LEF but not in the timing library.
+[06/17 20:26:12    32s] **WARN: (IMPVL-159):	Pin '\gnd! ' of cell 'FEEDCAP10' is defined in LEF but not in the timing library.
+[06/17 20:26:12    32s] **WARN: (IMPVL-159):	Pin '\vdd! ' of cell 'FEEDCAP10' is defined in LEF but not in the timing library.
+[06/17 20:26:12    32s] **WARN: (IMPVL-159):	Pin '\gnd! ' of cell 'FEEDCAP7LP' is defined in LEF but not in the timing library.
+[06/17 20:26:12    32s] **WARN: (IMPVL-159):	Pin '\vdd! ' of cell 'FEEDCAP7LP' is defined in LEF but not in the timing library.
+[06/17 20:26:12    32s] **WARN: (IMPVL-159):	Pin '\gnd! ' of cell 'FEEDCAP7' is defined in LEF but not in the timing library.
+[06/17 20:26:12    32s] **WARN: (IMPVL-159):	Pin '\vdd! ' of cell 'FEEDCAP7' is defined in LEF but not in the timing library.
+[06/17 20:26:12    32s] **WARN: (IMPVL-159):	Pin '\gnd! ' of cell 'FEEDCAP5LP' is defined in LEF but not in the timing library.
+[06/17 20:26:12    32s] **WARN: (IMPVL-159):	Pin '\vdd! ' of cell 'FEEDCAP5LP' is defined in LEF but not in the timing library.
+[06/17 20:26:12    32s] **WARN: (IMPVL-159):	Pin '\gnd! ' of cell 'FEEDCAP5' is defined in LEF but not in the timing library.
+[06/17 20:26:12    32s] **WARN: (IMPVL-159):	Pin '\vdd! ' of cell 'FEEDCAP5' is defined in LEF but not in the timing library.
+[06/17 20:26:12    32s] **WARN: (EMS-27):	Message (IMPVL-159) has exceeded the current message display limit of 20.
+[06/17 20:26:12    32s] To increase the message display limit, refer to the product command reference manual.
+[06/17 20:26:12    32s] Created 1225 new cells from 2 timing libraries.
+[06/17 20:26:12    32s] Reading netlist ...
+[06/17 20:26:12    32s] Backslashed names will retain backslash and a trailing blank character.
+[06/17 20:26:12    33s] Reading verilog netlist '../innovus_core_limited/USFFT64_2B.v'
+[06/17 20:26:13    33s] 
+[06/17 20:26:13    33s] *** Memory Usage v#1 (Current mem = 631.070M, initial mem = 170.871M) ***
+[06/17 20:26:13    33s] *** End netlist parsing (cpu=0:00:01.0, real=0:00:01.0, mem=631.1M) ***
+[06/17 20:26:13    33s] Top level cell is USFFT64_2B_TOP.
+[06/17 20:26:13    34s] ** Removed 415 unused lib cells.
+[06/17 20:26:14    34s] Hooked 810 DB cells to tlib cells.
+[06/17 20:26:14    34s] Starting recursive module instantiation check.
+[06/17 20:26:14    34s] No recursion found.
+[06/17 20:26:14    34s] Building hierarchical netlist for Cell USFFT64_2B_TOP ...
+[06/17 20:26:14    34s] *** Netlist is unique.
+[06/17 20:26:14    34s] ** info: there are 1254 modules.
+[06/17 20:26:14    34s] ** info: there are 53445 stdCell insts.
+[06/17 20:26:14    34s] ** info: there are 110 Pad insts.
+[06/17 20:26:14    34s] 
+[06/17 20:26:14    34s] *** Memory Usage v#1 (Current mem = 680.070M, initial mem = 170.871M) ***
+[06/17 20:26:14    34s] Set Default Net Delay as 1000 ps.
+[06/17 20:26:14    34s] Set Default Net Load as 0.5 pF. 
+[06/17 20:26:14    34s] Set Default Input Pin Transition as 0.1 ps.
+[06/17 20:26:14    35s] Pre-connect netlist-defined P/G connections...
+[06/17 20:26:14    35s] Pin 'GNDO' of instance 'u_ring/PAD_CLK' is a GROUND type pin, but it is connected to a signal net 'u_ring/GNDO'.  The type of this net will be changed to GROUND net.
+[06/17 20:26:14    35s] Pin 'GNDR' of instance 'u_ring/PAD_CLK' is a GROUND type pin, but it is connected to a signal net 'u_ring/GNDR'.  The type of this net will be changed to GROUND net.
+[06/17 20:26:14    35s] **WARN: (IMPDB-1256):	Pin VDD of instance 'u_ring/PAD_CLK' is a POWER type pin, but it is connected to a signal net 'u_ring/VDD'. The type of this net will be changed to POWER net.
+[06/17 20:26:14    35s] **WARN: (IMPDB-1256):	Pin VDDO of instance 'u_ring/PAD_CLK' is a POWER type pin, but it is connected to a signal net 'u_ring/VDDO'. The type of this net will be changed to POWER net.
+[06/17 20:26:14    35s] **WARN: (IMPDB-1256):	Pin VDDR of instance 'u_ring/PAD_CLK' is a POWER type pin, but it is connected to a signal net 'u_ring/VDDR'. The type of this net will be changed to POWER net.
+[06/17 20:26:14    35s]   Updated 110 instances.
+[06/17 20:26:14    35s] Initializing I/O assignment ...
+[06/17 20:26:14    35s] Adjusting Core to Left to: 0.0200. Core to Bottom to: 0.4300.
+[06/17 20:26:14    35s] **WARN: (IMPFP-3961):	The techSite 'io_site_F5V' has no related cells in LEF/OA library. Cannot make calculations for this site type unless cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
+[06/17 20:26:14    35s] Type 'man IMPFP-3961' for more detail.
+[06/17 20:26:14    35s] Initializing multi-corner RC extraction with 1 active RC Corners ...
+[06/17 20:26:14    35s] **WARN: (IMPEXT-2773):	The via resistance between layers M0 and M1 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[06/17 20:26:14    35s] Type 'man IMPEXT-2773' for more detail.
+[06/17 20:26:14    35s] **WARN: (IMPEXT-2776):	The via resistance between layers M1 and M2 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+[06/17 20:26:14    35s] Type 'man IMPEXT-2776' for more detail.
+[06/17 20:26:14    35s] **WARN: (IMPEXT-2776):	The via resistance between layers M2 and M3 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+[06/17 20:26:14    35s] Type 'man IMPEXT-2776' for more detail.
+[06/17 20:26:14    35s] **WARN: (IMPEXT-2776):	The via resistance between layers M3 and M4 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+[06/17 20:26:14    35s] Type 'man IMPEXT-2776' for more detail.
+[06/17 20:26:14    35s] **WARN: (IMPEXT-2776):	The via resistance between layers M4 and M5 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+[06/17 20:26:14    35s] Type 'man IMPEXT-2776' for more detail.
+[06/17 20:26:14    35s] **WARN: (IMPEXT-2776):	The via resistance between layers M5 and M6 is not defined in the capacitance table file. The via resistance of 13 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+[06/17 20:26:14    35s] Type 'man IMPEXT-2776' for more detail.
+[06/17 20:26:14    35s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M1 is not defined in the cap table. Therefore, the LEF value 0.112 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[06/17 20:26:14    35s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M2 is not defined in the cap table. Therefore, the LEF value 0.1 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[06/17 20:26:14    35s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M3 is not defined in the cap table. Therefore, the LEF value 0.1 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[06/17 20:26:14    35s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M4 is not defined in the cap table. Therefore, the LEF value 0.1 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[06/17 20:26:14    35s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M5 is not defined in the cap table. Therefore, the LEF value 0.1 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[06/17 20:26:14    35s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M6 is not defined in the cap table. Therefore, the LEF value 0.052 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[06/17 20:26:14    35s] Summary of Active RC-Corners : 
+[06/17 20:26:14    35s]  
+[06/17 20:26:14    35s]  Analysis View: best_view
+[06/17 20:26:14    35s]     RC-Corner Name        : default_emulate_rc_corner
+[06/17 20:26:14    35s]     RC-Corner Index       : 0
+[06/17 20:26:14    35s]     RC-Corner Temperature : 25 Celsius
+[06/17 20:26:14    35s]     RC-Corner Cap Table   : ''
+[06/17 20:26:14    35s]     RC-Corner PreRoute Res Factor         : 1
+[06/17 20:26:14    35s]     RC-Corner PreRoute Cap Factor         : 1
+[06/17 20:26:14    35s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[06/17 20:26:14    35s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[06/17 20:26:14    35s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[06/17 20:26:14    35s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from Cap Table]
+[06/17 20:26:14    35s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from Cap Table]
+[06/17 20:26:14    35s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 
+[06/17 20:26:14    35s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 
+[06/17 20:26:14    35s] *Info: initialize multi-corner CTS.
+[06/17 20:26:15    35s] Reading timing constraints file '../innovus_core_limited//USFFT64_2B.default_constraints.sdc' ...
+[06/17 20:26:15    35s] Current (total cpu=0:00:35.5, real=0:01:36, peak res=359.9M, current mem=786.1M)
+[06/17 20:26:15    35s] **WARN: (TCLCMD-1041):	current_design should use the top cell as a argument (File ../innovus_core_limited//USFFT64_2B.default_constraints.sdc, Line 13).
+[06/17 20:26:15    35s] 
+[06/17 20:26:15    35s] USFFT64_2B_TOP
+[06/17 20:26:15    35s] INFO (CTE): Reading of timing constraints file ../innovus_core_limited//USFFT64_2B.default_constraints.sdc completed, with 1 WARNING
+[06/17 20:26:15    35s] Ending "Constraint file reading stats" (total cpu=0:00:00.2, real=0:00:00.0, peak res=376.8M, current mem=802.3M)
+[06/17 20:26:15    35s] Current (total cpu=0:00:35.7, real=0:01:36, peak res=376.8M, current mem=802.3M)
+[06/17 20:26:15    36s] Summary for sequential cells idenfication: 
+[06/17 20:26:15    36s] Identified SBFF number: 128
+[06/17 20:26:15    36s] Identified MBFF number: 0
+[06/17 20:26:15    36s] Not identified SBFF number: 0
+[06/17 20:26:15    36s] Not identified MBFF number: 0
+[06/17 20:26:15    36s] Number of sequential cells which are not FFs: 106
+[06/17 20:26:15    36s] 
+[06/17 20:26:15    36s] Total number of combinational cells: 511
+[06/17 20:26:15    36s] Total number of sequential cells: 234
+[06/17 20:26:15    36s] Total number of tristate cells: 64
+[06/17 20:26:15    36s] Total number of level shifter cells: 0
+[06/17 20:26:15    36s] Total number of power gating cells: 0
+[06/17 20:26:15    36s] Total number of isolation cells: 0
+[06/17 20:26:15    36s] Total number of power switch cells: 0
+[06/17 20:26:15    36s] Total number of pulse generator cells: 0
+[06/17 20:26:15    36s] Total number of always on buffers: 0
+[06/17 20:26:15    36s] Total number of retention cells: 0
+[06/17 20:26:15    36s] List of usable buffers: BUCX4 BUX1 BUX0 BUX2 BUX12 BUX16 BUX20 BUX3 BUX4 BUX6 BUX8
+[06/17 20:26:15    36s] Total number of usable buffers: 11
+[06/17 20:26:15    36s] List of unusable buffers:
+[06/17 20:26:15    36s] Total number of unusable buffers: 0
+[06/17 20:26:15    36s] List of usable inverters: INCX12 INCX16 INCX20 INX1 INX0 INX2 INX12 INX16 INX20 INX3 INX4 INX6 INX8
+[06/17 20:26:15    36s] Total number of usable inverters: 13
+[06/17 20:26:15    36s] List of unusable inverters:
+[06/17 20:26:15    36s] Total number of unusable inverters: 0
+[06/17 20:26:15    36s] List of identified usable delay cells: BUCX12 BUCX16 BUCX20 BUCX6 BUCX8 DLY1X1 DLY1X0 DLY2X0 DLY2X1 DLY4X1 DLY4X0 DLY8X1 DLY8X0
+[06/17 20:26:15    36s] Total number of identified usable delay cells: 13
+[06/17 20:26:15    36s] List of identified unusable delay cells:
+[06/17 20:26:15    36s] Total number of identified unusable delay cells: 0
+[06/17 20:26:15    36s] Reading DEF file '../innovus_core_limited/USFFT64_2B.scan.def', current time is Tue Jun 17 20:26:15 2025 ...
+[06/17 20:26:15    36s] --- CASESENSITIVE ON
+[06/17 20:26:15    36s] --- DIVIDERCHAR '/'
+[06/17 20:26:15    36s] **ERROR: (IMPDF-276):	The instance 'U_BUF1_URAM/ram_reg[0][0]' referenced in scanchain 'chain1_seg1_CLK_rising' is not found in db. This instance node is ignored.
+[06/17 20:26:15    36s] **ERROR: (IMPDF-276):	The instance 'U_BUF1_URAM/ram_reg[0][1]' referenced in scanchain 'chain1_seg1_CLK_rising' is not found in db. This instance node is ignored.
+[06/17 20:26:15    36s] **ERROR: (IMPDF-276):	The instance 'U_BUF1_URAM/ram_reg[0][2]' referenced in scanchain 'chain1_seg1_CLK_rising' is not found in db. This instance node is ignored.
+[06/17 20:26:15    36s] **ERROR: (IMPDF-276):	The instance 'U_BUF1_URAM/ram_reg[0][3]' referenced in scanchain 'chain1_seg1_CLK_rising' is not found in db. This instance node is ignored.
+[06/17 20:26:15    36s] **ERROR: (IMPDF-276):	The instance 'U_BUF1_URAM/ram_reg[0][4]' referenced in scanchain 'chain1_seg1_CLK_rising' is not found in db. This instance node is ignored.
+[06/17 20:26:15    36s] **ERROR: (IMPDF-276):	The instance 'U_BUF1_URAM/ram_reg[0][5]' referenced in scanchain 'chain1_seg1_CLK_rising' is not found in db. This instance node is ignored.
+[06/17 20:26:15    36s] **ERROR: (IMPDF-276):	The instance 'U_BUF1_URAM/ram_reg[0][6]' referenced in scanchain 'chain1_seg1_CLK_rising' is not found in db. This instance node is ignored.
+[06/17 20:26:15    36s] **ERROR: (IMPDF-276):	The instance 'U_BUF1_URAM/ram_reg[0][7]' referenced in scanchain 'chain1_seg1_CLK_rising' is not found in db. This instance node is ignored.
+[06/17 20:26:15    36s] **ERROR: (IMPDF-276):	The instance 'U_BUF1_URAM/ram_reg[0][8]' referenced in scanchain 'chain1_seg1_CLK_rising' is not found in db. This instance node is ignored.
+[06/17 20:26:15    36s] **ERROR: (IMPDF-276):	The instance 'U_BUF1_URAM/ram_reg[0][9]' referenced in scanchain 'chain1_seg1_CLK_rising' is not found in db. This instance node is ignored.
+[06/17 20:26:15    36s] **ERROR: (IMPDF-276):	The instance 'U_BUF1_URAM/ram_reg[0][10]' referenced in scanchain 'chain1_seg1_CLK_rising' is not found in db. This instance node is ignored.
+[06/17 20:26:15    36s] **ERROR: (IMPDF-276):	The instance 'U_BUF1_URAM/ram_reg[0][11]' referenced in scanchain 'chain1_seg1_CLK_rising' is not found in db. This instance node is ignored.
+[06/17 20:26:15    36s] **ERROR: (IMPDF-276):	The instance 'U_BUF1_URAM/ram_reg[0][12]' referenced in scanchain 'chain1_seg1_CLK_rising' is not found in db. This instance node is ignored.
+[06/17 20:26:15    36s] **ERROR: (IMPDF-276):	The instance 'U_BUF1_URAM/ram_reg[0][13]' referenced in scanchain 'chain1_seg1_CLK_rising' is not found in db. This instance node is ignored.
+[06/17 20:26:15    36s] **ERROR: (IMPDF-276):	The instance 'U_BUF1_URAM/ram_reg[0][14]' referenced in scanchain 'chain1_seg1_CLK_rising' is not found in db. This instance node is ignored.
+[06/17 20:26:15    36s] **ERROR: (IMPDF-276):	The instance 'U_BUF1_URAM/ram_reg[0][15]' referenced in scanchain 'chain1_seg1_CLK_rising' is not found in db. This instance node is ignored.
+[06/17 20:26:15    36s] **ERROR: (IMPDF-276):	The instance 'U_BUF1_URAM/ram_reg[0][16]' referenced in scanchain 'chain1_seg1_CLK_rising' is not found in db. This instance node is ignored.
+[06/17 20:26:15    36s] **ERROR: (IMPDF-276):	The instance 'U_BUF1_URAM/ram_reg[0][17]' referenced in scanchain 'chain1_seg1_CLK_rising' is not found in db. This instance node is ignored.
+[06/17 20:26:15    36s] **ERROR: (IMPDF-276):	The instance 'U_BUF1_URAM/ram_reg[0][18]' referenced in scanchain 'chain1_seg1_CLK_rising' is not found in db. This instance node is ignored.
+[06/17 20:26:15    36s] **ERROR: (IMPDF-276):	The instance 'U_BUF1_URAM/ram_reg[0][19]' referenced in scanchain 'chain1_seg1_CLK_rising' is not found in db. This instance node is ignored.
+[06/17 20:26:15    36s] **WARN: (EMS-27):	Message (IMPDF-276) has exceeded the current message display limit of 20.
+[06/17 20:26:15    36s] To increase the message display limit, refer to the product command reference manual.
+[06/17 20:26:15    36s] defIn read 10000 lines...
+[06/17 20:26:15    36s] DEF file '../innovus_core_limited/USFFT64_2B.scan.def' is parsed, current time is Tue Jun 17 20:26:15 2025.
+[06/17 20:26:15    36s] **WARN: (IMPOPT-3184):	Can not find inst 'U_MPU_mul_107_19/cdnfadd_004_0'.
+[06/17 20:26:15    36s] **WARN: (IMPOPT-3184):	Can not find inst 'U_MPU_mul_107_19/cdnfadd_005_0'.
+[06/17 20:26:15    36s] **WARN: (IMPOPT-3184):	Can not find inst 'U_MPU_mul_107_19/cdnfadd_006_0'.
+[06/17 20:26:15    36s] **WARN: (IMPOPT-3184):	Can not find inst 'U_MPU_mul_107_19/cdnfadd_006_1'.
+[06/17 20:26:15    36s] **WARN: (IMPOPT-3184):	Can not find inst 'U_MPU_mul_107_19/cdnfadd_007_0'.
+[06/17 20:26:15    36s] **WARN: (IMPOPT-3184):	Can not find inst 'U_MPU_mul_107_19/cdnfadd_007_1'.
+[06/17 20:26:15    36s] **WARN: (IMPOPT-3184):	Can not find inst 'U_MPU_mul_107_19/cdnfadd_008_0'.
+[06/17 20:26:15    36s] **WARN: (IMPOPT-3184):	Can not find inst 'U_MPU_mul_107_19/cdnfadd_008_1'.
+[06/17 20:26:15    36s] **WARN: (IMPOPT-3184):	Can not find inst 'U_MPU_mul_107_19/cdnfadd_008_2'.
+[06/17 20:26:15    36s] **WARN: (IMPOPT-3184):	Can not find inst 'U_MPU_mul_107_19/cdnfadd_009_0'.
+[06/17 20:26:15    36s] **WARN: (IMPOPT-3184):	Can not find inst 'U_MPU_mul_107_19/cdnfadd_009_1'.
+[06/17 20:26:15    36s] **WARN: (IMPOPT-3184):	Can not find inst 'U_MPU_mul_107_19/cdnfadd_009_2'.
+[06/17 20:26:15    36s] **WARN: (IMPOPT-3184):	Can not find inst 'U_MPU_mul_107_19/cdnfadd_010_0'.
+[06/17 20:26:15    36s] **WARN: (IMPOPT-3184):	Can not find inst 'U_MPU_mul_107_19/cdnfadd_010_1'.
+[06/17 20:26:15    36s] **WARN: (IMPOPT-3184):	Can not find inst 'U_MPU_mul_107_19/cdnfadd_010_2'.
+[06/17 20:26:15    36s] **WARN: (IMPOPT-3184):	Can not find inst 'U_MPU_mul_107_19/cdnfadd_010_3'.
+[06/17 20:26:15    36s] **WARN: (IMPOPT-3184):	Can not find inst 'U_MPU_mul_107_19/cdnfadd_011_0'.
+[06/17 20:26:15    36s] **WARN: (IMPOPT-3184):	Can not find inst 'U_MPU_mul_107_19/cdnfadd_011_1'.
+[06/17 20:26:15    36s] **WARN: (IMPOPT-3184):	Can not find inst 'U_MPU_mul_107_19/cdnfadd_011_2'.
+[06/17 20:26:15    36s] **WARN: (IMPOPT-3184):	Can not find inst 'U_MPU_mul_107_19/cdnfadd_011_3'.
+[06/17 20:26:15    36s] **WARN: (EMS-27):	Message (IMPOPT-3184) has exceeded the current message display limit of 20.
+[06/17 20:26:15    36s] To increase the message display limit, refer to the product command reference manual.
+[06/17 20:26:15    36s] *info: Added size_only attribute to 0 instances
+[06/17 20:26:15    36s] done
+[06/17 20:26:15    36s] Reading IO file
+[06/17 20:26:15    36s] Reading IO assignment file "../io_core_limited/USFFT64_2B_MOD.save.io" ...
+[06/17 20:26:15    36s] done
+[06/17 20:26:15    36s] Saving project
+[06/17 20:26:15    36s] done
+[06/17 20:26:15    36s] Implementing Floorplan
+[06/17 20:26:15    36s] Adjusting coreMargin left    to finFet grid (PlacementGrid) : after adjusting :30.24
+[06/17 20:26:15    36s] Adjusting coreMargin bottom  to finFet grid (PlacementGrid) : after adjusting :30.5
+[06/17 20:26:15    36s] Adjusting coreMargin right   to finFet grid (PlacementGrid) : after adjusting :30.24
+[06/17 20:26:15    36s] Adjusting coreMargin top     to finFet grid (PlacementGrid) : after adjusting :30.5
+[06/17 20:26:15    36s] Adjusting core size to PlacementGrid : width :1590.75 height : 1586
+[06/17 20:26:15    36s] Adjusting Core to Left to: 30.2600. Core to Bottom to: 30.9300.
+[06/17 20:26:15    36s] **WARN: (IMPFP-325):	Floorplan of the design is resized. All current create_floorplan objects are automatically derived based on specified new create_floorplan. This may change blocks, fixed standard cells, existing routes and blockages.
+[06/17 20:26:15    36s] resizeFP value x after snapping 1.890
+[06/17 20:26:15    36s] resizeFP value y after snapping 1.830
+[06/17 20:26:15    36s] **WARN: (IMPFP-4031):	Adjusting 'coreBox'(according to PlacementGrid) from {(190.260 , 190.930) (2399.650 , 2310.680)} to {(190.260 , 190.930) (2399.670 , 2310.680)} due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+[06/17 20:26:15    36s] **WARN: (IMPFP-4031):	Adjusting 'DieBox'(according to PlacementGrid) from {(0.000 , 0.000) (2589.930 , 2506.080)} to {(0.000 , 0.000) (2589.930 , 2505.880)} due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+[06/17 20:26:15    36s] **WARN: (IMPFP-4031):	Adjusting 'ioBox'(according to PlacementGrid) from {(160.000 , 160.000) (2429.890 , 2345.830)} to {(160.020 , 159.820) (2429.910 , 2346.060)} due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+[06/17 20:26:15    36s] **WARN: (IMPFP-317):	After shiftBased resize, ROUTED pre-routed wires will be removed and FIXED pre-routed wires will be retained.
+[06/17 20:26:15    36s] After resizeFP, 0.1730% core area expanded
+[06/17 20:26:18    37s] done - Floorplan
+[06/17 20:26:18    37s] Saving project
+[06/17 20:26:18    37s] done - Save_2
+[06/17 20:26:18    37s] Chek Design
+[06/17 20:26:18    37s] Creating directory checkDesign.
+[06/17 20:26:18    37s] #spOpts: N=180 
+[06/17 20:26:18    37s] Core basic site is core
+[06/17 20:26:18    37s] Estimated cell power/ground rail width = 0.610 um
+[06/17 20:26:18    37s] Layer info - lib-1st H=1, V=2.  Cell-FPin=1. Top-pin=2
+[06/17 20:26:18    37s] Begin checking placement ... (start mem=996.0M, init mem=1011.0M)
+[06/17 20:26:18    37s] *info: Recommended don't use cell = 0           
+[06/17 20:26:18    37s] *info: Placed = 0             
+[06/17 20:26:18    37s] *info: Unplaced = 53445       
+[06/17 20:26:18    37s] Placement Density:37.73%(1765649/4679354)
+[06/17 20:26:18    37s] Finished checkPlace (cpu: total=0:00:00.5, vio checks=0:00:00.0; mem=1011.0M)
+[06/17 20:26:18    37s] ############################################################################
+[06/17 20:26:18    37s] # Innovus Netlist Design Rule Check
+[06/17 20:26:18    37s] # Tue Jun 17 20:26:18 2025
+[06/17 20:26:18    37s] 
+[06/17 20:26:18    37s] ############################################################################
+[06/17 20:26:18    37s] Design: USFFT64_2B_TOP
+[06/17 20:26:18    37s] 
+[06/17 20:26:18    37s] ------ Design Summary:
+[06/17 20:26:18    37s] Total Standard Cell Number   (cells) : 53445
+[06/17 20:26:18    37s] Total Block Cell Number      (cells) : 0
+[06/17 20:26:18    37s] Total I/O Pad Cell Number    (cells) : 110
+[06/17 20:26:18    37s] Total Standard Cell Area     ( um^2) : 1765649.44
+[06/17 20:26:18    37s] Total Block Cell Area        ( um^2) : 0.00
+[06/17 20:26:18    37s] Total I/O Pad Cell Area      ( um^2) : 1527040.00
+[06/17 20:26:18    37s] 
+[06/17 20:26:18    37s] ------ Design Statistics:
+[06/17 20:26:18    37s] 
+[06/17 20:26:18    37s] Number of Instances            : 53555
+[06/17 20:26:18    37s] Number of Nets                 : 54743
+[06/17 20:26:18    37s] Average number of Pins per Net : 4.27
+[06/17 20:26:18    37s] Maximum number of Pins in Net  : 15993
+[06/17 20:26:18    37s] 
+[06/17 20:26:18    37s] ------ I/O Port summary
+[06/17 20:26:18    37s] 
+[06/17 20:26:18    37s] Number of Primary I/O Ports    : 92
+[06/17 20:26:18    37s] Number of Input Ports          : 43
+[06/17 20:26:18    37s] Number of Output Ports         : 49
+[06/17 20:26:18    37s] Number of Bidirectional Ports  : 0
+[06/17 20:26:18    37s] Number of Power/Ground Ports   : 0
+[06/17 20:26:18    37s] Number of Floating Ports                     *: 6
+[06/17 20:26:18    37s] Number of Ports Connected to Multiple Pads   *: 0
+[06/17 20:26:18    37s] Number of Ports Connected to Core Instances   : 0
+[06/17 20:26:18    37s] 
+[06/17 20:26:18    37s] ------ Design Rule Checking:
+[06/17 20:26:18    37s] 
+[06/17 20:26:18    37s] Number of Output Pins connect to Power/Ground *: 0
+[06/17 20:26:18    37s] Number of Insts with Input Pins tied together ?: 12
+[06/17 20:26:18    37s] Number of TieHi/Lo term nets not connected to instance's PG terms ?: 0
+[06/17 20:26:18    37s] **WARN: (IMPDB-2136):	Input term 'RN' of  instance 'u_dft/U_FFT2/UMR_DO_reg[17]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2136):	Input term 'SN' of  instance 'u_dft/U_FFT2/UMR_DO_reg[17]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2136):	Input term 'RN' of  instance 'u_dft/U_FFT2/UMI_DO_reg[17]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2136):	Input term 'SN' of  instance 'u_dft/U_FFT2/UMI_DO_reg[17]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2136):	Input term 'EN' of Io  instance 'u_ring/PAD_DOI_17' does not connect to a 'TieLo ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2136):	Input term 'EN' of Io  instance 'u_ring/PAD_DOI_16' does not connect to a 'TieLo ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2136):	Input term 'EN' of Io  instance 'u_ring/PAD_DOI_15' does not connect to a 'TieLo ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2136):	Input term 'EN' of Io  instance 'u_ring/PAD_DOI_14' does not connect to a 'TieLo ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2136):	Input term 'EN' of Io  instance 'u_ring/PAD_DOI_13' does not connect to a 'TieLo ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2136):	Input term 'EN' of Io  instance 'u_ring/PAD_DOI_12' does not connect to a 'TieLo ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2136):	Input term 'EN' of Io  instance 'u_ring/PAD_DOI_11' does not connect to a 'TieLo ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2136):	Input term 'EN' of Io  instance 'u_ring/PAD_DOI_10' does not connect to a 'TieLo ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2136):	Input term 'EN' of Io  instance 'u_ring/PAD_DOI_9' does not connect to a 'TieLo ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2136):	Input term 'EN' of Io  instance 'u_ring/PAD_DOI_8' does not connect to a 'TieLo ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2136):	Input term 'EN' of Io  instance 'u_ring/PAD_DOI_7' does not connect to a 'TieLo ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2136):	Input term 'EN' of Io  instance 'u_ring/PAD_DOI_6' does not connect to a 'TieLo ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2136):	Input term 'EN' of Io  instance 'u_ring/PAD_DOI_5' does not connect to a 'TieLo ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2136):	Input term 'EN' of Io  instance 'u_ring/PAD_DOI_4' does not connect to a 'TieLo ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2136):	Input term 'EN' of Io  instance 'u_ring/PAD_DOI_3' does not connect to a 'TieLo ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2136):	Input term 'EN' of Io  instance 'u_ring/PAD_DOI_2' does not connect to a 'TieLo ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+[06/17 20:26:18    37s] **WARN: (EMS-27):	Message (IMPDB-2136) has exceeded the current message display limit of 20.
+[06/17 20:26:18    37s] To increase the message display limit, refer to the product command reference manual.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2137):	Floating Output term PO of Io inst u_ring/PAD_DFT_SCAN_INPUT_2.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2137):	Floating Output term PO of Io inst u_ring/PAD_DFT_SCAN_INPUT_1.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2137):	Floating Output term PO of Io inst u_ring/PAD_DFT_SHIFT_ENABLE.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2137):	Floating Output term PO of Io inst u_ring/PAD_DI_14.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2137):	Floating Output term PO of Io inst u_ring/PAD_DI_13.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2137):	Floating Output term PO of Io inst u_ring/PAD_DI_12.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2137):	Floating Output term PO of Io inst u_ring/PAD_DI_11.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2137):	Floating Output term PO of Io inst u_ring/PAD_DI_10.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2137):	Floating Output term PO of Io inst u_ring/PAD_DI_9.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2137):	Floating Output term PO of Io inst u_ring/PAD_DI_8.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2137):	Floating Output term PO of Io inst u_ring/PAD_DI_7.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2137):	Floating Output term PO of Io inst u_ring/PAD_DI_6.
+[06/17 20:26:18    37s] **WARN: (IMPDB-2137):	Floating Output term PO of Io inst u_ring/PAD_DI_5.
+[06/17 20:26:25    42s] Summary for sequential cells idenfication: 
+[06/17 20:26:25    42s] Identified SBFF number: 128
+[06/17 20:26:25    42s] Identified MBFF number: 0
+[06/17 20:26:25    42s] Not identified SBFF number: 0
+[06/17 20:26:25    42s] Not identified MBFF number: 0
+[06/17 20:26:25    42s] Number of sequential cells which are not FFs: 106
+[06/17 20:26:25    42s] 
+[06/17 20:26:25    42s] *scInfo: scPctBadScanCell = 0.00%
+[06/17 20:26:27    44s] **WARN: (IMPDB-2137):	Floating Output term PO of Io inst u_ring/PAD_DI_4.
+[06/17 20:26:27    44s] **WARN: (IMPDB-2137):	Floating Output term PO of Io inst u_ring/PAD_DI_3.
+[06/17 20:26:27    44s] **WARN: (IMPDB-2137):	Floating Output term PO of Io inst u_ring/PAD_DI_2.
+[06/17 20:26:27    44s] **WARN: (IMPDB-2137):	Floating Output term PO of Io inst u_ring/PAD_DI_1.
+[06/17 20:26:27    44s] **WARN: (IMPDB-2137):	Floating Output term PO of Io inst u_ring/PAD_DI_0.
+[06/17 20:26:27    44s] **WARN: (IMPDB-2137):	Floating Output term PO of Io inst u_ring/PAD_DR_14.
+[06/17 20:26:27    44s] **WARN: (IMPDB-2137):	Floating Output term PO of Io inst u_ring/PAD_DR_13.
+[06/17 20:26:27    44s] **WARN: (EMS-27):	Message (IMPDB-2137) has exceeded the current message display limit of 20.
+[06/17 20:26:27    44s] To increase the message display limit, refer to the product command reference manual.
+[06/17 20:26:27    44s] Number of Input/InOut Floating Pins            : 90
+[06/17 20:26:27    44s] Number of Output Floating Pins                 : 40
+[06/17 20:26:27    44s] Number of Output Term Marked TieHi/Lo         *: 0
+[06/17 20:26:27    44s] 
+[06/17 20:26:27    44s] Number of nets with tri-state drivers          : 0
+[06/17 20:26:27    44s] Number of nets with parallel drivers           : 0
+[06/17 20:26:27    44s] Number of nets with multiple drivers           : 0
+[06/17 20:26:27    44s] Number of nets with no driver (No FanIn)       : 6
+[06/17 20:26:27    44s] Number of Output Floating nets (No FanOut)     : 288
+[06/17 20:26:27    44s] Number of High Fanout nets (>50)               : 161
+[06/17 20:26:27    44s] Checking routing tracks.....
+[06/17 20:26:27    44s] Checking other grids.....
+[06/17 20:26:27    44s] Checking FINFET Grid is on Manufacture Grid.....
+[06/17 20:26:27    44s] 
+[06/17 20:26:27    44s] Checking core/die box is on Grid.....
+[06/17 20:26:27    44s] 
+[06/17 20:26:27    44s] Checking snap rule ......
+[06/17 20:26:27    44s] 
+[06/17 20:26:27    44s] Checking Row is on grid......
+[06/17 20:26:27    44s] 
+[06/17 20:26:27    44s] Checking AreaIO row.....
+[06/17 20:26:27    44s] Checking routing blockage.....
+[06/17 20:26:27    44s] Checking components.....
+[06/17 20:26:27    44s] Checking IO Pins.....
+[06/17 20:26:27    44s] Unplaced Io Pins = 6 
+[06/17 20:26:27    44s] Floating/Unconnected IO Pins = 6 
+[06/17 20:26:27    44s] Checking constraints (guide/region/fence).....
+[06/17 20:26:27    44s] Checking groups.....
+[06/17 20:26:27    44s] 
+[06/17 20:26:27    44s] Checking Ptn Pins .....
+[06/17 20:26:27    44s] Checking Ptn Core Box.....
+[06/17 20:26:27    44s] 
+[06/17 20:26:27    44s] Checking Preroutes.....
+[06/17 20:26:27    44s] No. of regular pre-routes not on tracks : 0 
+[06/17 20:26:27    44s]  Design check done.
+[06/17 20:26:27    44s] Report saved in file checkDesign/USFFT64_2B_TOP.main.htm.ascii.
+[06/17 20:26:27    44s] 
+[06/17 20:26:27    44s] *** Summary of all messages that are not suppressed in this session:
+[06/17 20:26:27    44s] Severity  ID               Count  Summary                                  
+[06/17 20:26:27    44s] WARNING   IMPDB-2136          90  %s term '%s' of %s instance '%s' does no...
+[06/17 20:26:27    44s] WARNING   IMPDB-2137          40  Floating %s term %s of %sinst %s.        
+[06/17 20:26:27    44s] *** Message Summary: 130 warning(s), 0 error(s)
+[06/17 20:26:27    44s] 
+[06/17 20:26:27    44s] done - Check Design
+[06/17 20:26:27    44s] Starting Power Planning
+[06/17 20:26:27    44s] Pre-connect netlist-defined P/G connections...
+[06/17 20:26:27    44s]   Updated 110 instances.
+[06/17 20:26:27    44s] 4 new tie-hi connections were made to global net 'padring/VDD'.
+[06/17 20:26:27    44s] 4 new tie-hi connections were made to global net 'padring/VDDR'.
+[06/17 20:26:27    44s] 4 new tie-hi connections were made to global net 'padring/VDDO'.
+[06/17 20:26:27    44s] 46 new tie-lo connections were made to global net 'padring/GNDR'.
+[06/17 20:26:27    44s] 46 new tie-lo connections were made to global net 'padring/GNDO'.
+[06/17 20:26:27    44s] 46 new tie-lo connections were made to global net 'gnd!'.
+[06/17 20:26:27    44s] 4 new tie-hi connections were made to global net 'vdd!'.
+[06/17 20:26:27    44s] 0 new pwr-pin connection was made to global net 'padring/VDD'.
+[06/17 20:26:27    44s] 53445 new pwr-pin connections were made to global net 'vdd!'.
+[06/17 20:26:27    44s] 10 new pwr-pin connections were made to global net 'vdd!'.
+[06/17 20:26:27    44s] 0 new pwr-pin connection was made to global net 'padring/VDDR'.
+[06/17 20:26:27    44s] 0 new pwr-pin connection was made to global net 'padring/VDDO'.
+[06/17 20:26:27    44s] 0 new gnd-pin connection was made to global net 'padring/GNDR'.
+[06/17 20:26:27    44s] 0 new gnd-pin connection was made to global net 'padring/GNDO'.
+[06/17 20:26:27    44s] 53445 new gnd-pin connections were made to global net 'gnd!'.
+[06/17 20:26:27    44s] 10 new gnd-pin connections were made to global net 'gnd!'.
+[06/17 20:26:27    44s] done - Power Planning
+[06/17 20:26:27    44s] Scan_chain
+[06/17 20:26:27    44s] Setting -ignore_viarule_enclosure to 0. ViaGen will use enclosures defined in VIARULE GENERATE with precedence.
+[06/17 20:26:27    44s] done
+[06/17 20:26:27    44s] Power Ring Definition
+[06/17 20:26:27    44s] 
+[06/17 20:26:27    44s] The power planner created 8 wires.
+[06/17 20:26:27    44s] *** Ending Ring Generation (totcpu: 0:00:00.0,real: 0:00:00.0, mem: 1011.0M) ***
+[06/17 20:26:27    44s] done - Power Rings
+[06/17 20:26:27    44s] Adding stripes
+[06/17 20:26:27    44s] **WARN: (IMPPP-4063):	Multi-CPU is set to 4 in add_stripes.  When the number of CPU in set_multi_cpu_usage is more than 4, add_stripes gets worse runtime caused by data exchange and other time consuming operations
+[06/17 20:26:27    44s] 
+[06/17 20:26:27    44s] Starting stripe generation ...
+[06/17 20:26:27    44s] Non-Default setAddStripeOption Settings :
+[06/17 20:26:27    44s]   NONE
+[06/17 20:26:27    44s] **WARN: (IMPPP-4055):	The run time of add_stripes will degrade with multiple cpu setting according to the number of stripe sets, ingore the setting of set_multi_cpu_usage in add_stripes.
+[06/17 20:26:27    44s] **WARN: (IMPPP-354):	The power planner did not generate vertical stripe at 192.76 either because the stripe is merged with rings, or because stripe could not be connected to any legal targets, or because stripe is blocked by different net geometry.
+[06/17 20:26:27    44s] Stripe generation is complete; vias are now being generated.
+[06/17 20:26:27    44s] The power planner created 22 wires.
+[06/17 20:26:27    44s] *** Ending Stripe Generation (totcpu: 0:00:00.0,real: 0:00:00.0, mem: 1013.0M) ***
+[06/17 20:26:27    44s] **WARN: (IMPPP-4063):	Multi-CPU is set to 4 in add_stripes.  When the number of CPU in set_multi_cpu_usage is more than 4, add_stripes gets worse runtime caused by data exchange and other time consuming operations
+[06/17 20:26:27    44s] 
+[06/17 20:26:27    44s] Starting stripe generation ...
+[06/17 20:26:27    44s] Non-Default setAddStripeOption Settings :
+[06/17 20:26:27    44s]   NONE
+[06/17 20:26:27    44s] The core ring for gnd! is incomplete. The core ring will not be used as a boundary for stripes. In this situation, the power planner will generate stripes only within the core area.
+[06/17 20:26:27    44s] The core ring for vdd! is incomplete. The core ring will not be used as a boundary for stripes. In this situation, the power planner will generate stripes only within the core area.
+[06/17 20:26:27    44s] **WARN: (IMPPP-4055):	The run time of add_stripes will degrade with multiple cpu setting according to the number of stripe sets, ingore the setting of set_multi_cpu_usage in add_stripes.
+[06/17 20:26:27    44s] Stripe generation is complete; vias are now being generated.
+[06/17 20:26:27    44s] The power planner created 22 wires.
+[06/17 20:26:27    44s] *** Ending Stripe Generation (totcpu: 0:00:00.1,real: 0:00:00.0, mem: 1013.0M) ***
+[06/17 20:26:27    44s] done - Power Stripes
+[06/17 20:26:27    44s] Power routing
+[06/17 20:26:27    44s] *** Begin SPECIAL ROUTE on Tue Jun 17 20:26:22 2025 ***
+[06/17 20:26:27    44s] SPECIAL ROUTE ran on directory: /home/inf01194/luis.mendes/fft64/innovus_core_limited
+[06/17 20:26:27    44s] SPECIAL ROUTE ran on machine: pgmicro01.ufrgs.br (Linux 3.10.0-1160.119.1.el7.x86_64 Xeon 1.20Ghz)
+[06/17 20:26:27    44s] 
+[06/17 20:26:27    44s] Begin option processing ...
+[06/17 20:26:27    44s] srouteConnectPowerBump set to false
+[06/17 20:26:27    44s] routeSelectNet set to "padring/VDD padring/VDDR padring/VDDO padring/GNDO padring/GNDR gnd! vdd!"
+[06/17 20:26:27    44s] routeSpecial set to true
+[06/17 20:26:27    44s] srouteBlockPin set to "allPins"
+[06/17 20:26:27    44s] srouteBottomLayerLimit set to 1
+[06/17 20:26:27    44s] srouteBottomTargetLayerLimit set to 1
+[06/17 20:26:27    44s] srouteConnectConverterPin set to false
+[06/17 20:26:27    44s] srouteCrossoverViaBottomLayer set to 1
+[06/17 20:26:27    44s] srouteCrossoverViaTopLayer set to 6
+[06/17 20:26:27    44s] srouteFollowCorePinEnd set to 3
+[06/17 20:26:27    44s] srouteJogControl set to "preferWithChanges differentLayer"
+[06/17 20:26:27    44s] sroutePadPinAllPorts set to true
+[06/17 20:26:27    44s] sroutePadRingLayer set to "1 6"
+[06/17 20:26:27    44s] sroutePreserveExistingRoutes set to true
+[06/17 20:26:27    44s] srouteRoutePowerBarPortOnBothDir set to true
+[06/17 20:26:27    44s] srouteStopBlockPin set to "nearestTarget"
+[06/17 20:26:27    44s] srouteStraightPadBlockpinRoute set to true
+[06/17 20:26:27    44s] srouteTopLayerLimit set to 6
+[06/17 20:26:27    44s] srouteTopTargetLayerLimit set to 6
+[06/17 20:26:27    44s] End option processing: cpu: 0:00:00, real: 0:00:00, peak: 1596.00 megs.
+[06/17 20:26:27    44s] 
+[06/17 20:26:27    44s] Reading DB technology information...
+[06/17 20:26:27    44s] Finished reading DB technology information.
+[06/17 20:26:27    44s] Reading floorplan and netlist information...
+[06/17 20:26:27    44s] Finished reading floorplan and netlist information.
+[06/17 20:26:27    44s] Read in 12 layers, 6 routing layers, 1 overlap layer
+[06/17 20:26:27    44s] Read in 830 macros, 151 used
+[06/17 20:26:27    44s] Read in 248 components
+[06/17 20:26:27    44s]   138 core components: 138 unplaced, 0 placed, 0 fixed
+[06/17 20:26:27    44s]   110 pad components: 0 unplaced, 0 placed, 110 fixed
+[06/17 20:26:27    44s] Read in 92 logical pins
+[06/17 20:26:27    44s] Read in 92 nets
+[06/17 20:26:27    44s] Read in 12 special nets, 2 routed
+[06/17 20:26:27    44s] Read in 846 terminals
+[06/17 20:26:27    44s] 7 nets selected.
+[06/17 20:26:27    44s] 
+[06/17 20:26:27    44s] Begin power routing ...
+[06/17 20:26:27    44s] **WARN: (IMPSR-1253):	Cannot find any standard cell pin connected to net padring\/VDD.
+[06/17 20:26:27    44s] Run globalNetConnect command or change CPF file to make sure that the netlist reflects the correct power ground connections. The standard cell pins must be defined as 'USE POWER' or 'USE GROUND'.
+[06/17 20:26:27    44s] **WARN: (IMPSR-1254):	Cannot find any block pin of net padring\/VDD. Check netlist, or change option to include the pin.
+[06/17 20:26:27    44s] **WARN: (IMPSR-1256):	Cannot find any CORE class pad pin of net padring\/VDD. Change routing area or layer to include the expected pin, or check netlist, or change port class in the technology file.
+[06/17 20:26:27    44s] Type 'man IMPSR-1256' for more detail.
+[06/17 20:26:27    44s] Cannot find any AREAIO class pad pin of net padring\/VDD. Check net list, or change port class in the technology file, or change option to include pin in given range.
+[06/17 20:26:27    44s] **WARN: (IMPSR-1253):	Cannot find any standard cell pin connected to net padring\/VDDO.
+[06/17 20:26:27    44s] Run globalNetConnect command or change CPF file to make sure that the netlist reflects the correct power ground connections. The standard cell pins must be defined as 'USE POWER' or 'USE GROUND'.
+[06/17 20:26:27    44s] **WARN: (IMPSR-1254):	Cannot find any block pin of net padring\/VDDO. Check netlist, or change option to include the pin.
+[06/17 20:26:27    44s] **WARN: (IMPSR-1256):	Cannot find any CORE class pad pin of net padring\/VDDO. Change routing area or layer to include the expected pin, or check netlist, or change port class in the technology file.
+[06/17 20:26:27    44s] Type 'man IMPSR-1256' for more detail.
+[06/17 20:26:27    44s] Cannot find any AREAIO class pad pin of net padring\/VDDO. Check net list, or change port class in the technology file, or change option to include pin in given range.
+[06/17 20:26:27    44s] **WARN: (IMPSR-1253):	Cannot find any standard cell pin connected to net padring\/VDDR.
+[06/17 20:26:27    44s] Run globalNetConnect command or change CPF file to make sure that the netlist reflects the correct power ground connections. The standard cell pins must be defined as 'USE POWER' or 'USE GROUND'.
+[06/17 20:26:27    44s] **WARN: (IMPSR-1254):	Cannot find any block pin of net padring\/VDDR. Check netlist, or change option to include the pin.
+[06/17 20:26:27    44s] **WARN: (IMPSR-1256):	Cannot find any CORE class pad pin of net padring\/VDDR. Change routing area or layer to include the expected pin, or check netlist, or change port class in the technology file.
+[06/17 20:26:27    44s] Type 'man IMPSR-1256' for more detail.
+[06/17 20:26:27    44s] Cannot find any AREAIO class pad pin of net padring\/VDDR. Check net list, or change port class in the technology file, or change option to include pin in given range.
+[06/17 20:26:27    44s] **WARN: (IMPSR-1254):	Cannot find any block pin of net vdd!. Check netlist, or change option to include the pin.
+[06/17 20:26:27    44s] **WARN: (IMPSR-1254):	Cannot find any block pin of net gnd!. Check netlist, or change option to include the pin.
+[06/17 20:26:27    44s] **WARN: (IMPSR-1253):	Cannot find any standard cell pin connected to net padring\/GNDO.
+[06/17 20:26:27    44s] Run globalNetConnect command or change CPF file to make sure that the netlist reflects the correct power ground connections. The standard cell pins must be defined as 'USE POWER' or 'USE GROUND'.
+[06/17 20:26:27    44s] **WARN: (IMPSR-1254):	Cannot find any block pin of net padring\/GNDO. Check netlist, or change option to include the pin.
+[06/17 20:26:27    44s] **WARN: (IMPSR-1256):	Cannot find any CORE class pad pin of net padring\/GNDO. Change routing area or layer to include the expected pin, or check netlist, or change port class in the technology file.
+[06/17 20:26:27    44s] Type 'man IMPSR-1256' for more detail.
+[06/17 20:26:27    44s] Cannot find any AREAIO class pad pin of net padring\/GNDO. Check net list, or change port class in the technology file, or change option to include pin in given range.
+[06/17 20:26:27    44s] **WARN: (IMPSR-1253):	Cannot find any standard cell pin connected to net padring\/GNDR.
+[06/17 20:26:27    44s] Run globalNetConnect command or change CPF file to make sure that the netlist reflects the correct power ground connections. The standard cell pins must be defined as 'USE POWER' or 'USE GROUND'.
+[06/17 20:26:27    44s] **WARN: (IMPSR-1254):	Cannot find any block pin of net padring\/GNDR. Check netlist, or change option to include the pin.
+[06/17 20:26:27    44s] **WARN: (IMPSR-1256):	Cannot find any CORE class pad pin of net padring\/GNDR. Change routing area or layer to include the expected pin, or check netlist, or change port class in the technology file.
+[06/17 20:26:27    44s] Type 'man IMPSR-1256' for more detail.
+[06/17 20:26:27    44s] Cannot find any AREAIO class pad pin of net padring\/GNDR. Check net list, or change port class in the technology file, or change option to include pin in given range.
+[06/17 20:26:27    44s] CPU time for FollowPin 0 seconds
+[06/17 20:26:27    44s] CPU time for FollowPin 0 seconds
+[06/17 20:26:27    44s]   Number of IO ports routed: 220
+[06/17 20:26:27    44s]   Number of Block ports routed: 0
+[06/17 20:26:27    44s]   Number of Stripe ports routed: 0
+[06/17 20:26:27    44s]   Number of Core ports routed: 870
+[06/17 20:26:27    44s]   Number of Pad ports routed: 0
+[06/17 20:26:27    44s]   Number of Power Bump ports routed: 0
+[06/17 20:26:27    44s]   Number of Followpin connections: 435
+[06/17 20:26:27    44s] End power routing: cpu: 0:00:01, real: 0:00:01, peak: 1616.00 megs.
+[06/17 20:26:27    44s] 
+[06/17 20:26:27    44s] 
+[06/17 20:26:27    44s] 
+[06/17 20:26:27    44s]  Begin updating DB with routing results ...
+[06/17 20:26:27    44s]  Updating DB with 71 via definition ...Extracting standard cell pins and blockage ...... 
+[06/17 20:26:27    44s] Pin and blockage extraction finished
+[06/17 20:26:27    44s] 
+[06/17 20:26:27    44s] 
+[06/17 20:26:27    44s] sroute post-processing starts at Tue Jun 17 20:26:23 2025
+[06/17 20:26:27    44s] The viaGen is rebuilding shadow vias for net gnd!.
+[06/17 20:26:27    44s] **WARN: (IMPPP-531):	ViaGen Warning: SPACING rule violation, no via created on layer VIATP at (391.26, 410.13) (394.26, 410.65)
+[06/17 20:26:27    44s] **WARN: (IMPPP-531):	ViaGen Warning: SPACING rule violation, no via created on layer VIATP at (391.26, 810.29) (394.26, 810.65)
+[06/17 20:26:27    44s] **WARN: (IMPPP-531):	ViaGen Warning: SPACING rule violation, no via created on layer VIATP at (391.26, 1210.45) (394.26, 1210.65)
+[06/17 20:26:27    44s] **WARN: (IMPPP-531):	ViaGen Warning: MINAREA rule violation, no via created on layer MET5 at (391.26, 1610.61) (394.26, 1610.65)
+[06/17 20:26:27    44s] **WARN: (IMPPP-531):	ViaGen Warning: MINAREA rule violation, no via created on layer MET4 at (394.26, 2010.77) (394.26, 2011.57)
+[06/17 20:26:27    44s] **WARN: (IMPPP-531):	ViaGen Warning: SPACING rule violation, no via created on layer VIATP at (591.26, 410.13) (594.26, 410.65)
+[06/17 20:26:27    44s] **WARN: (IMPPP-531):	ViaGen Warning: SPACING rule violation, no via created on layer VIATP at (591.26, 810.29) (594.26, 810.65)
+[06/17 20:26:27    44s] **WARN: (IMPPP-531):	ViaGen Warning: SPACING rule violation, no via created on layer VIATP at (591.26, 1210.45) (594.26, 1210.65)
+[06/17 20:26:27    44s] **WARN: (IMPPP-531):	ViaGen Warning: MINAREA rule violation, no via created on layer MET5 at (591.26, 1610.61) (594.26, 1610.65)
+[06/17 20:26:27    44s] **WARN: (IMPPP-531):	ViaGen Warning: MINAREA rule violation, no via created on layer MET4 at (594.26, 2010.77) (594.26, 2011.57)
+[06/17 20:26:27    44s] **WARN: (IMPPP-531):	ViaGen Warning: SPACING rule violation, no via created on layer VIATP at (791.26, 410.13) (794.26, 410.65)
+[06/17 20:26:27    44s] **WARN: (IMPPP-531):	ViaGen Warning: SPACING rule violation, no via created on layer VIATP at (791.26, 810.29) (794.26, 810.65)
+[06/17 20:26:27    44s] **WARN: (IMPPP-531):	ViaGen Warning: SPACING rule violation, no via created on layer VIATP at (791.26, 1210.45) (794.26, 1210.65)
+[06/17 20:26:27    44s] **WARN: (IMPPP-531):	ViaGen Warning: MINAREA rule violation, no via created on layer MET5 at (791.26, 1610.61) (794.26, 1610.65)
+[06/17 20:26:27    44s] **WARN: (IMPPP-531):	ViaGen Warning: MINAREA rule violation, no via created on layer MET4 at (794.26, 2010.77) (794.26, 2011.57)
+[06/17 20:26:27    44s] **WARN: (IMPPP-531):	ViaGen Warning: SPACING rule violation, no via created on layer VIATP at (991.26, 410.13) (994.26, 410.65)
+[06/17 20:26:27    44s] **WARN: (IMPPP-531):	ViaGen Warning: SPACING rule violation, no via created on layer VIATP at (991.26, 810.29) (994.26, 810.65)
+[06/17 20:26:27    44s] **WARN: (IMPPP-531):	ViaGen Warning: SPACING rule violation, no via created on layer VIATP at (991.26, 1210.45) (994.26, 1210.65)
+[06/17 20:26:27    44s] **WARN: (IMPPP-531):	ViaGen Warning: MINAREA rule violation, no via created on layer MET5 at (991.26, 1610.61) (994.26, 1610.65)
+[06/17 20:26:27    44s] **WARN: (IMPPP-531):	ViaGen Warning: MINAREA rule violation, no via created on layer MET4 at (994.26, 2010.77) (994.26, 2011.57)
+[06/17 20:26:27    44s] **WARN: (EMS-27):	Message (IMPPP-531) has exceeded the current message display limit of 20.
+[06/17 20:26:27    44s] To increase the message display limit, refer to the product command reference manual.
+[06/17 20:26:27    44s] sroute post-processing ends at Tue Jun 17 20:26:23 2025
+[06/17 20:26:27    44s] 
+[06/17 20:26:27    44s] sroute post-processing starts at Tue Jun 17 20:26:23 2025
+[06/17 20:26:27    44s] The viaGen is rebuilding shadow vias for net vdd!.
+[06/17 20:26:27    44s] sroute post-processing ends at Tue Jun 17 20:26:24 2025
+[06/17 20:26:27    44s] sroute: Total CPU time used = 0:0:3
+[06/17 20:26:27    44s] sroute: Total Real time used = 0:0:3
+[06/17 20:26:27    44s] sroute: Total Memory used = 47.02 megs
+[06/17 20:26:27    44s] sroute: Total Peak Memory used = 1058.01 megs
+[06/17 20:26:27    44s] done - Power Routing
+[06/17 20:26:27    44s] Placement
+[06/17 20:26:27    44s] *** Scan Trace Summary (runtime: cpu: 0:00:00.1 , real: 0:00:00.0): 
+[06/17 20:26:27    44s] Successfully traced 2 scan chains (total 15992 scan bits).
+[06/17 20:26:27    44s] Start applying DEF ordered sections ...
+[06/17 20:26:27    44s] Successfully applied all DEF ordered sections.
+[06/17 20:26:27    44s] *** Scan Sanity Check Summary:
+[06/17 20:26:27    44s] *** 2 scan chains passed sanity check.
+[06/17 20:26:27    44s] *** Starting place_design default flow ***
+[06/17 20:26:27    44s] **INFO: Enable pre-place timing setting for timing analysis
+[06/17 20:26:27    44s] Set Using Default Delay Limit as 101.
+[06/17 20:26:27    44s] **WARN: (IMPDC-1629):	The default delay limit was set to 101. This is less than the default of 1000 and may result in inaccurate delay calculation for nets with a fanout higher than the setting.  If needed, the default delay limit may be adjusted by running the command 'set delaycal_use_default_delay_limit'.
+[06/17 20:26:27    44s] Set Default Net Delay as 0 ps.
+[06/17 20:26:27    44s] Set Default Net Load as 0 pF. 
+[06/17 20:26:27    44s] **INFO: Analyzing IO path groups for slack adjustment
+[06/17 20:26:27    44s] Multithreaded Timing Analysis is initialized with 8 threads
+[06/17 20:26:27    44s] 
+[06/17 20:26:28    45s] **INFO (INTERRUPT): The current script will stop before next command.
+[06/17 20:26:28    45s] **INFO (INTERRUPT): One more Ctrl-C to exit Innovus ...
+[06/17 20:26:29    46s] Effort level <high> specified for reg2reg_tmp.21987 path_group
+[06/17 20:26:29    46s] #################################################################################
+[06/17 20:26:29    46s] # Design Stage: PreRoute
+[06/17 20:26:29    46s] # Design Name: USFFT64_2B_TOP
+[06/17 20:26:29    46s] # Design Mode: 180nm
+[06/17 20:26:29    46s] # Analysis Mode: MMMC Non-OCV 
+[06/17 20:26:29    46s] # Parasitics Mode: No SPEF/RCDB
+[06/17 20:26:29    46s] # Signoff Settings: SI Off 
+[06/17 20:26:29    46s] #################################################################################
+[06/17 20:26:29    46s] Calculate delays in Single mode...
+[06/17 20:26:29    47s] Topological Sorting (CPU = 0:00:00.2, MEM = 1271.4M, InitMEM = 1263.2M)
+[06/17 20:26:30    47s] siFlow : Timing analysis mode is single, using late cdB files
+[06/17 20:26:33    64s] End Timing Check Calculation. (CPU Time=0:00:01.2, Real Time=0:00:00.0)
+[06/17 20:26:33    64s] End delay calculation. (MEM=1890.3 CPU=0:00:16.3 REAL=0:00:02.0)
+[06/17 20:26:33    64s] *** CDM Built up (cpu=0:00:18.3  real=0:00:04.0  mem= 1890.3M) ***
+[06/17 20:26:38    69s] *** Start delete_buffer_trees ***
+[06/17 20:26:38    69s] Info: Detect buffers to remove automatically.
+[06/17 20:26:38    69s] Analyzing netlist ...
+[06/17 20:26:38    69s] All-RC-Corners-Per-Net-In-Memory is turned ON...
+[06/17 20:26:40    72s] Updating netlist
+[06/17 20:26:40    72s] 
+[06/17 20:26:41    72s] *summary: 105 instances (buffers/inverters) removed
+[06/17 20:26:41    72s] *** Finish delete_buffer_trees (0:00:03.2) ***
+[06/17 20:26:41    72s] **INFO: Disable pre-place timing setting for timing analysis
+[06/17 20:26:41    72s] Set Using Default Delay Limit as 1000.
+[06/17 20:26:41    72s] Set Default Net Delay as 1000 ps.
+[06/17 20:26:41    72s] Set Default Net Load as 0.5 pF. 
+[06/17 20:26:41    72s] Deleted 0 physical inst  (cell - / prefix -).
+[06/17 20:26:41    72s] *** Starting "NanoPlace(TM) placement v#2 (mem=1882.3M)" ...
+[06/17 20:26:41    73s] **WARN: (IMPTS-403):	Delay calculation was forced to extrapolate table data outside of the characterized range. In some cases, extrapolation can reduce the accuracy of the delay calculation. You can enable more detailed reporting of these cases by enabling the command 'setDelayCalMode -reportOutBound true'.
+[06/17 20:26:41    73s] Type 'man IMPTS-403' for more detail.
+[06/17 20:26:47    79s] *** Build Buffered Sizing Timing Model
+[06/17 20:26:47    79s] (cpu=0:00:06.1 mem=1882.4M) ***
+[06/17 20:26:49    80s] *** Build Virtual Sizing Timing Model
+[06/17 20:26:49    80s] (cpu=0:00:07.1 mem=1882.5M) ***
+[06/17 20:26:49    80s] Options: timingDriven clkGateAware ignoreScan pinGuide congEffort=auto gpeffort=medium 
+[06/17 20:26:49    80s] Summary for sequential cells idenfication: 
+[06/17 20:26:49    80s] Identified SBFF number: 128
+[06/17 20:26:49    80s] Identified MBFF number: 0
+[06/17 20:26:49    80s] Not identified SBFF number: 0
+[06/17 20:26:49    80s] Not identified MBFF number: 0
+[06/17 20:26:49    80s] Number of sequential cells which are not FFs: 106
+[06/17 20:26:49    80s] 
+[06/17 20:26:49    80s] *** Scan Trace Summary (runtime: cpu: 0:00:00.1 , real: 0:00:00.0): 
+[06/17 20:26:49    80s] Successfully traced 2 scan chains (total 15992 scan bits).
+[06/17 20:26:49    80s] Start applying DEF ordered sections ...
+[06/17 20:26:49    80s] Successfully applied all DEF ordered sections.
+[06/17 20:26:49    80s] *** Scan Sanity Check Summary:
+[06/17 20:26:49    80s] *** 2 scan chains passed sanity check.
+[06/17 20:26:49    80s] #spOpts: N=180 
+[06/17 20:26:49    80s] #std cell=53354 (0 fixed + 53354 movable) #block=0 (0 floating + 0 preplaced)
+[06/17 20:26:49    80s] #ioInst=110 #net=54325 #term=217718 #term/net=4.01, #fixedIo=110, #floatIo=0, #fixedPin=86, #floatPin=0
+[06/17 20:26:49    80s] stdCell: 53354 single + 0 double + 0 multi
+[06/17 20:26:49    80s] Total standard cell length = 361.4915 (mm), area = 1.7641 (mm^2)
+[06/17 20:26:49    80s] Core basic site is core
+[06/17 20:26:49    80s] Layer info - lib-1st H=1, V=2.  Cell-FPin=1. Top-pin=2
+[06/17 20:26:49    81s] Apply auto density screen in pre-place stage.
+[06/17 20:26:50    81s] Auto density screen increases utilization from 0.377 to 0.377
+[06/17 20:26:50    81s] Auto density screen runtime: cpu = 0:00:00.2 real = 0:00:01.0 mem = 2074.5M
+[06/17 20:26:50    81s] Average module density = 0.377.
+[06/17 20:26:50    81s] Density for the design = 0.377.
+[06/17 20:26:50    81s]        = stdcell_area 573796 sites (1764078 um^2) / alloc_area 1520358 sites (4674187 um^2).
+[06/17 20:26:50    81s] Pin Density = 0.1430.
+[06/17 20:26:50    81s]             = total # of pins 217718 / total area 1522038.
+[06/17 20:26:50    81s] Enabling multi-CPU acceleration with 8 CPU(s) for placement
+[06/17 20:26:50    81s] === lastAutoLevel = 10 
+[06/17 20:27:02    98s] Clock gating cells determined by native netlist tracing.
+[06/17 20:27:02    99s] Effort level <high> specified for reg2reg path_group
+[06/17 20:27:06   106s] Iteration  1: Total net bbox = 3.557e+05 (1.69e+05 1.87e+05)
+[06/17 20:27:06   106s]               Est.  stn bbox = 4.647e+05 (2.24e+05 2.41e+05)
+[06/17 20:27:06   106s]               cpu = 0:00:00.7 real = 0:00:01.0 mem = 2138.7M
+[06/17 20:27:06   106s] Iteration  2: Total net bbox = 3.557e+05 (1.69e+05 1.87e+05)
+[06/17 20:27:06   106s]               Est.  stn bbox = 4.647e+05 (2.24e+05 2.41e+05)
+[06/17 20:27:06   106s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2138.7M
+[06/17 20:27:09   121s] Iteration  3: Total net bbox = 3.506e+05 (1.76e+05 1.75e+05)
+[06/17 20:27:10   121s]               Est.  stn bbox = 5.655e+05 (2.76e+05 2.90e+05)
+[06/17 20:27:10   121s]               cpu = 0:00:14.6 real = 0:00:04.0 mem = 2138.7M
+[06/17 20:27:10   121s] Total number of setup views is 1.
+[06/17 20:27:10   121s] Total number of active setup views is 1.
+[06/17 20:27:13   137s] Iteration  4: Total net bbox = 4.929e+05 (2.66e+05 2.27e+05)
+[06/17 20:27:13   137s]               Est.  stn bbox = 7.438e+05 (4.03e+05 3.41e+05)
+[06/17 20:27:13   137s]               cpu = 0:00:16.2 real = 0:00:03.0 mem = 2138.7M
+[06/17 20:27:21   172s] Iteration  5: Total net bbox = 1.133e+06 (5.83e+05 5.50e+05)
+[06/17 20:27:21   172s]               Est.  stn bbox = 1.745e+06 (9.06e+05 8.39e+05)
+[06/17 20:27:21   172s]               cpu = 0:00:34.5 real = 0:00:08.0 mem = 2138.7M
+[06/17 20:27:32   223s] Iteration  6: Total net bbox = 1.646e+06 (8.42e+05 8.04e+05)
+[06/17 20:27:32   223s]               Est.  stn bbox = 2.508e+06 (1.29e+06 1.22e+06)
+[06/17 20:27:32   223s]               cpu = 0:00:50.6 real = 0:00:10.0 mem = 2170.7M
+[06/17 20:27:32   223s] 
+[06/17 20:27:32   223s] Iteration  7: Total net bbox = 1.778e+06 (9.73e+05 8.06e+05)
+[06/17 20:27:32   223s]               Est.  stn bbox = 2.641e+06 (1.42e+06 1.22e+06)
+[06/17 20:27:32   223s]               cpu = 0:00:00.1 real = 0:00:00.0 mem = 2170.7M
+[06/17 20:27:45   243s] nrCritNet: 0.00% ( 0 / 54325 ) cutoffSlk: 214748364.7ps stdDelay: 26.3ps
+[06/17 20:27:58   262s] nrCritNet: 0.00% ( 0 / 54325 ) cutoffSlk: 214748364.7ps stdDelay: 26.3ps
+[06/17 20:27:58   262s] Iteration  8: Total net bbox = 1.778e+06 (9.73e+05 8.06e+05)
+[06/17 20:27:58   262s]               Est.  stn bbox = 2.641e+06 (1.42e+06 1.22e+06)
+[06/17 20:27:58   262s]               cpu = 0:00:38.4 real = 0:00:26.0 mem = 2170.7M
+[06/17 20:28:11   321s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 8.
+[06/17 20:28:11   321s] enableMT= 3 (onDemand)
+[06/17 20:28:11   321s] useHNameCompare= 3 (lazy mode)
+[06/17 20:28:11   321s] doMTMainInit= 1
+[06/17 20:28:11   321s] doMTFlushLazyWireDelete= 1
+[06/17 20:28:11   321s] useFastLRoute= 0
+[06/17 20:28:11   321s] useFastCRoute= 1
+[06/17 20:28:11   321s] doMTNetInitAdjWires= 1
+[06/17 20:28:11   321s] wireMPoolNoThreadCheck= 1
+[06/17 20:28:11   321s] allMPoolNoThreadCheck= 1
+[06/17 20:28:11   321s] doNotUseMPoolInCRoute= 1
+[06/17 20:28:11   321s] doMTSprFixZeroViaCodes= 1
+[06/17 20:28:11   321s] doMTDtrRoute1CleanupA= 1
+[06/17 20:28:11   321s] doMTDtrRoute1CleanupB= 1
+[06/17 20:28:11   321s] doMTWireLenCalc= 0
+[06/17 20:28:11   321s] doSkipQALenRecalc= 1
+[06/17 20:28:11   321s] doMTMainCleanup= 1
+[06/17 20:28:11   321s] doMTMoveCellTermsToMSLayer= 1
+[06/17 20:28:11   321s] doMTConvertWiresToNewViaCode= 1
+[06/17 20:28:11   321s] doMTRemoveAntenna= 1
+[06/17 20:28:11   321s] doMTCheckConnectivity= 1
+[06/17 20:28:11   321s] enableRuntimeLog= 0
+[06/17 20:28:11   321s] Congestion driven padding in post-place stage.
+[06/17 20:28:12   321s] Congestion driven padding increases utilization from 0.531 to 0.531
+[06/17 20:28:12   321s] Congestion driven padding runtime: cpu = 0:00:00.3 real = 0:00:01.0 mem = 2170.7M
+[06/17 20:28:14   329s] Iteration  9: Total net bbox = 1.919e+06 (1.05e+06 8.73e+05)
+[06/17 20:28:14   329s]               Est.  stn bbox = 2.868e+06 (1.54e+06 1.33e+06)
+[06/17 20:28:14   329s]               cpu = 0:01:07 real = 0:00:16.0 mem = 2170.7M
+[06/17 20:28:27   348s] nrCritNet: 0.00% ( 0 / 54325 ) cutoffSlk: 214748364.7ps stdDelay: 26.3ps
+[06/17 20:28:40   367s] nrCritNet: 0.00% ( 0 / 54325 ) cutoffSlk: 214748364.7ps stdDelay: 26.3ps
+[06/17 20:28:40   368s] Iteration 10: Total net bbox = 1.919e+06 (1.05e+06 8.73e+05)
+[06/17 20:28:40   368s]               Est.  stn bbox = 2.868e+06 (1.54e+06 1.33e+06)
+[06/17 20:28:40   368s]               cpu = 0:00:38.8 real = 0:00:26.0 mem = 2170.7M
+[06/17 20:28:53   428s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 8.
+[06/17 20:28:54   429s] Congestion driven padding in post-place stage.
+[06/17 20:28:54   429s] Congestion driven padding increases utilization from 0.531 to 0.531
+[06/17 20:28:54   429s] Congestion driven padding runtime: cpu = 0:00:00.4 real = 0:00:00.0 mem = 2170.7M
+[06/17 20:28:56   436s] Iteration 11: Total net bbox = 1.981e+06 (1.08e+06 9.03e+05)
+[06/17 20:28:56   436s]               Est.  stn bbox = 2.936e+06 (1.57e+06 1.36e+06)
+[06/17 20:28:56   436s]               cpu = 0:01:09 real = 0:00:16.0 mem = 2170.7M
+[06/17 20:29:09   456s] nrCritNet: 0.00% ( 0 / 54325 ) cutoffSlk: 214748364.7ps stdDelay: 26.3ps
+[06/17 20:29:22   476s] nrCritNet: 0.00% ( 0 / 54325 ) cutoffSlk: 214748364.7ps stdDelay: 26.3ps
+[06/17 20:29:22   476s] Iteration 12: Total net bbox = 1.981e+06 (1.08e+06 9.03e+05)
+[06/17 20:29:22   476s]               Est.  stn bbox = 2.936e+06 (1.57e+06 1.36e+06)
+[06/17 20:29:22   476s]               cpu = 0:00:39.5 real = 0:00:26.0 mem = 2170.7M
+[06/17 20:29:34   530s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 8.
+[06/17 20:29:36   531s] Congestion driven padding in post-place stage.
+[06/17 20:29:36   532s] Congestion driven padding increases utilization from 0.531 to 0.531
+[06/17 20:29:36   532s] Congestion driven padding runtime: cpu = 0:00:00.4 real = 0:00:00.0 mem = 2170.7M
+[06/17 20:29:37   534s] Iteration 13: Total net bbox = 1.991e+06 (1.09e+06 9.03e+05)
+[06/17 20:29:37   534s]               Est.  stn bbox = 2.950e+06 (1.59e+06 1.36e+06)
+[06/17 20:29:37   534s]               cpu = 0:00:58.0 real = 0:00:15.0 mem = 2170.7M
+[06/17 20:29:37   534s] Iteration 14: Total net bbox = 1.991e+06 (1.09e+06 9.03e+05)
+[06/17 20:29:37   534s]               Est.  stn bbox = 2.950e+06 (1.59e+06 1.36e+06)
+[06/17 20:29:37   534s]               cpu = 0:00:00.1 real = 0:00:00.0 mem = 2170.7M

@@ -1,0 +1,600 @@
+**INFO: setDesignMode -flowEffort standard -> setting 'setOptMode -allEndPoints true' for the duration of this command.
+GigaOpt running with 8 threads.
+**opt_design ... cpu = 0:00:00, real = 0:00:01, mem = 1678.7M, totSessionCpu=0:12:22 **
+Added -handlePreroute to trialRouteMode
+*** opt_design -pre_cts ***
+DRC Margin: user margin 0.0; extra margin 0.2
+Setup Target Slack: user slack 0; extra slack 0.1
+Hold Target Slack: user slack 0
+No user sequential activity specified, applying default sequential activity of "0.2" for Dynamic Power reporting.
+'set_default_switching_activity' finished successfully.
+**WARN: (IMPOPT-3195):	Analysis mode has changed.
+Type 'man IMPOPT-3195' for more detail.
+Multi-VT timing optimization disabled based on library information.
+Start to check current routing status for nets...
+All nets are already routed correctly.
+End to check current routing status for nets (mem=1678.7M)
+#################################################################################
+# Design Stage: PreRoute
+# Design Name: USFFT64_2B_TOP
+# Design Mode: 180nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: No SPEF/RCDB
+# Signoff Settings: SI Off 
+#################################################################################
+Calculate delays in Single mode...
+End delay calculation. (MEM=2248.72 CPU=0:00:23.9 REAL=0:00:04.0)
+*** CDM Built up (cpu=0:00:28.9  real=0:00:06.0  mem= 2248.7M) ***
+*** Done Building Timing Graph (cpu=0:00:32.8 real=0:00:07.0 totSessionCpu=0:12:57 mem=2248.7M)
+
+------------------------------------------------------------
+             Initial Summary                             
+------------------------------------------------------------
+
+Setup views included:
+ best_view 
+
++--------------------+---------+
+|     Setup mode     |   all   |
++--------------------+---------+
+|           WNS (ns):|   N/A   |
+|           TNS (ns):|   N/A   |
+|    Violating Paths:|   N/A   |
+|          All Paths:|   N/A   |
++--------------------+---------+
+
++----------------+-------------------------------+------------------+
+|                |              Real             |       Total      |
+|    DRVs        +------------------+------------+------------------|
+|                |  Nr nets(terms)  | Worst Vio  |  Nr nets(terms)  |
++----------------+------------------+------------+------------------+
+|   max_cap      |     74 (74)      |   -3.680   |     74 (74)      |
+|   max_tran     |    132 (7037)    |   -9.730   |    132 (7037)    |
+|   max_fanout   |      2 (2)       |    -22     |      2 (2)       |
+|   max_length   |      0 (0)       |     0      |      0 (0)       |
++----------------+------------------+------------+------------------+
+
+Density: 47.692%
+------------------------------------------------------------
+**opt_design ... cpu = 0:00:37, real = 0:00:11, mem = 1752.7M, totSessionCpu=0:12:59 **
+** INFO : this run is activating medium effort placeOptDesign flow
+*** Starting optimizing excluded clock nets MEM= 1752.7M) ***
+*info: No excluded clock nets to be optimized.
+*** Finished optimizing excluded clock nets (CPU Time= 0:00:00.0  MEM= 1752.7M) ***
+The useful skew maximum allowed delay is: 0.3
+Info: 0 don't touch net , 3 undriven nets excluded from IPO operation.
+Info: 86 io nets excluded
+Info: 1 clock net  excluded from IPO operation.
+*info: There are 11 candidate Buffer cells
+*info: There are 10 candidate Inverter cells
+
+Netlist preparation processing... 
+Removed 146 instances
+**WARN: (IMPOPT-7098):	WARNING: ADDR[5] is an undriven net with 1 fanouts.
+**WARN: (IMPOPT-7098):	WARNING: DOR[18] is an undriven net with 1 fanouts.
+**WARN: (IMPOPT-7098):	WARNING: DOI[18] is an undriven net with 1 fanouts.
+**WARN: (IMPOPT-7098):	WARNING: SHIFT_C[3] is an undriven net with 7 fanouts.
+**WARN: (IMPOPT-7098):	WARNING: DR_C[15] is an undriven net with 128 fanouts.
+**WARN: (IMPOPT-7098):	WARNING: DI_C[15] is an undriven net with 128 fanouts.
+*info: Marking 0 isolation instances dont touch
+*info: Marking 0 level shifter instances dont touch
+**opt_design ... cpu = 0:00:49, real = 0:00:22, mem = 1829.0M, totSessionCpu=0:13:11 **
+Begin: GigaOpt high fanout net optimization
+Info: 0 don't touch net , 3 undriven nets excluded from IPO operation.
+Info: 86 io nets excluded
+Info: 1 clock net  excluded from IPO operation.
++----------+---------+--------+--------+------------+--------+
+| Density  | Commits |  WNS   |  TNS   |    Real    |  Mem   |
++----------+---------+--------+--------+------------+--------+
+|    47.62%|        -|   0.100|   0.000|   0:00:00.0| 2565.3M|
+|    47.87%|      803|   0.100|   0.000|   0:00:08.0| 2727.5M|
++----------+---------+--------+--------+------------+--------+
+
+*** Finish pre-CTS High Fanout Net Fixing (cpu=0:00:23.5 real=0:00:08.0 mem=2727.5M) ***
+End: GigaOpt high fanout net optimization
+Begin: GigaOpt DRV Optimization
+GigaOpt DRV : Use maxLocalDensity 3.0 (from dbgIPOMaxLocalDensity=0.980000, optModeMaxLocDen=0.98)
+Info: 0 don't touch net , 3 undriven nets excluded from IPO operation.
+Info: 86 io nets excluded
+Info: 1 clock net  excluded from IPO operation.
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|      max-tran     |      max-cap      |     max-fanout    |     max-length    |       |           |           |           |         |            |           |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|  nets   |  terms  |  nets   |  terms  |  nets   |  terms  |  nets   |  terms  |  WNS  |  #Buffer  | #Inverter |  #Resize  | Density |    Real    |    Mem    |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|   433   | 20054   |   315   |    315  |     0   |     0   |     0   |     0   |  N/A  |          0|          0|          0|  47.87  |            |           |
+|     0   |     0   |     0   |      0  |     0   |     0   |     0   |     0   |  N/A  |        194|          2|        360|  48.01  |   0:00:08.0|    2726.8M|
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+*** Finish DRV Fixing (cpu=0:00:43.3 real=0:00:10.0 mem=2726.8M) ***
+
+End: GigaOpt DRV Optimization
+GigaOpt DRV: restore maxLocalDensity to 0.98
+**opt_design ... cpu = 0:02:11, real = 0:00:54, mem = 1982.5M, totSessionCpu=0:14:33 **
+Begin: GigaOpt Global Optimization
+Info: 0 don't touch net , 3 undriven nets excluded from IPO operation.
+Info: 86 io nets excluded
+Info: 1 clock net  excluded from IPO operation.
+*info: 86 io nets excluded
+*info: 1 clock net excluded
+*info: 7 special nets excluded.
+*info: 447 no-driver nets excluded.
+** GigaOpt Global Opt WNS Slack 0.000  TNS Slack 0.000 
++--------+--------+----------+------------+--------+----------+---------+----------------------------------------+
+|  WNS   |  TNS   | Density  |    Real    |  Mem   |Worst View|Pathgroup|               End Point                |
++--------+--------+----------+------------+--------+----------+---------+----------------------------------------+
+|   0.000|   0.000|    48.01%|   0:00:00.0| 2710.0M| best_view|       NA| NA                                     |
++--------+--------+----------+------------+--------+----------+---------+----------------------------------------+
+
+*** Finish pre-CTS Global Setup Fixing (cpu=0:00:00.3 real=0:00:00.0 mem=2710.0M) ***
+
+*** Finish pre-CTS Setup Fixing (cpu=0:00:00.3 real=0:00:00.0 mem=2710.0M) ***
+** GigaOpt Global Opt End WNS Slack 0.000  TNS Slack 0.000 
+End: GigaOpt Global Optimization
+**opt_design ... cpu = 0:02:27, real = 0:01:11, mem = 1979.6M, totSessionCpu=0:14:50 **
+
+Active setup views:
+ best_view
+  Dominating endpoints: 0
+  Dominating TNS: -0.000
+
+*** Check timing (0:00:00.2)
+Info: 0 don't touch net , 3 undriven nets excluded from IPO operation.
+Info: 86 io nets excluded
+Info: 1 clock net  excluded from IPO operation.
+**opt_design ... cpu = 0:02:28, real = 0:01:11, mem = 1977.6M, totSessionCpu=0:14:50 **
+setup target slack: 0.1
+extra slack: 0.1
+std delay: 0.0263
+real setup target slack: 0.0263
+[NR-eagl] Detected a user setting of 'getTrialRouteMode -handlePreroute true' which was ignored.
+[NR-eagl] Started earlyGlobalRoute kernel
+[NR-eagl] Initial Peak syMemory usage = 1982.0 MB
+[NR-eagl] Layer1 has no routable track
+[NR-eagl] Layer2 has single uniform track structure
+[NR-eagl] Layer3 has single uniform track structure
+[NR-eagl] Layer4 has single uniform track structure
+[NR-eagl] Layer5 has single uniform track structure
+[NR-eagl] Layer6 has single uniform track structure
+[NR-eagl] EstWL : 671663
+
+[NR-eagl] earlyGlobalRoute overflow: 0.00% H + 0.00% V
+
+[NR-eagl] earlyGlobalRoute overflow: 0.00% H + 0.00% V
+
+[NR-eagl] Overflow after earlyGlobalRoute (GR compatible) 0.00% H + 0.00% V
+[NR-eagl] Overflow after earlyGlobalRoute 0.00% H + 0.00% V
+
+[NR-eagl] End Peak syMemory usage = 2035.5 MB
+[NR-eagl] Early Global Router Kernel+IO runtime : 2.18 seconds
+Local HotSpot Analysis: normalized max congestion hotspot area = 0.00, normalized total congestion hotspot area = 0.00 (area is in unit of 4 std-cell row bins)
+*** Starting refinePlace (0:14:55 mem=2035.5M) ***
+Density distribution unevenness ratio = 24.301%
+Density distribution unevenness ratio = 23.876%
+Move report: Timing Driven Placement moves 53130 insts, mean move: 8.73 um, max move: 606.37 um
+	Max move on inst (u_dft/FE_COEC375_dft_shift_enable_C): (1925.28, 1198.65) --> (1328.67, 1208.41)
+	Runtime: CPU: 0:01:31 REAL: 0:00:23.0 MEM: 2052.1MB
+Density distribution unevenness ratio = 23.817%
+Move report: Detail placement moves 14071 insts, mean move: 3.54 um, max move: 45.99 um
+	Max move on inst (u_dft/FE_COEC310_CLK_C): (1457.82, 1066.89) --> (1503.81, 1066.89)
+	Runtime: CPU: 0:00:19.4 REAL: 0:00:08.0 MEM: 2052.1MB
+Summary Report:
+Instances move: 53165 (out of 54207 movable)
+Mean displacement: 8.94 um
+Max displacement: 607.63 um (Instance: u_dft/FE_COEC375_dft_shift_enable_C) (1925.28, 1198.65) -> (1327.41, 1208.41)
+	Length: 5 sites, height: 1 rows, site name: core, cell type: BUX2
+Runtime: CPU: 0:01:50 REAL: 0:00:31.0 MEM: 2052.1MB
+*** Finished refinePlace (0:16:46 mem=2052.1M) ***
+Density distribution unevenness ratio = 23.811%
+**WARN: (IMPSC-1001):	Unable to trace scan chain "chain1". Check the information during tracing.
+Type 'man IMPSC-1001' for more detail.
+*** Scan Trace Summary (runtime: cpu: 0:00:00.0 , real: 0:00:00.0): 
+Successfully traced 1 scan chain  (total 7996 scan bits).
+*** Scan Sanity Check Summary:
+*** 1 scan chain  passed sanity check.
+INFO: Medium effort scan reorder.
+**WARN: (IMPSC-1117):	Skip reordering scan chain "chain1" because tracing did not succeed.
+*** Summary: Scan Reorder within scan chain
+        Total scan reorder time: cpu: 0:00:09.0 , real: 0:00:09.0
+Successfully reordered 1 scan chain .
+**WARN: (IMPSC-1253):	Unable to reorder 1 scan chain .
+Initial total scan wire length:   126485.610
+Final   total scan wire length:   118167.320
+Improvement:     8318.290   percent  6.58
+*** End of ScanReorder (cpu=0:00:09.1, real=0:00:09.0, mem=2244.1M) ***
+Total net length = 2.527e+06 (1.275e+06 1.252e+06) (ext = 0.000e+00)
+Trial Route Overflow 0(H) 0(V)
+Starting congestion repair ...
+[NR-eagl] Detected a user setting of 'getTrialRouteMode -handlePreroute true' which was ignored.
+[NR-eagl] Layer1 has no routable track
+[NR-eagl] Layer2 has single uniform track structure
+[NR-eagl] Layer3 has single uniform track structure
+[NR-eagl] Layer4 has single uniform track structure
+[NR-eagl] Layer5 has single uniform track structure
+[NR-eagl] Layer6 has single uniform track structure
+[NR-eagl] EstWL : 667755
+
+[NR-eagl] earlyGlobalRoute overflow: 0.00% H + 0.00% V
+
+[NR-eagl] earlyGlobalRoute overflow: 0.00% H + 0.00% V
+
+[NR-eagl] Overflow after earlyGlobalRoute (GR compatible) 0.00% H + 0.00% V
+[NR-eagl] Overflow after earlyGlobalRoute 0.00% H + 0.00% V
+
+Local HotSpot Analysis: normalized max congestion hotspot area = 0.00, normalized total congestion hotspot area = 0.00 (area is in unit of 4 std-cell row bins)
+describeCongestion: hCong = 0.00 vCong = 0.00
+Skipped repairing congestion.
+[NR-eagl] Layer1(MET1)(F) length: 0.000000e+00um, number of vias: 234760
+[NR-eagl] Layer2(MET2)(V) length: 1.180003e+06um, number of vias: 343648
+[NR-eagl] Layer3(MET3)(H) length: 1.390163e+06um, number of vias: 23151
+[NR-eagl] Layer4(MET4)(V) length: 4.785557e+05um, number of vias: 6093
+[NR-eagl] Layer5(MET5)(H) length: 3.016353e+05um, number of vias: 149
+[NR-eagl] Layer6(METTP)(V) length: 1.619001e+04um, number of vias: 0
+[NR-eagl] Total length: 3.366547e+06um, number of vias: 607801
+End of congRepair (cpu=0:00:05.7, real=0:00:06.0)
+Start to check current routing status for nets...
+All nets are already routed correctly.
+End to check current routing status for nets (mem=2236.0M)
+Extraction called for design 'USFFT64_2B_TOP' of instances=54317 and nets=55693 using extraction engine 'preRoute' .
+PreRoute RC Extraction called for design USFFT64_2B_TOP.
+RC Extraction called in multi-corner(1) mode.
+**WARN: (IMPEXT-6197):	The Cap table file is not specified. This will result in lower parasitic accuracy when using preRoute extraction or postRoute extraction with effort level 'low'. It is recommended to generate the Cap table file using the 'generateCapTbl' command and specify it before extraction using 'create_rc_corner/update_rc_corner -cap_table'.
+Type 'man IMPEXT-6197' for more detail.
+RCMode: PreRoute
+      RC Corner Indexes            0   
+Capacitance Scaling Factor   : 1.00000 
+Resistance Scaling Factor    : 1.00000 
+Clock Cap. Scaling Factor    : 1.00000 
+Clock Res. Scaling Factor    : 1.00000 
+Shrink Factor                : 1.00000
+PreRoute extraction is honoring NDR/Shielding/ExtraSpace for clock nets.
+Updating RC grid for preRoute extraction ...
+Initializing multi-corner resistance tables ...
+PreRoute RC Extraction DONE (CPU Time: 0:00:00.4  Real Time: 0:00:01.0  MEM: 2236.047M)
+Compute RC Scale Done ...
+#################################################################################
+# Design Stage: PreRoute
+# Design Name: USFFT64_2B_TOP
+# Design Mode: 180nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: No SPEF/RCDB
+# Signoff Settings: SI Off 
+#################################################################################
+Calculate delays in Single mode...
+End delay calculation. (MEM=2379.33 CPU=0:00:24.7 REAL=0:00:04.0)
+*** CDM Built up (cpu=0:00:30.1  real=0:00:06.0  mem= 2379.3M) ***
+*** Done Building Timing Graph (cpu=0:00:33.9 real=0:00:06.0 totSessionCpu=0:17:41 mem=2379.3M)
+
+------------------------------------------------------------
+     Summary (cpu=2.24min real=0.90min mem=1877.5M)                             
+------------------------------------------------------------
+
+Setup views included:
+ best_view 
+
++--------------------+---------+
+|     Setup mode     |   all   |
++--------------------+---------+
+|           WNS (ns):|   N/A   |
+|           TNS (ns):|   N/A   |
+|    Violating Paths:|   N/A   |
+|          All Paths:|   N/A   |
++--------------------+---------+
+
++----------------+-------------------------------+------------------+
+|                |              Real             |       Total      |
+|    DRVs        +------------------+------------+------------------|
+|                |  Nr nets(terms)  | Worst Vio  |  Nr nets(terms)  |
++----------------+------------------+------------+------------------+
+|   max_cap      |      0 (0)       |   0.000    |      0 (0)       |
+|   max_tran     |      0 (0)       |   0.000    |      0 (0)       |
+|   max_fanout   |      0 (0)       |     0      |      0 (0)       |
+|   max_length   |      0 (0)       |     0      |      0 (0)       |
++----------------+------------------+------------+------------------+
+
+Density: 48.005%
+------------------------------------------------------------
+**opt_design ... cpu = 0:05:20, real = 0:02:16, mem = 1921.4M, totSessionCpu=0:17:43 **
+*** Check timing (0:00:00.2)
+Begin: GigaOpt Optimization in WNS mode
+Info: 0 don't touch net , 3 undriven nets excluded from IPO operation.
+Info: 86 io nets excluded
+Info: 1 clock net  excluded from IPO operation.
+*info: 86 io nets excluded
+*info: 1 clock net excluded
+*info: 7 special nets excluded.
+*info: 458 no-driver nets excluded.
+** GigaOpt Optimizer WNS Slack 0.039 TNS Slack 0.000 Density 48.01
+
+*** Finish pre-CTS Setup Fixing (cpu=0:00:09.5 real=0:00:04.0 mem=2669.4M) ***
+
+End: GigaOpt Optimization in WNS mode
+
+------------------------------------------------------------
+     Summary (cpu=0.32min real=0.23min mem=1945.2M)                             
+------------------------------------------------------------
+
+Setup views included:
+ best_view 
+
++--------------------+---------+---------+---------+
+|     Setup mode     |   all   | reg2reg | default |
++--------------------+---------+---------+---------+
+|           WNS (ns):|  0.000  |   N/A   |  0.000  |
+|           TNS (ns):|  0.000  |   N/A   |  0.000  |
+|    Violating Paths:|    0    |   N/A   |    0    |
+|          All Paths:|    0    |   N/A   |    0    |
++--------------------+---------+---------+---------+
+
++----------------+-------------------------------+------------------+
+|                |              Real             |       Total      |
+|    DRVs        +------------------+------------+------------------|
+|                |  Nr nets(terms)  | Worst Vio  |  Nr nets(terms)  |
++----------------+------------------+------------+------------------+
+|   max_cap      |      0 (0)       |   0.000    |      0 (0)       |
+|   max_tran     |      0 (0)       |   0.000    |      0 (0)       |
+|   max_fanout   |      0 (0)       |     0      |      0 (0)       |
+|   max_length   |      0 (0)       |     0      |      0 (0)       |
++----------------+------------------+------------+------------------+
+
+Density: 48.005%
+Routing Overflow: 0.00% H and 0.00% V
+------------------------------------------------------------
+**opt_design ... cpu = 0:05:45, real = 0:02:34, mem = 1942.9M, totSessionCpu=0:18:07 **
+*** Check timing (0:00:00.1)
+Begin: GigaOpt Optimization in TNS mode
+Info: 0 don't touch net , 3 undriven nets excluded from IPO operation.
+Info: 86 io nets excluded
+Info: 1 clock net  excluded from IPO operation.
+*info: 86 io nets excluded
+*info: 1 clock net excluded
+*info: 7 special nets excluded.
+*info: 458 no-driver nets excluded.
+** GigaOpt Optimizer WNS Slack 0.039 TNS Slack 0.000 Density 48.01
+
+*** Finished Optimize Step Cumulative (cpu=0:00:00.0 real=0:00:00.0 mem=2693.8M) ***
+
+*** Finish pre-CTS Setup Fixing (cpu=0:00:01.3 real=0:00:02.0 mem=2693.8M) ***
+
+End: GigaOpt Optimization in TNS mode
+
+------------------------------------------------------------
+     Summary (cpu=0.20min real=0.20min mem=1955.0M)                             
+------------------------------------------------------------
+
+Setup views included:
+ best_view 
+
++--------------------+---------+---------+---------+
+|     Setup mode     |   all   | reg2reg | default |
++--------------------+---------+---------+---------+
+|           WNS (ns):|  0.000  |   N/A   |  0.000  |
+|           TNS (ns):|  0.000  |   N/A   |  0.000  |
+|    Violating Paths:|    0    |   N/A   |    0    |
+|          All Paths:|    0    |   N/A   |    0    |
++--------------------+---------+---------+---------+
+
++----------------+-------------------------------+------------------+
+|                |              Real             |       Total      |
+|    DRVs        +------------------+------------+------------------|
+|                |  Nr nets(terms)  | Worst Vio  |  Nr nets(terms)  |
++----------------+------------------+------------+------------------+
+|   max_cap      |      0 (0)       |   0.000    |      0 (0)       |
+|   max_tran     |      0 (0)       |   0.000    |      0 (0)       |
+|   max_fanout   |      0 (0)       |     0      |      0 (0)       |
+|   max_length   |      0 (0)       |     0      |      0 (0)       |
++----------------+------------------+------------+------------------+
+
+Density: 48.005%
+Routing Overflow: 0.00% H and 0.00% V
+------------------------------------------------------------
+**opt_design ... cpu = 0:05:59, real = 0:02:48, mem = 1955.0M, totSessionCpu=0:18:22 **
+Info: 0 don't touch net , 3 undriven nets excluded from IPO operation.
+Info: 86 io nets excluded
+Info: 1 clock net  excluded from IPO operation.
+Begin: Area Reclaim Optimization
+Reclaim Optimization WNS Slack 0.000  TNS Slack 0.000 Density 48.01
++----------+---------+--------+--------+------------+--------+
+| Density  | Commits |  WNS   |  TNS   |    Real    |  Mem   |
++----------+---------+--------+--------+------------+--------+
+|    48.01%|        -|   0.000|   0.000|   0:00:00.0| 2698.5M|
+|    48.00%|        8|   0.000|   0.000|   0:00:02.0| 2701.8M|
+|    46.90%|     5681|   0.000|   0.000|   0:00:23.0| 2717.5M|
+|    46.90%|       30|   0.000|   0.000|   0:00:03.0| 2717.5M|
+|    46.90%|        0|   0.000|   0.000|   0:00:00.0| 2717.5M|
++----------+---------+--------+--------+------------+--------+
+Reclaim Optimization End WNS Slack 0.000  TNS Slack 0.000 Density 46.90
+** Finished Core Area Reclaim Optimization (cpu = 0:02:06) (real = 0:00:30.0) **
+*** Starting refinePlace (0:20:29 mem=2717.5M) ***
+Total net length = 2.606e+06 (1.312e+06 1.294e+06) (ext = 0.000e+00)
+Move report: Detail placement moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+	Runtime: CPU: 0:00:00.5 REAL: 0:00:00.0 MEM: 2717.5MB
+Summary Report:
+Instances move: 0 (out of 54197 movable)
+Mean displacement: 0.00 um
+Max displacement: 0.00 um 
+Total net length = 2.606e+06 (1.312e+06 1.294e+06) (ext = 0.000e+00)
+Runtime: CPU: 0:00:00.5 REAL: 0:00:00.0 MEM: 2717.5MB
+*** Finished refinePlace (0:20:29 mem=2717.5M) ***
+*** maximum move = 0.00 um ***
+*** Finished re-routing un-routed nets (2717.5M) ***
+
+*** Finish Physical Update (cpu=0:00:02.5 real=0:00:02.0 mem=2717.5M) ***
+*** Finished Area Reclaim Optimization (cpu=0:02:09, real=0:00:32, mem=1981.96M, totSessionCpu=0:20:31).
+[NR-eagl] Detected a user setting of 'getTrialRouteMode -handlePreroute true' which was ignored.
+[NR-eagl] Layer1 has no routable track
+[NR-eagl] Layer2 has single uniform track structure
+[NR-eagl] Layer3 has single uniform track structure
+[NR-eagl] Layer4 has single uniform track structure
+[NR-eagl] Layer5 has single uniform track structure
+[NR-eagl] Layer6 has single uniform track structure
+[NR-eagl] EstWL : 668123
+
+[NR-eagl] earlyGlobalRoute overflow: 0.00% H + 0.00% V
+
+[NR-eagl] earlyGlobalRoute overflow: 0.00% H + 0.00% V
+
+[NR-eagl] Overflow after earlyGlobalRoute (GR compatible) 0.00% H + 0.00% V
+[NR-eagl] Overflow after earlyGlobalRoute 0.00% H + 0.00% V
+
+[NR-eagl] Layer1(MET1)(F) length: 0.000000e+00um, number of vias: 234740
+[NR-eagl] Layer2(MET2)(V) length: 1.180547e+06um, number of vias: 344165
+[NR-eagl] Layer3(MET3)(H) length: 1.392623e+06um, number of vias: 23154
+[NR-eagl] Layer4(MET4)(V) length: 4.783377e+05um, number of vias: 6065
+[NR-eagl] Layer5(MET5)(H) length: 3.016941e+05um, number of vias: 149
+[NR-eagl] Layer6(METTP)(V) length: 1.569835e+04um, number of vias: 0
+[NR-eagl] Total length: 3.368900e+06um, number of vias: 608273
+[NR-eagl] End Peak syMemory usage = 2031.8 MB
+[NR-eagl] Early Global Router Kernel+IO runtime : 5.05 seconds
+Extraction called for design 'USFFT64_2B_TOP' of instances=54307 and nets=55683 using extraction engine 'preRoute' .
+PreRoute RC Extraction called for design USFFT64_2B_TOP.
+RC Extraction called in multi-corner(1) mode.
+**WARN: (IMPEXT-6197):	The Cap table file is not specified. This will result in lower parasitic accuracy when using preRoute extraction or postRoute extraction with effort level 'low'. It is recommended to generate the Cap table file using the 'generateCapTbl' command and specify it before extraction using 'create_rc_corner/update_rc_corner -cap_table'.
+Type 'man IMPEXT-6197' for more detail.
+RCMode: PreRoute
+      RC Corner Indexes            0   
+Capacitance Scaling Factor   : 1.00000 
+Resistance Scaling Factor    : 1.00000 
+Clock Cap. Scaling Factor    : 1.00000 
+Clock Res. Scaling Factor    : 1.00000 
+Shrink Factor                : 1.00000
+PreRoute extraction is honoring NDR/Shielding/ExtraSpace for clock nets.
+Updating RC grid for preRoute extraction ...
+Initializing multi-corner resistance tables ...
+PreRoute RC Extraction DONE (CPU Time: 0:00:00.4  Real Time: 0:00:01.0  MEM: 2031.828M)
+Compute RC Scale Done ...
+Local HotSpot Analysis: normalized max congestion hotspot area = 0.00, normalized total congestion hotspot area = 0.00 (area is in unit of 4 std-cell row bins)
+#################################################################################
+# Design Stage: PreRoute
+# Design Name: USFFT64_2B_TOP
+# Design Mode: 180nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: No SPEF/RCDB
+# Signoff Settings: SI Off 
+#################################################################################
+Calculate delays in Single mode...
+End delay calculation. (MEM=2478.66 CPU=0:00:23.0 REAL=0:00:03.0)
+*** CDM Built up (cpu=0:00:29.1  real=0:00:06.0  mem= 2478.7M) ***
+Begin: GigaOpt postEco DRV Optimization
+Info: 0 don't touch net , 3 undriven nets excluded from IPO operation.
+Info: 86 io nets excluded
+Info: 1 clock net  excluded from IPO operation.
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|      max-tran     |      max-cap      |     max-fanout    |     max-length    |       |           |           |           |         |            |           |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|  nets   |  terms  |  nets   |  terms  |  nets   |  terms  |  nets   |  terms  |  WNS  |  #Buffer  | #Inverter |  #Resize  | Density |    Real    |    Mem    |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|    10   |   311   |     4   |      4  |     0   |     0   |     0   |     0   |  N/A  |          0|          0|          0|  46.90  |            |           |
+|     0   |     0   |     0   |      0  |     0   |     0   |     0   |     0   |  N/A  |          1|          0|         10|  46.90  |   0:00:01.0|    2760.6M|
+|     0   |     0   |     0   |      0  |     0   |     0   |     0   |     0   |  N/A  |          0|          0|          0|  46.90  |   0:00:00.0|    2760.6M|
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+*** Finish DRV Fixing (cpu=0:00:06.4 real=0:00:03.0 mem=2760.6M) ***
+
+*** Starting refinePlace (0:21:27 mem=2760.6M) ***
+Total net length = 2.597e+06 (1.306e+06 1.291e+06) (ext = 0.000e+00)
+Move report: Detail placement moves 11 insts, mean move: 3.19 um, max move: 8.82 um
+	Max move on inst (u_dft/Ubuf3_URAM_g15005): (1794.87, 730.17) --> (1786.05, 730.17)
+	Runtime: CPU: 0:00:00.5 REAL: 0:00:00.0 MEM: 2760.6MB
+Summary Report:
+Instances move: 11 (out of 54198 movable)
+Mean displacement: 3.19 um
+Max displacement: 8.82 um (Instance: u_dft/Ubuf3_URAM_g15005) (1794.87, 730.17) -> (1786.05, 730.17)
+	Length: 7 sites, height: 1 rows, site name: core, cell type: MU2X0
+Total net length = 2.597e+06 (1.306e+06 1.291e+06) (ext = 0.000e+00)
+Runtime: CPU: 0:00:00.5 REAL: 0:00:00.0 MEM: 2760.6MB
+*** Finished refinePlace (0:21:27 mem=2760.6M) ***
+*** maximum move = 8.82 um ***
+*** Finished re-routing un-routed nets (2760.6M) ***
+
+*** Finish Physical Update (cpu=0:00:02.6 real=0:00:02.0 mem=2760.6M) ***
+End: GigaOpt postEco DRV Optimization
+GigaOpt: WNS changes after routing: -922337203685477.500 -> -922337203685477.500 (bump = 0.0)
+Begin: GigaOpt postEco optimization
+Info: 0 don't touch net , 3 undriven nets excluded from IPO operation.
+Info: 86 io nets excluded
+Info: 1 clock net  excluded from IPO operation.
+*info: 86 io nets excluded
+*info: 1 clock net excluded
+*info: 7 special nets excluded.
+*info: 458 no-driver nets excluded.
+** GigaOpt Optimizer WNS Slack 0.000 TNS Slack 0.000 Density 46.90
+
+*** Finish pre-CTS Setup Fixing (cpu=0:00:00.8 real=0:00:01.0 mem=2747.2M) ***
+
+End: GigaOpt postEco optimization
+GigaOpt: WNS changes after postEco optimization: -922337203685477.500 -> -922337203685477.500 (bump = 0.0)
+GigaOpt: Skipping nonLegal postEco optimization
+*** Steiner Routed Nets: 0.156%; Threshold: 100; Threshold for Hold: 100
+Start to check current routing status for nets...
+All nets are already routed correctly.
+End to check current routing status for nets (mem=2539.2M)
+Extraction called for design 'USFFT64_2B_TOP' of instances=54308 and nets=55684 using extraction engine 'preRoute' .
+PreRoute RC Extraction called for design USFFT64_2B_TOP.
+RC Extraction called in multi-corner(1) mode.
+**WARN: (IMPEXT-6197):	The Cap table file is not specified. This will result in lower parasitic accuracy when using preRoute extraction or postRoute extraction with effort level 'low'. It is recommended to generate the Cap table file using the 'generateCapTbl' command and specify it before extraction using 'create_rc_corner/update_rc_corner -cap_table'.
+Type 'man IMPEXT-6197' for more detail.
+RCMode: PreRoute
+      RC Corner Indexes            0   
+Capacitance Scaling Factor   : 1.00000 
+Resistance Scaling Factor    : 1.00000 
+Clock Cap. Scaling Factor    : 1.00000 
+Clock Res. Scaling Factor    : 1.00000 
+Shrink Factor                : 1.00000
+PreRoute extraction is honoring NDR/Shielding/ExtraSpace for clock nets.
+Initializing multi-corner resistance tables ...
+PreRoute RC Extraction DONE (CPU Time: 0:00:00.4  Real Time: 0:00:00.0  MEM: 2531.180M)
+doiPBLastSyncSlave
+#################################################################################
+# Design Stage: PreRoute
+# Design Name: USFFT64_2B_TOP
+# Design Mode: 180nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: No SPEF/RCDB
+# Signoff Settings: SI Off 
+#################################################################################
+Calculate delays in Single mode...
+End delay calculation. (MEM=2539.22 CPU=0:00:21.9 REAL=0:00:03.0)
+*** CDM Built up (cpu=0:00:27.9  real=0:00:06.0  mem= 2539.2M) ***
+Reported timing to dir ./timingReports
+**opt_design ... cpu = 0:09:52, real = 0:04:07, mem = 1974.4M, totSessionCpu=0:22:14 **
+
+------------------------------------------------------------
+     opt_design Final Summary                             
+------------------------------------------------------------
+
+Setup views included:
+ best_view 
+
++--------------------+---------+---------+---------+
+|     Setup mode     |   all   | reg2reg | default |
++--------------------+---------+---------+---------+
+|           WNS (ns):|  0.000  |   N/A   |  0.000  |
+|           TNS (ns):|  0.000  |   N/A   |  0.000  |
+|    Violating Paths:|    0    |   N/A   |    0    |
+|          All Paths:|    0    |   N/A   |    0    |
++--------------------+---------+---------+---------+
+
++----------------+-------------------------------+------------------+
+|                |              Real             |       Total      |
+|    DRVs        +------------------+------------+------------------|
+|                |  Nr nets(terms)  | Worst Vio  |  Nr nets(terms)  |
++----------------+------------------+------------+------------------+
+|   max_cap      |      0 (0)       |   0.000    |      0 (0)       |
+|   max_tran     |      0 (0)       |   0.000    |      0 (0)       |
+|   max_fanout   |      0 (0)       |     0      |      0 (0)       |
+|   max_length   |      0 (0)       |     0      |      0 (0)       |
++----------------+------------------+------------+------------------+
+
+Density: 46.903%
+Routing Overflow: 0.00% H and 0.00% V
+------------------------------------------------------------
+**opt_design ... cpu = 0:09:58, real = 0:04:12, mem = 1974.4M, totSessionCpu=0:22:20 **
+**WARN: (IMPOPT-3195):	Analysis mode has changed.
+Type 'man IMPOPT-3195' for more detail.
+*** Finished opt_design ***
+     flow.cputime  flow.realtime  timing.setup.tns  timing.setup.wns  snapshot
+UM:                                                                   final
+WARNING: the TCL for metric messages failed. (error:can't read "last_error_message": no such variable)
+     flow.cputime  flow.realtime  timing.setup.tns  timing.setup.wns  snapshot
+UM:        636.41            265                                      opt_design_prects

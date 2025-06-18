@@ -1,0 +1,154 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2015 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v15.20-p005_1, built Wed Nov 11 11:16:39 PST 2015
+Options:	-common_ui 
+Date:		Tue Jun 17 20:13:52 2025
+Host:		pgmicro01.ufrgs.br (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (10cores*40cpus*Intel(R) Xeon(R) CPU E5-2650L v2 @ 1.70GHz 25600KB)
+OS:		CentOS Linux release 7.9.2009 (Core)
+
+License:
+		invs	Innovus Implementation System	15.2	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+Create and set the environment variable TMPDIR to /tmp/innovus_temp_2508_pgmicro01.ufrgs.br_luis.mendes_YeovjJ.
+
+
+**INFO:  MMMC transition support version v31-84 
+
+[DEV]innovus 1> 
+Loading LEF file /pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/xc018m6_FE.lef ...
+
+Loading LEF file /pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/D_CELLS.lef ...
+Set DBUPerIGU to M2 pitch 630.
+
+Loading LEF file /pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/IO_CELLS_F5V.lef ...
+**WARN: (IMPLF-200):	Pin 'PAD' in macro 'JTGDF' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'PAD' in macro 'JTF' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'PAD' in macro 'JSGDF' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'PAD' in macro 'JSF' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'PAD' in macro 'JLGDF' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'PAD' in macro 'JLF' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'PAD' in macro 'JCGDF' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'PAD' in macro 'JCF' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'PAD' in macro 'JCAF' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'PAD' in macro 'ITUDF' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'PAD' in macro 'ITHDF' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'PAD' in macro 'ITF' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'PAD' in macro 'ISUDF' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'PAD' in macro 'ISHDF' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'PAD' in macro 'ISF' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'PAD' in macro 'ILUDF' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'PAD' in macro 'ILHDF' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'PAD' in macro 'ILF' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'PAD' in macro 'ICUDF' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (IMPLF-200):	Pin 'PAD' in macro 'ICHDF' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+**WARN: (EMS-27):	Message (IMPLF-200) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+**WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT8SMF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT8SF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT8F' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT4SMF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT4SF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT4F' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT2SF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT2F' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT24SMF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT24SF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT24F' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT1F' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT16SMF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT16SF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'PAD' in macro 'BT16F' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'PAD' in macro 'BOTGD8SMF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'PAD' in macro 'BOTGD8SF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'PAD' in macro 'BOTGD8F' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'PAD' in macro 'BOTGD4SMF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'PAD' in macro 'BOTGD4SF' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (EMS-27):	Message (IMPLF-201) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+
+viaInitial starts at Tue Jun 17 20:15:22 2025
+viaInitial ends at Tue Jun 17 20:15:22 2025
+*** Begin netlist parsing (mem=509.1M) ***
+Created 0 new cells from 0 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilog netlist 'USFFT64_2B.v'
+**WARN: (IMPVL-346):	Module 'ICP' is instantiated in the netlist, but is not defined in the LEF files.  Since there is no real cell definition for such a cell, it will be treated as an empty module.
+Type 'man IMPVL-346' for more detail.
+**WARN: (IMPVL-346):	Module 'BT8SP' is instantiated in the netlist, but is not defined in the LEF files.  Since there is no real cell definition for such a cell, it will be treated as an empty module.
+Type 'man IMPVL-346' for more detail.
+**WARN: (IMPVL-346):	Module 'CORNERP' is instantiated in the netlist, but is not defined in the LEF files.  Since there is no real cell definition for such a cell, it will be treated as an empty module.
+Type 'man IMPVL-346' for more detail.
+**WARN: (IMPVL-346):	Module 'VDDIPADP' is instantiated in the netlist, but is not defined in the LEF files.  Since there is no real cell definition for such a cell, it will be treated as an empty module.
+Type 'man IMPVL-346' for more detail.
+**WARN: (IMPVL-346):	Module 'GNDIPADP' is instantiated in the netlist, but is not defined in the LEF files.  Since there is no real cell definition for such a cell, it will be treated as an empty module.
+Type 'man IMPVL-346' for more detail.
+
+*** Memory Usage v#1 (Current mem = 547.094M, initial mem = 170.871M) ***
+*** End netlist parsing (cpu=0:00:01.1, real=0:00:01.0, mem=547.1M) ***
+set_current_design {}
+Top level cell is USFFT64_2B_TOP.
+Hooked 0 DB cells to tlib cells.
+**WARN: (IMPDB-2504):	Cell 'ICP' is instantiated in the Verilog netlist, but it is not defined in the library or design data.  Its pin directions may be derived incorrectly.  Provide the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+**WARN: (IMPDB-2504):	Cell 'GNDIPADP' is instantiated in the Verilog netlist, but it is not defined in the library or design data.  Its pin directions may be derived incorrectly.  Provide the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+**WARN: (IMPDB-2504):	Cell 'VDDIPADP' is instantiated in the Verilog netlist, but it is not defined in the library or design data.  Its pin directions may be derived incorrectly.  Provide the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+**WARN: (IMPDB-2504):	Cell 'CORNERP' is instantiated in the Verilog netlist, but it is not defined in the library or design data.  Its pin directions may be derived incorrectly.  Provide the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+**WARN: (IMPDB-2504):	Cell 'BT8SP' is instantiated in the Verilog netlist, but it is not defined in the library or design data.  Its pin directions may be derived incorrectly.  Provide the cell definition or its pin information in the library or design data and reload the design to avoid potential issues.
+5 empty module found.
+Starting recursive module instantiation check.
+No recursion found.
+Term dir updated for 0 vinsts of 5 cells.
+Building hierarchical netlist for Cell USFFT64_2B_TOP ...
+*** Netlist is unique.
+** info: there are 1259 modules.
+** info: there are 53445 stdCell insts.
+
+*** Memory Usage v#1 (Current mem = 598.102M, initial mem = 170.871M) ***
+Set Default Net Delay as 1000 ps.
+Set Default Net Load as 0.5 pF. 
+Set Default Input Pin Transition as 0.1 ps.
+**WARN: (IMPFP-3961):	The techSite 'io_site_F5V' has no related cells in LEF/OA library. Cannot make calculations for this site type unless cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+gui_fit
