@@ -2,7 +2,7 @@
 tclmode
 set env(RC_VERSION) "GENUS15.22 - 15.20-s024_1"
 vpxmode
-set dofile abort exit
+set dofile abort on
 usage -auto -elapse
 set log file logs_May15-14:48:55/rtl2intermediate.lec.log -replace
 tclmode

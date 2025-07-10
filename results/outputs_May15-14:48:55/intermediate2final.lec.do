@@ -2,7 +2,7 @@
 tclmode
 set env(RC_VERSION) "GENUS15.22 - 15.20-s024_1"
 vpxmode
-set dofile abort exit
+set dofile abort on
 usage -auto -elapse
 set log file logs_May15-14:48:55/intermediate2final.lec.log -replace
 tclmode
@@ -35,10 +35,10 @@ elaborate design -golden -root USFFT64_2B
 tclmode
 if {$ver < 13.10} {
 vpx read design -verilog -revised -lastmod -noelab \
-	outputs_May15-14:48:55/USFFT64_2B_m.v
+	outputs_May15-14:48:55/USFFT64_2B_final.v
 } else {
 vpx read design -verilog95 -revised -lastmod -noelab \
-	outputs_May15-14:48:55/USFFT64_2B_m.v
+	outputs_May15-14:48:55/USFFT64_2B_final.v
 }
 vpxmode
 

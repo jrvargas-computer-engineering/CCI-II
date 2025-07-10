@@ -1,7 +1,7 @@
 #####################################################################
 #
 # Innovus setup file
-# Created by Genus(TM) Synthesis Solution on 06/17/2025 17:14:20
+# Created by Genus(TM) Synthesis Solution on 07/10/2025 19:42:36
 #
 # This file can only be run in Innovus Common UI mode.
 #
@@ -24,7 +24,7 @@ source ../innovus_core_limited/USFFT64_2B.invs_init.tcl
 ######################
 read_metric -id current ../innovus_core_limited/USFFT64_2B.metrics.json 
 
-#read_def ../innovus_core_limited/USFFT64_2B.scan.def
+read_def ../innovus_core_limited/USFFT64_2B.scan.def
 
 
 # Mode Setup

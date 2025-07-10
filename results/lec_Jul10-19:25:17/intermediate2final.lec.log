@@ -1,0 +1,577 @@
+                          CONFORMAL (R)
+                   Version 17.20-s300 (10-Feb-2018) (64 bit executable)
+   Copyright (c) Cadence Design Systems, Inc., 1997-2018. All Rights Reserved
+
+
+This program is proprietary and confidential information belonging to
+Cadence Design Systems, Inc., and may be used and disclosed only as authorized
+in a license agreement controlling such use and disclosure.
+
+// Warning: This version is 2706 days old. You can download the latest version from http://downloads.cadence.com.
+
+// Command: tclmode
+// Command: set ver [lindex [split [lindex [get_version_info] 0] "-"] 0]
+17.20
+// Command: vpxmode
+// Command: tclmode
+// Command: set env(CDN_SYNTH_ROOT) /tools/cadence/rhel5/GENUS_15.22/tools
+/tools/cadence/rhel5/GENUS_15.22/tools
+// Command: set CDN_SYNTH_ROOT /tools/cadence/rhel5/GENUS_15.22/tools
+/tools/cadence/rhel5/GENUS_15.22/tools
+// Command: vpxmode
+// Command: set undefined cell black_box -noascend -both
+// Command: set hdl options -VERILOG_INCLUDE_DIR "incdir:sep:src:cwd"
+// Command: add search path -library . /tools/cadence/rhel5/GENUS_15.22/tools/lib/tech
+// Command: read library -statetable -liberty -both  \
+//          	/pdk/xfab/XC018_61_3.1.3/synopsys/xc018/MOSST/D_CELLS_MOSST_slow_1_62V_125C.lib \
+//          	/pdk/xfab/XC018_61_3.1.3/synopsys/xc018/MOS3ST/IO_CELLS_3V_MOS3ST_slow_1_62V_3_30V_125C.lib
+// Parsing file /pdk/xfab/XC018_61_3.1.3/synopsys/xc018/MOSST/D_CELLS_MOSST_slow_1_62V_125C.lib ...
+// Parsing file /pdk/xfab/XC018_61_3.1.3/synopsys/xc018/MOS3ST/IO_CELLS_3V_MOS3ST_slow_1_62V_3_30V_125C.lib ...
+// Warning: (RTL9.8) Set Liberty pin direction to output because it has an output function (occurrence:8)
+// Warning: (RTL9.17) Cell doesn't have any output pins or all output pins are undriven (blackboxed) (occurrence:48)
+// Warning: (RTL14) Signal has input but it has no output (occurrence:1962)
+// Note: Read Liberty library successfully
+CPU time     : 2.33    seconds
+Elapse time  : 5       seconds
+Memory usage : 273.34  M bytes
+// Command: tclmode
+// Command: if {$ver < 13.10} {
+//          vpx read design -verilog -golden -lastmod -noelab \
+//          	lec_Jul10-19:25:17/USFFT64_2B_intermediate.v
+//          } else {
+//          vpx read design -verilog95 -golden -lastmod -noelab \
+//          	lec_Jul10-19:25:17/USFFT64_2B_intermediate.v
+//          }
+// Command: read design -verilog95 -golden -lastmod -noelab lec_Jul10-19:25:17/USFFT64_2B_intermediate.v
+// Parsing file lec_Jul10-19:25:17/USFFT64_2B_intermediate.v ...
+0
+CPU time     : 5.34    seconds
+Elapse time  : 8       seconds
+Memory usage : 335.78  M bytes
+// Command: vpxmode
+// Command: elaborate design -golden -root USFFT64_2B
+// Golden root module is set to 'USFFT64_2B'
+// Warning: (RTL2.13) Undriven pin is detected (occurrence:2)
+// Warning: (RTL14.1) Fanout load of the signal is removed (occurrence:72)
+// Warning: (HRC3.10a) An input port is declared, but it is not completely used in the module (occurrence:273)
+// Warning: There are 2 undriven nets in Golden
+// Warning: There are 2 undriven pins in Golden
+CPU time     : 6.29    seconds
+Elapse time  : 9       seconds
+Memory usage : 365.80  M bytes
+// Command: tclmode
+// Command: if {$ver < 13.10} {
+//          vpx read design -verilog -revised -lastmod -noelab \
+//          	lec_Jul10-19:25:17/USFFT64_2B_final.v
+//          } else {
+//          vpx read design -verilog95 -revised -lastmod -noelab \
+//          	lec_Jul10-19:25:17/USFFT64_2B_final.v
+//          }
+// Command: read design -verilog95 -revised -lastmod -noelab lec_Jul10-19:25:17/USFFT64_2B_final.v
+// Parsing file lec_Jul10-19:25:17/USFFT64_2B_final.v ...
+0
+CPU time     : 9.59    seconds
+Elapse time  : 12      seconds
+Memory usage : 387.12  M bytes
+// Command: vpxmode
+// Command: elaborate design -revised -root USFFT64_2B
+// Revised root module is set to 'USFFT64_2B'
+// Warning: (RTL2.5) Net is referenced without an assignment. Design verification will be based on set_undriven_signal setting (occurrence:142)
+// Warning: (RTL2.13) Undriven pin is detected (occurrence:72)
+// Warning: (RTL14) Signal has input but it has no output (occurrence:31)
+// Warning: (RTL14.1) Fanout load of the signal is removed (occurrence:72)
+// Warning: (HRC3.10a) An input port is declared, but it is not completely used in the module (occurrence:270)
+// Warning: There are 72 undriven nets in Revised
+// Warning: There are 72 undriven pins in Revised
+CPU time     : 10.64   seconds
+Elapse time  : 13      seconds
+Memory usage : 421.93  M bytes
+// Command: tclmode
+// Command: set ver [lindex [split [lindex [get_version_info] 0] "-"] 0]
+17.20
+// Command: if {$ver < 13.10} {
+//          vpx substitute blackbox model -golden
+//          }
+// Command: vpxmode
+// Command: report design data
+============================================
+Summary           Golden         Revised
+============================================
+Design-modules        13              13
+Library-cells      54531           53445
+============================================
+Primitives      Golden              Revised
+============================================
+INPUT               43                   43
+OUTPUT              49                   49
+--------------------------------------------
+AND        *     85516                85831
+BUF        *       303                    4
+DFF              15992                15992
+INV        *     35812                35543
+NAND       *      4060                 3547
+NOR        *      9498                 9367
+OR         *     37125                37287
+WIRE       *         0                    1
+XNOR       *      1087                 1135
+XOR        *      1299                 1285
+--------------------------------------------
+Total           190692               189992
+
+// Command: report black box
+// Command: uniquify -all -nolib
+Uniquified 3 instance(s) referring to module 'mult_signed' in Golden
+Uniquified 1 module(s)
+CPU time     : 10.90   seconds
+Elapse time  : 13      seconds
+Memory usage : 421.93  M bytes
+// Command: set flatten model -seq_constant -seq_constant_x_to 0
+// Command: set flatten model -nodff_to_dlat_zero -nodff_to_dlat_feedback
+// Command: set parallel option -threads 4 -license xl -norelease_license
+// Number of threads is set to 4,4.
+// Command: add pin constraints 0 dft_shift_enable -golden
+// Command: add pin constraints 0 dft_shift_enable -revised
+// Command: add ignored outputs dft_scan_output_1 -golden
+// Command: add ignored outputs dft_scan_output_2 -golden
+// Command: add ignored outputs dft_scan_output_1 -revised
+// Command: add ignored outputs dft_scan_output_2 -revised
+// Command: set analyze option -auto
+// Command: set system mode lec
+// Processing Golden ...
+// Modeling Golden ...
+// Processing Revised ...
+// Modeling Revised ...
+// Balanced modeling (auto) mapped 31984 out of 31984 DFF/DLATs
+// (F32) Created 128 Z gate(s) for floating net(s) and floating pin(s)
+// (F28) Converted 72 internal output port(s) to inout port(s)
+CPU time     : 17.52   seconds
+Elapse time  : 20      seconds
+Memory usage : 487.88  M bytes
+// Warning: Golden and Revised have different numbers of key points:
+// Golden  key points = 16081
+// Revised key points = 16209
+// Mapping key points ...
+================================================================================
+Mapped points: SYSTEM class
+--------------------------------------------------------------------------------
+Mapped points     PI     PO     DFF       Total   
+--------------------------------------------------------------------------------
+Golden            42     47     15992     16081   
+--------------------------------------------------------------------------------
+Revised           42     47     15992     16081   
+================================================================================
+Unmapped points:
+================================================================================
+Revised:
+--------------------------------------------------------------------------------
+Unmapped points   Z         Total   
+--------------------------------------------------------------------------------
+Unreachable       128       128     
+================================================================================
+CPU time     : 18.83   seconds
+Elapse time  : 21      seconds
+Memory usage : 500.24  M bytes
+// Running automatic setup...
+// Automatic setup finished.
+CPU time     : 35.99   seconds
+Elapse time  : 38      seconds
+Memory usage : 500.24  M bytes
+// Command: report unmapped points -summary
+================================================================================
+Revised:
+--------------------------------------------------------------------------------
+Unmapped points   Z         Total   
+--------------------------------------------------------------------------------
+Unreachable       128       128     
+================================================================================
+// Command: report unmapped points -extra -unreachable -notmapped
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16082  Z    /U_FFT1/UNCONNECTED_HIER_Z58
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16083  Z    /U_FFT1/UNCONNECTED_HIER_Z57
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16084  Z    /U_FFT1/UNCONNECTED_HIER_Z56
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16085  Z    /U_FFT1/UNCONNECTED_HIER_Z55
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16086  Z    /U_FFT1/UNCONNECTED_HIER_Z54
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16087  Z    /U_FFT1/UNCONNECTED_HIER_Z53
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16088  Z    /U_FFT1/UNCONNECTED_HIER_Z52
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16089  Z    /U_FFT1/UNCONNECTED_HIER_Z51
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16090  Z    /U_FFT1/UNCONNECTED_HIER_Z50
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16091  Z    /U_FFT1/UNCONNECTED_HIER_Z49
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16092  Z    /U_FFT1/UNCONNECTED_HIER_Z48
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16093  Z    /U_FFT1/UNCONNECTED_HIER_Z47
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16094  Z    /U_FFT1/UNCONNECTED_HIER_Z46
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16095  Z    /U_FFT1/UNCONNECTED_HIER_Z45
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16096  Z    /U_FFT1/UNCONNECTED_HIER_Z44
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16097  Z    /U_FFT1/UNCONNECTED_HIER_Z43
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16098  Z    /U_FFT1/UNCONNECTED_HIER_Z42
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16099  Z    /U_FFT1/UNCONNECTED_HIER_Z41
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16100  Z    /U_FFT1/UNCONNECTED_HIER_Z40
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16101  Z    /U_FFT1/UNCONNECTED_HIER_Z39
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16102  Z    /U_FFT1/UNCONNECTED_HIER_Z38
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16103  Z    /U_FFT1/UNCONNECTED_HIER_Z37
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16104  Z    /U_FFT1/UNCONNECTED_HIER_Z36
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16105  Z    /U_FFT1/UNCONNECTED_HIER_Z35
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16106  Z    /U_FFT1/UNCONNECTED_HIER_Z34
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16107  Z    /U_FFT1/UNCONNECTED_HIER_Z33
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16108  Z    /U_FFT1/UNCONNECTED_HIER_Z32
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16109  Z    /U_FFT1/UNCONNECTED_HIER_Z31
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16110  Z    /U_FFT1/UNCONNECTED_HIER_Z30
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16111  Z    /U_FFT1/UNCONNECTED_HIER_Z29
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16112  Z    /U_FFT1/UNCONNECTED_HIER_Z28
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16113  Z    /U_FFT1/UNCONNECTED_HIER_Z27
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16114  Z    /U_FFT1/UNCONNECTED_HIER_Z26
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16115  Z    /U_FFT1/UNCONNECTED_HIER_Z25
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16116  Z    /U_FFT1/UNCONNECTED_HIER_Z24
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16117  Z    /U_FFT1/UNCONNECTED_HIER_Z23
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16118  Z    /U_FFT1/UNCONNECTED_HIER_Z22
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16119  Z    /U_FFT1/UNCONNECTED_HIER_Z21
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16120  Z    /U_FFT1/UNCONNECTED_HIER_Z20
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16121  Z    /U_FFT1/UNCONNECTED_HIER_Z19
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16122  Z    /U_FFT1/UNCONNECTED_HIER_Z18
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16123  Z    /U_FFT1/UNCONNECTED_HIER_Z17
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16124  Z    /U_FFT1/UNCONNECTED_HIER_Z16
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16125  Z    /U_FFT1/UNCONNECTED_HIER_Z15
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16126  Z    /U_FFT1/UNCONNECTED_HIER_Z14
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16127  Z    /U_FFT1/UNCONNECTED_HIER_Z13
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16128  Z    /U_FFT1/UNCONNECTED_HIER_Z12
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16129  Z    /U_FFT1/UNCONNECTED_HIER_Z11
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16130  Z    /U_FFT1/UNCONNECTED_HIER_Z10
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16131  Z    /U_FFT1/UNCONNECTED_HIER_Z9
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16132  Z    /U_FFT1/UNCONNECTED_HIER_Z8
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16133  Z    /U_FFT1/UNCONNECTED_HIER_Z7
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16134  Z    /U_FFT1/UNCONNECTED_HIER_Z6
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16135  Z    /U_FFT1/UNCONNECTED_HIER_Z5
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16136  Z    /U_FFT1/UNCONNECTED_HIER_Z4
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16137  Z    /U_FFT1/UNCONNECTED_HIER_Z3
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16138  Z    /U_FFT1/UNCONNECTED_HIER_Z2
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16139  Z    /U_FFT1/UNCONNECTED_HIER_Z1
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16140  Z    /U_FFT1/UNCONNECTED_HIER_Z0
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16141  Z    /U_FFT1/UNCONNECTED_HIER_Z
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16142  Z    /U_FFT2/UNCONNECTED_HIER_Z126
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16143  Z    /U_FFT2/UNCONNECTED_HIER_Z125
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16144  Z    /U_FFT2/UNCONNECTED_HIER_Z124
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16145  Z    /U_FFT2/UNCONNECTED_HIER_Z123
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16146  Z    /U_FFT2/UNCONNECTED_HIER_Z122
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16147  Z    /U_FFT2/UNCONNECTED_HIER_Z121
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16148  Z    /U_FFT2/UNCONNECTED_HIER_Z120
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16149  Z    /U_FFT2/UNCONNECTED_HIER_Z119
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16150  Z    /U_FFT2/UNCONNECTED_HIER_Z118
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16151  Z    /U_FFT2/UNCONNECTED_HIER_Z117
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16152  Z    /U_FFT2/UNCONNECTED_HIER_Z116
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16153  Z    /U_FFT2/UNCONNECTED_HIER_Z115
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16154  Z    /U_FFT2/UNCONNECTED_HIER_Z114
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16155  Z    /U_FFT2/UNCONNECTED_HIER_Z113
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16156  Z    /U_FFT2/UNCONNECTED_HIER_Z112
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16157  Z    /U_FFT2/UNCONNECTED_HIER_Z111
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16158  Z    /U_FFT2/UNCONNECTED_HIER_Z110
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16159  Z    /U_FFT2/UNCONNECTED_HIER_Z109
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16160  Z    /U_FFT2/UNCONNECTED_HIER_Z108
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16161  Z    /U_FFT2/UNCONNECTED_HIER_Z107
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16162  Z    /U_FFT2/UNCONNECTED_HIER_Z106
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16163  Z    /U_FFT2/UNCONNECTED_HIER_Z105
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16164  Z    /U_FFT2/UNCONNECTED_HIER_Z104
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16165  Z    /U_FFT2/UNCONNECTED_HIER_Z103
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16166  Z    /U_FFT2/UNCONNECTED_HIER_Z102
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16167  Z    /U_FFT2/UNCONNECTED_HIER_Z101
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16168  Z    /U_FFT2/UNCONNECTED_HIER_Z100
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16169  Z    /U_FFT2/UNCONNECTED_HIER_Z99
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16170  Z    /U_FFT2/UNCONNECTED_HIER_Z98
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16171  Z    /U_FFT2/UNCONNECTED_HIER_Z97
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16172  Z    /U_FFT2/UNCONNECTED_HIER_Z96
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16173  Z    /U_FFT2/UNCONNECTED_HIER_Z95
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16174  Z    /U_FFT2/UNCONNECTED_HIER_Z94
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16175  Z    /U_FFT2/UNCONNECTED_HIER_Z93
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16176  Z    /U_FFT2/UNCONNECTED_HIER_Z92
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16177  Z    /U_FFT2/UNCONNECTED_HIER_Z91
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16178  Z    /U_FFT2/UNCONNECTED_HIER_Z90
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16179  Z    /U_FFT2/UNCONNECTED_HIER_Z89
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16180  Z    /U_FFT2/UNCONNECTED_HIER_Z88
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16181  Z    /U_FFT2/UNCONNECTED_HIER_Z87
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16182  Z    /U_FFT2/UNCONNECTED_HIER_Z86
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16183  Z    /U_FFT2/UNCONNECTED_HIER_Z85
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16184  Z    /U_FFT2/UNCONNECTED_HIER_Z84
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16185  Z    /U_FFT2/UNCONNECTED_HIER_Z83
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16186  Z    /U_FFT2/UNCONNECTED_HIER_Z82
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16187  Z    /U_FFT2/UNCONNECTED_HIER_Z81
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16188  Z    /U_FFT2/UNCONNECTED_HIER_Z80
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16189  Z    /U_FFT2/UNCONNECTED_HIER_Z79
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16190  Z    /U_FFT2/UNCONNECTED_HIER_Z78
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16191  Z    /U_FFT2/UNCONNECTED_HIER_Z77
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16192  Z    /U_FFT2/UNCONNECTED_HIER_Z76
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16193  Z    /U_FFT2/UNCONNECTED_HIER_Z75
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16194  Z    /U_FFT2/UNCONNECTED_HIER_Z74
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16195  Z    /U_FFT2/UNCONNECTED_HIER_Z73
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16196  Z    /U_FFT2/UNCONNECTED_HIER_Z72
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16197  Z    /U_FFT2/UNCONNECTED_HIER_Z71
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16198  Z    /U_FFT2/UNCONNECTED_HIER_Z70
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16199  Z    /U_FFT2/UNCONNECTED_HIER_Z69
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16200  Z    /U_FFT2/UNCONNECTED_HIER_Z68
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16201  Z    /U_FFT2/UNCONNECTED_HIER_Z67
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16202  Z    /U_FFT2/UNCONNECTED_HIER_Z66
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16203  Z    /U_FFT2/UNCONNECTED_HIER_Z65
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16204  Z    /U_FFT2/UNCONNECTED_HIER_Z64
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16205  Z    /U_FFT2/UNCONNECTED_HIER_Z63
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16206  Z    /U_FFT2/UNCONNECTED_HIER_Z62
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16207  Z    /U_FFT2/UNCONNECTED_HIER_Z61
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16208  Z    /U_FFT2/UNCONNECTED_HIER_Z60
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (R)   16209  Z    /U_FFT2/UNCONNECTED_HIER_Z59
+
+128 unmapped points reported
+================================================================================
+Revised:
+--------------------------------------------------------------------------------
+Unmapped points   Z         Total   
+--------------------------------------------------------------------------------
+Unreachable       128       128     
+================================================================================
+// Command: add compared points -all
+// 16039 compared points added to compare list
+// Command: compare
+================================================================================
+Compared points      PO     DFF       Total   
+--------------------------------------------------------------------------------
+Equivalent           47     15992     16039   
+================================================================================
+CPU time     : 44.12   seconds
+Elapse time  : 47      seconds
+Memory usage : 588.75  M bytes
+// Command: usage
+CPU time     : 44.12   seconds
+Memory usage : 588.75  M bytes
+// Command: report compare data -class nonequivalent -class abort -class notcompared
+0 Non-equivalent point(s) reported
+0 Abort point(s) reported
+0 Not-compared point(s) reported
+0 compared point(s) reported
+================================================================================
+Compared points      PO     DFF       Total   
+--------------------------------------------------------------------------------
+Equivalent           47     15992     16039   
+================================================================================
+// Command: report verification -verbose
+================================================================================
+                            Verification Report
+--------------------------------------------------------------------------------
+Category                                                                  Count
+--------------------------------------------------------------------------------
+1. Non-standard modeling options used:                                      0
+     Tri-stated output:                                        checked
+     Revised X signals set to E:                               yes
+     Floating signals tied to Z:                               yes
+     Command "add clock" for clock-gating:                     not used
+--------------------------------------------------------------------------------
+2. Incomplete verification:                                                 1
+     All primary outputs are mapped:                           yes
+     Not-mapped DFF/DLAT is detected:                          no
+     All mapped points are added as compare points:            yes
+     All compared points are compared:                         yes
+     User added black box:                                     no
+     Black box mapped with different module name:              no
+     Empty module is not black boxed:                          no
+     Command "add ignore outputs" used:                        yes *
+     Always false constraints detected:                        no
+--------------------------------------------------------------------------------
+3. User modification to design:                                             0
+     Change gate type:                                         no
+     Change wire:                                              no
+     Primary input added by user:                              no
+--------------------------------------------------------------------------------
+4. Conformal Constraint Designer clock domain crossing checks recommended:  0
+     Multiple clocks in the design:                            no
+--------------------------------------------------------------------------------
+5. Design ambiguity:                                                        0
+     Duplicate module definition:                              no
+     Black box due to undefined cells:                         no
+     Golden design has abnormal ratio of unreachable gates:    no
+     Ratio of golden unreachable gates:                        0%
+     Revised design has abnormal ratio of unreachable gates:   no
+     Ratio of revised unreachable gates:                       0%
+--------------------------------------------------------------------------------
+6. Compare Results:                                                        PASS
+     Number of EQ compare points:                              16039
+     Number of NON-EQ compare points:                          0
+     Number of Aborted compare points:                         0
+     Number of Uncompared compare points :                     0
+================================================================================
+CPU time     : 44.31   seconds
+Elapse time  : 47      seconds
+Memory usage : 588.75  M bytes
+// Command: report statistics
+Mapping and compare statistics
+================================================================================
+                     Compare Result       Golden            Revised
+--------------------------------------------------------------------------------
+Root module name                          USFFT64_2B        USFFT64_2B        
+
+Primary inputs                                42                 42
+   Mapped                                     42                 42
+
+Tri-state (Z) key points                       0                128
+   Unmapped                                    0                128
+      Unreachable                              0                128
+
+Primary outputs                               47                 47
+   Mapped                                     47                 47
+      Equivalent                 47
+
+State key points                           15992              15992
+   Mapped                                  15992              15992
+      Equivalent              15992
+================================================================================
+// Command: tclmode
+// Command: puts "No of compare points = [get_compare_points -count]"
+No of compare points = 16039
+// Command: puts "No of diff points    = [get_compare_points -NONequivalent -count]"
+No of diff points    = 0
+// Command: puts "No of abort points   = [get_compare_points -abort -count]"
+No of abort points   = 0
+// Command: puts "No of unknown points = [get_compare_points -unknown -count]"
+No of unknown points = 0
+// Command: if {[get_compare_points -count] == 0} {
+//              puts "---------------------------------"
+//              puts "ERROR: No compare points detected"
+//              puts "---------------------------------"
+//          }
+// Command: if {[get_compare_points -NONequivalent -count] > 0} {
+//              puts "------------------------------------"
+//              puts "ERROR: Different Key Points detected"
+//              puts "------------------------------------"
+//          }
+// Command: if {[get_compare_points -abort -count] > 0} {
+//              puts "-----------------------------"
+//              puts "ERROR: Abort Points detected "
+//              puts "-----------------------------"
+//          }
+// Command: if {[get_compare_points -unknown -count] > 0} {
+//              puts "----------------------------------"
+//              puts "ERROR: Unknown Key Points detected"
+//              puts "----------------------------------"
+//          }
+// Command: vpxmode
+// Command: exit -force

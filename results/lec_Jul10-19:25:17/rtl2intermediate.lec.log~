@@ -1,0 +1,53 @@
+                          CONFORMAL (R)
+                   Version 17.20-s300 (10-Feb-2018) (64 bit executable)
+   Copyright (c) Cadence Design Systems, Inc., 1997-2018. All Rights Reserved
+
+
+This program is proprietary and confidential information belonging to
+Cadence Design Systems, Inc., and may be used and disclosed only as authorized
+in a license agreement controlling such use and disclosure.
+
+// Warning: This version is 2706 days old. You can download the latest version from http://downloads.cadence.com.
+
+// Command: tclmode
+// Command: set ver [lindex [split [lindex [get_version_info] 0] "-"] 0]
+17.20
+// Command: vpxmode
+// Command: tclmode
+// Command: set env(CDN_SYNTH_ROOT) /tools/cadence/rhel5/GENUS_15.22/tools
+/tools/cadence/rhel5/GENUS_15.22/tools
+// Command: set CDN_SYNTH_ROOT /tools/cadence/rhel5/GENUS_15.22/tools
+/tools/cadence/rhel5/GENUS_15.22/tools
+// Command: vpxmode
+// Command: set undefined cell black_box -noascend -both
+// Command: set hdl options -VERILOG_INCLUDE_DIR "incdir:sep:src:cwd"
+// Command: add search path -library . /tools/cadence/rhel5/GENUS_15.22/tools/lib/tech
+// Command: read library -statetable -liberty -both  \
+//          	/pdk/xfab/XC018_61_3.1.3/synopsys/xc018/MOSST/D_CELLS_MOSST_slow_1_62V_125C.lib \
+//          	/pdk/xfab/XC018_61_3.1.3/synopsys/xc018/MOS3ST/IO_CELLS_3V_MOS3ST_slow_1_62V_3_30V_125C.lib
+// Parsing file /pdk/xfab/XC018_61_3.1.3/synopsys/xc018/MOSST/D_CELLS_MOSST_slow_1_62V_125C.lib ...
+// Parsing file /pdk/xfab/XC018_61_3.1.3/synopsys/xc018/MOS3ST/IO_CELLS_3V_MOS3ST_slow_1_62V_3_30V_125C.lib ...
+// Warning: (RTL9.8) Set Liberty pin direction to output because it has an output function (occurrence:8)
+// Warning: (RTL9.17) Cell doesn't have any output pins or all output pins are undriven (blackboxed) (occurrence:48)
+// Warning: (RTL14) Signal has input but it has no output (occurrence:1962)
+// Note: Read Liberty library successfully
+CPU time     : 2.27    seconds
+Elapse time  : 69      seconds
+Memory usage : 273.34  M bytes
+// Command: tclmode
+// Command: if {$ver < 13.10} {
+//          vpx read design -verilog -golden -lastmod -noelab \
+//          	../rtl/USFFT64_2B.v
+//          } else {
+//          vpx read design -verilog95 -golden -lastmod -noelab \
+//          	../rtl/USFFT64_2B.v
+//          }
+// Command: read design -verilog95 -golden -lastmod -noelab ../rtl/USFFT64_2B.v
+// Error: Cannot open file '../rtl/USFFT64_2B.v'.
+// Error: FIL1.2: Failed to open file
+//  Design file not found
+1
+    while executing
+"vpx read design -verilog95 -golden -lastmod -noelab 	../rtl/USFFT64_2B.v"
+// 'dofile /home/inf01185/juliana.vargas/fft64/results/lec_Jul10-19:25:17/rtl2intermediate.lec.do' is aborted at line 30
+// Warning: Error exit from dofile 'lec_Jul10-19:25:17/rtl2intermediate.lec.do' due to 'set dofile abort exit' command

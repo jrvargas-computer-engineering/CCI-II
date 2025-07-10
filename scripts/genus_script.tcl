@@ -8,6 +8,7 @@ set _OUTPUTS_PATH outputs_${DATE}
 set _REPORTS_PATH reports_${DATE}
 set _DFT_PATH dft_${DATE}
 set _LOG_PATH logs_${DATE}
+set _LEC_PATH lec_${DATE}
 
 set MMMC_FILE ../constraints/mmmc.tcl
 set LEF_DIR { /pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/IO_CELLS_F5V.lef /pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/xc018m6_FE.lef /pdk/xfab/XC018_61_3.1.3/cadence/xc018/LEF/xc018_m6_FE/D_CELLS.lef }
@@ -37,7 +38,6 @@ elaborate $TOP
 
 init_design
 
-#read_sdc ../constraints/constraints.sdc
 
 if {![file exists ${_LOG_PATH}]} {
 	file mkdir ${_LOG_PATH}
@@ -55,6 +55,9 @@ if {![file exists ${_DFT_PATH}]} {
 	file mkdir ${_DFT_PATH}
 }
 
+if {![file exists ${_LEC_PATH}]} {
+	file mkdir ${_LEC_PATH}
+}
 ##################################################################
 ## DFT Setup
 ##################################################################
@@ -85,6 +88,9 @@ report_dft_violations   > ${_DFT_PATH}/dft_DFTViols
 
 ##################################################################
 
+
+
+##################################################################
 #if {[llength [all::all_seqs]] > 0} { 
 #  define_cost_group -name I2R -design $DESIGN
 #  define_cost_group -name R2O -design $DESIGN
@@ -131,6 +137,12 @@ report_area     > $_REPORTS_PATH/map/${DESIGN}_area.rpt
 report_timing   > $_REPORTS_PATH/map/${DESIGN}_timing.rpt
 report_power    > $_REPORTS_PATH/map/${DESIGN}_power.rpt
 
+
+# Escreve o netlist Verilog intermediário (sem DFT)
+write_hdl -lec > $_LEC_PATH/${DESIGN}_intermediate.v
+# Gera o script .lec.do para comparar o RTL original com este netlist intermediário
+write_do_lec -golden_design ../rtl/${TOP}.v -revised_design $_LEC_PATH/${DESIGN}_intermediate.v -logfile $_LEC_PATH/rtl2intermediate.lec.log > $_LEC_PATH/rtl2intermediate.lec.do
+
 #foreach cg [vfind / -cost_group *] {
 #  report_timing -cost_group [list $cg] > reports/${DESIGN}_[vbasename $cg]_post_map.rpt
 #}
@@ -151,6 +163,13 @@ report dft_registers    > ${_DFT_PATH}/${DESIGN}reg.rpt
 ########################################################################################################
 set_db syn_opt_effort $OPT_EFF
 syn_opt
+
+
+# Escreve o netlist Verilog final (com DFT e otimizado)
+write_hdl -lec > $_LEC_PATH/${DESIGN}_final.v
+# Gera o script .lec.do para comparar o netlist intermediário com este netlist final
+write_do_lec -golden_design $_LEC_PATH/${DESIGN}_intermediate.v -revised_design $_LEC_PATH/${DESIGN}_final.v -logfile $_LEC_PATH/intermediate2final.lec.log > $_LEC_PATH/intermediate2final.lec.do
+
 
 set _REPORTS_PATH "reports_${DATE}_${DESIGN}/reports_worst"
 puts "Exporting results for ss corner..."
@@ -211,3 +230,9 @@ write_sdf -timescale ns -nonegchecks -recrem split -edges check_edge  -setuphold
 write_scandef                                   > ${_OUTPUTS_PATH}/scan_chain.def
 write_design -innovus -base_name ../innovus_core_limited/${DESIGN}
 
+
+#################################
+### write_do_lec
+#################################
+
+write_do_lec -golden_design ../rtl/${TOP}.v -revised_design $_LEC_PATH/${DESIGN}_final.v -logfile  $_LEC_PATH/rtl2final.lec.log > $_LEC_PATH/rtl2final.lec.do

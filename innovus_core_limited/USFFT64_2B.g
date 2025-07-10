@@ -1,6 +1,6 @@
 ######################################################################
 
-# Created by Genus(TM) Synthesis Solution GENUS15.22 - 15.20-s024_1 on Tue Jun 17 17:14:12 -0300 2025
+# Created by Genus(TM) Synthesis Solution GENUS15.22 - 15.20-s024_1 on Thu Jul 10 19:42:29 -0300 2025
 
 # This file contains the RC script for design:USFFT64_2B
 
@@ -8,10 +8,10 @@
 
 set_db / .design_mode_process 230.0
 set_db / .phys_assume_met_fill 0.0
-set_db / .runtime_by_stage { {to_generic 73 144 33 86}  {first_condense 147 350 68 216}  {reify 203 553 43 259}  {global_incr_map 93 651 78 343}  {incr_opt 107 833 103 505} }
-set_db / .tinfo_tstamp_file .rs_luis.mendes.tstamp
+set_db / .runtime_by_stage { {to_generic 64 181 29 75}  {first_condense 129 361 60 189}  {reify 171 532 38 228}  {global_incr_map 87 624 74 306}  {incr_opt 94 789 92 455} }
+set_db / .tinfo_tstamp_file .rs_juliana.vargas.tstamp
 set_db / .use_area_from_lef true
-set_db / .flow_metrics_snapshot_uuid 7955cecc
+set_db / .flow_metrics_snapshot_uuid 7974d605
 set_db / .read_qrc_tech_file_rc_corner true
 set_db / .super_thread_servers {localhost localhost localhost localhost localhost localhost localhost localhost   }
 set_db / .syn_opt_effort medium
@@ -128,13 +128,15 @@ define_shift_enable -name test_signal -active high   port:USFFT64_2B/dft_shift_e
 ::legacy::set_attribute -quiet lec_value auto test_signal:USFFT64_2B/test_signal
 ::legacy::set_attribute -quiet atpg_use none test_signal:USFFT64_2B/test_signal
 ::legacy::set_attribute -quiet atpg_use none test_clock:USFFT64_2B/CLK/CLK
+define_dft formal_verification_constraint -name wdl_cons_0 -pin port:USFFT64_2B/dft_shift_enable  -golden low   -tool_derived -redefine design:USFFT64_2B
+define_dft formal_verification_constraint -name wdl_cons_1 -pin port:USFFT64_2B/dft_shift_enable    -revised low -tool_derived -redefine design:USFFT64_2B
 define_scan_chain -name chain1 -shift_enable test_signal:USFFT64_2B/test_signal   -sdi port:USFFT64_2B/dft_scan_input_1 -sdo port:USFFT64_2B/dft_scan_output_1      -non_shared_out 
 define_scan_chain -name chain2 -shift_enable test_signal:USFFT64_2B/test_signal   -sdi port:USFFT64_2B/dft_scan_input_2 -sdo port:USFFT64_2B/dft_scan_output_2      -non_shared_out 
 define_scan_chain -name chain1 -sdi port:USFFT64_2B/dft_scan_input_1  -sdo port:USFFT64_2B/dft_scan_output_1  -analyze -non_shared_out    -write_script_flow
 define_scan_chain -name chain2 -sdi port:USFFT64_2B/dft_scan_input_2  -sdo port:USFFT64_2B/dft_scan_output_2  -analyze -non_shared_out    -write_script_flow
 # END DFT SECTION
 ::legacy::set_attribute -quiet dft_test_signals_snapshot {test_signal } design:USFFT64_2B
-::legacy::set_attribute -quiet qos_by_stage {{to_generic {wns -11111111} {tns -111111111} {vep -111111111} {area 1619194} {cell_count 49347} {utilization  0.00} {runtime 73 144 33 86} }{first_condense {wns -11111111} {tns -111111111} {vep -111111111} {area 1792361} {cell_count 73583} {utilization  0.00} {runtime 147 350 68 216} }{reify {wns 551} {tns 0} {vep 0} {area 1830746} {cell_count 56643} {utilization  0.00} {runtime 203 558 43 264} }{global_incr_map {wns 82} {tns 0} {vep 0} {area 1782672} {cell_count 54533} {utilization  0.00} {runtime 93 655 78 348} }{incr_opt {wns 214748365} {tns 0} {vep 0} {area 1765649} {cell_count 53445} {utilization  0.00} {runtime 107 833 103 505} }} design:USFFT64_2B
+::legacy::set_attribute -quiet qos_by_stage {{to_generic {wns -11111111} {tns -111111111} {vep -111111111} {area 1619194} {cell_count 49347} {utilization  0.00} {runtime 64 181 29 75} }{first_condense {wns -11111111} {tns -111111111} {vep -111111111} {area 1792361} {cell_count 73583} {utilization  0.00} {runtime 129 361 60 189} }{reify {wns 551} {tns 0} {vep 0} {area 1830746} {cell_count 56643} {utilization  0.00} {runtime 171 537 38 232} }{global_incr_map {wns 82} {tns 0} {vep 0} {area 1782672} {cell_count 54533} {utilization  0.00} {runtime 87 628 74 311} }{incr_opt {wns 214748365} {tns 0} {vep 0} {area 1765649} {cell_count 53445} {utilization  0.00} {runtime 94 789 92 455} }} design:USFFT64_2B
 ::legacy::set_attribute -quiet qos_data_collection_time 8 design:USFFT64_2B
 ::legacy::set_attribute -quiet hdl_user_name USFFT64_2B design:USFFT64_2B
 ::legacy::set_attribute -quiet hdl_filelist {{default -sv {SYNTHESIS} {../rtl/bufram64c1.v ../rtl/cnorm.v ../rtl/fft8.v ../rtl/mpu707.v ../rtl/ram2x64c_1.v ../rtl/rotator64_v.v ../rtl/usfft64_2b.v ../rtl/WROM64.v} {../rtl}}} design:USFFT64_2B
